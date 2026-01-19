@@ -9,37 +9,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <script type="text/javascript">
+        function importHotmart(){ 
+            var imported = document.createElement('script'); 
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+            document.head.appendChild(imported); 
+            var link = document.createElement('link'); 
+            link.rel = 'stylesheet'; 
+            link.type = 'text/css'; 
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+            document.head.appendChild(link); 
+        } 
+        importHotmart(); 
+    </script> 
+
     <style>
-        /* --- CONFIGURAÇÃO DE REM (O TRUQUE MÁGICO) --- */
-        html {
-            font-size: 62.5%; /* 1rem = 10px */
-        }
+        /* --- CONFIGURAÇÃO DE REM --- */
+        html { font-size: 62.5%; }
 
         /* --- VARIÁVEIS & PALETA "NEURO TECH" --- */
         :root {
-            /* Bases Escuras */
             --bg-deep: #030305;
             --bg-surface: #0a0a0f;
             --bg-grid: rgba(255, 255, 255, 0.03);
-            
-            /* Cores de Acento */
-            --primary: #8b5cf6;       /* Roxo Neuro */
+            --primary: #8b5cf6;
             --primary-glow: rgba(139, 92, 246, 0.6);
-            --cyan: #06b6d4;          /* Ciano Tech */
+            --cyan: #06b6d4;
             --cyan-glow: rgba(6, 182, 212, 0.6);
-            --accent: #FFD700;        /* Amarelo Alerta/Tape */
-            
-            /* Utilitários */
+            --accent: #FFD700;
             --danger: #ef4444;
             --success: #10b981;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            
-            /* Vidro High-Tech */
             --glass-bg: rgba(20, 20, 30, 0.6);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-highlight: rgba(255, 255, 255, 0.1);
-            
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -49,13 +53,10 @@
             background-color: var(--bg-deep);
             color: var(--text-main);
             font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem; /* 16px base */
+            font-size: 1.6rem;
             overflow-x: hidden;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            background-image: 
-                linear-gradient(var(--bg-grid) 1px, transparent 1px),
-                linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+            background-image: linear-gradient(var(--bg-grid) 1px, transparent 1px), linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
             background-size: 4rem 4rem;
             background-position: center top;
         }
@@ -66,348 +67,152 @@
             pointer-events: none; z-index: 0;
         }
 
-        h1, h2, h3 { 
-            font-family: 'Space Grotesk', sans-serif; 
-            letter-spacing: -0.04em; 
-            line-height: 1.1; 
-            color: #fff; 
-        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.04em; line-height: 1.1; color: #fff; }
         
         .container { max-width: 110rem; margin: 0 auto; padding: 0 2.4rem; position: relative; z-index: 2; }
-        .section-padding { padding: 8rem 0; position: relative; z-index: 1; } /* Reduzi de 120px para 80px */
+        .section-padding { padding: 8rem 0; position: relative; z-index: 1; }
 
         /* --- TIPOGRAFIA --- */
-        .text-gradient {
-            background: linear-gradient(135deg, #fff 40%, var(--text-muted) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+        .text-gradient { background: linear-gradient(135deg, #fff 40%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-cyan { color: var(--cyan); text-shadow: 0 0 2rem var(--cyan-glow); }
         .text-purple { color: var(--primary); text-shadow: 0 0 2rem var(--primary-glow); }
 
         /* --- HERO SECTION --- */
-        #hero {
-            min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: 8rem 0;
-        }
-
-        #hero::before {
-            content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
-            width: 80vw; height: 80vw;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
-            filter: blur(8rem); z-index: 0;
-        }
-
-        #hero h1 {
-            font-size: clamp(3.2rem, 7vw, 5.6rem);
-            margin-bottom: 2.4rem;
-            font-weight: 700;
-            text-shadow: 0 1rem 3rem rgba(0,0,0,0.5);
-        }
-
-        #hero .subheadline {
-            font-size: clamp(1.6rem, 2vw, 1.8rem);
-            color: var(--text-muted);
-            max-width: 78rem; 
-            margin: 0 auto 4rem auto;
-            line-height: 1.6;
-            font-weight: 300;
-        }
+        #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; padding: 8rem 0; }
+        #hero::before { content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 80vw; height: 80vw; background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%); filter: blur(8rem); z-index: 0; }
+        #hero h1 { font-size: clamp(3.2rem, 7vw, 5.6rem); margin-bottom: 2.4rem; font-weight: 700; text-shadow: 0 1rem 3rem rgba(0,0,0,0.5); }
+        #hero .subheadline { font-size: clamp(1.6rem, 2vw, 1.8rem); color: var(--text-muted); max-width: 78rem; margin: 0 auto 4rem auto; line-height: 1.6; font-weight: 300; }
 
         /* --- BOTÕES --- */
-        .cta-container {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
-        }
-
+        .cta-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
         .cta-button {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 1.8rem 4rem;
-            background: var(--cyan); 
-            color: #000;
-            font-weight: 800; text-decoration: none; 
+            display: inline-flex; align-items: center; justify-content: center; padding: 1.8rem 4rem;
+            background: var(--cyan); color: #000; font-weight: 800; text-decoration: none; 
             text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.4rem;
-            transition: var(--transition);
-            box-shadow: 0 0 2.5rem rgba(6, 182, 212, 0.3);
-            border: 1px solid var(--cyan);
-            position: relative; overflow: hidden;
-            z-index: 10;
+            transition: var(--transition); box-shadow: 0 0 2.5rem rgba(6, 182, 212, 0.3);
+            border: 1px solid var(--cyan); position: relative; overflow: hidden; z-index: 10;
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
         }
-        
-        .cta-button:hover {
-            background: #fff;
-            box-shadow: 0 0 5rem rgba(255, 255, 255, 0.4);
-            transform: translateY(-0.3rem) scale(1.02);
-        }
-        
+        .cta-button:hover { background: #fff; box-shadow: 0 0 5rem rgba(255, 255, 255, 0.4); transform: translateY(-0.3rem) scale(1.02); }
         .cta-button.secondary {
-            background: transparent; 
-            color: #fff; 
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: none;
-            backdrop-filter: blur(0.5rem);
-            clip-path: none; border-radius: 0.4rem;
+            background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: none; backdrop-filter: blur(0.5rem); clip-path: none; border-radius: 0.4rem;
         }
-        .cta-button.secondary:hover { 
-            background: rgba(255,255,255,0.05); 
-            border-color: #fff; 
-        }
+        .cta-button.secondary:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
 
-        /* --- CARDS & GLASSMORPHISM --- */
-        .pain-card, .card, .card-plano, .revelation-box, .transition-box, .faq-item {
-            background: var(--glass-bg);
-            backdrop-filter: blur(1.6rem);
-            -webkit-backdrop-filter: blur(1.6rem);
-            border: 1px solid var(--glass-border);
-            border-top: 1px solid var(--glass-highlight);
-            transition: var(--transition);
-            position: relative;
+        /* --- CARDS & ELEMENTOS --- */
+        .pain-card, .card, .revelation-box, .transition-box, .faq-item {
+            background: var(--glass-bg); backdrop-filter: blur(1.6rem); -webkit-backdrop-filter: blur(1.6rem);
+            border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-highlight);
+            transition: var(--transition); position: relative;
         }
 
         /* --- PROBLEMA SECTION --- */
-        .pain-card {
-            padding: 3rem; margin-bottom: 2rem;
-            display: flex; align-items: flex-start; gap: 2.4rem;
-            border-radius: 0.4rem;
-        }
-        .pain-card:hover {
-            border-color: var(--danger);
-            box-shadow: 0 1rem 4rem rgba(239, 68, 68, 0.1);
-            transform: translateX(1rem);
-        }
-        .pain-card i {
-            font-size: 3.2rem; color: var(--danger);
-            flex-shrink: 0;
-            filter: drop-shadow(0 0 1rem rgba(239, 68, 68, 0.4));
-        }
+        .pain-card { padding: 3rem; margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 2.4rem; border-radius: 0.4rem; }
+        .pain-card:hover { border-color: var(--danger); box-shadow: 0 1rem 4rem rgba(239, 68, 68, 0.1); transform: translateX(1rem); }
+        .pain-card i { font-size: 3.2rem; color: var(--danger); flex-shrink: 0; filter: drop-shadow(0 0 1rem rgba(239, 68, 68, 0.4)); }
         .pain-card h3 { font-size: 1.8rem; margin-bottom: 0.8rem; color: #fff; }
         .pain-card p { font-size: 1.5rem; color: #cbd5e1; }
 
         .stat-box {
-            text-align: center; padding: 4rem;
-            background: linear-gradient(180deg, rgba(239, 68, 68, 0.05), transparent);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            margin-top: 6rem;
-            position: relative;
+            text-align: center; padding: 4rem; background: linear-gradient(180deg, rgba(239, 68, 68, 0.05), transparent);
+            border: 1px solid rgba(239, 68, 68, 0.2); margin-top: 6rem; position: relative;
         }
-        .stat-box::before {
-            content: ''; position: absolute; top:0; left: 0; width: 100%; height: 2px;
-            background: var(--danger); box-shadow: 0 0 1.5rem var(--danger);
-        }
-        .stat-number {
-            font-size: clamp(4rem, 6vw, 8rem);
-            font-weight: 700; color: var(--danger);
-            font-family: 'Space Grotesk'; line-height: 0.9;
-            text-shadow: 0 0 3rem rgba(239, 68, 68, 0.4);
-        }
+        .stat-box::before { content: ''; position: absolute; top:0; left: 0; width: 100%; height: 2px; background: var(--danger); box-shadow: 0 0 1.5rem var(--danger); }
+        .stat-number { font-size: clamp(4rem, 6vw, 8rem); font-weight: 700; color: var(--danger); font-family: 'Space Grotesk'; line-height: 0.9; text-shadow: 0 0 3rem rgba(239, 68, 68, 0.4); }
 
         /* --- REVELAÇÃO --- */
-        .revelation-box { 
-            padding: clamp(3rem, 5vw, 6rem); 
-            border-left: 0.4rem solid var(--primary);
-            background: linear-gradient(90deg, rgba(139, 92, 246, 0.05), transparent);
-        }
-        .highlight-text {
-            color: var(--primary); font-weight: 700; font-size: 2rem; display: block; margin: 2.5rem 0;
-            font-family: 'Space Grotesk'; letter-spacing: -0.02em;
-        }
+        .revelation-box { padding: clamp(3rem, 5vw, 6rem); border-left: 0.4rem solid var(--primary); background: linear-gradient(90deg, rgba(139, 92, 246, 0.05), transparent); }
+        .highlight-text { color: var(--primary); font-weight: 700; font-size: 2rem; display: block; margin: 2.5rem 0; font-family: 'Space Grotesk'; letter-spacing: -0.02em; }
 
         /* --- BIO SECTION --- */
-        .bio-container {
-            display: grid; grid-template-columns: 0.8fr 1fr; gap: 6rem; align-items: center;
-        }
-        .bio-image img {
-            width: 100%; 
-            filter: grayscale(100%) contrast(1.2) brightness(0.9);
-            transition: var(--transition);
-            border: 1px solid var(--glass-border);
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
-        }
-        .bio-image:hover img { 
-            filter: grayscale(0%); 
-            box-shadow: 0 0 5rem rgba(139, 92, 246, 0.3);
-            border-color: var(--primary);
-        }
-        .bio-badge {
-            position: absolute; bottom: 2rem; right: -2rem;
-            background: #000; padding: 1.5rem 2.5rem;
-            border: 1px solid var(--cyan); 
-            box-shadow: 0 0 3rem rgba(6, 182, 212, 0.3);
-            z-index: 2;
-        }
-        .btn-instagram {
-            display: inline-flex; align-items: center; gap: 1.2rem;
-            padding: 1.2rem 2.8rem; margin-top: 2rem;
-            background: transparent; border: 1px solid var(--glass-border);
-            color: white; border-radius: 5rem; text-decoration: none;
-            font-weight: 600; font-size: 1.4rem; transition: var(--transition);
-        }
-        .btn-instagram:hover { 
-            background: linear-gradient(45deg, #f09433, #bc1888); 
-            border-color: transparent; 
-            transform: translateY(-0.3rem);
-        }
+        .bio-container { display: grid; grid-template-columns: 0.8fr 1fr; gap: 6rem; align-items: center; }
+        .bio-image img { width: 100%; filter: grayscale(100%) contrast(1.2) brightness(0.9); transition: var(--transition); border: 1px solid var(--glass-border); clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%); }
+        .bio-image:hover img { filter: grayscale(0%); box-shadow: 0 0 5rem rgba(139, 92, 246, 0.3); border-color: var(--primary); }
+        .bio-badge { position: absolute; bottom: 2rem; right: -2rem; background: #000; padding: 1.5rem 2.5rem; border: 1px solid var(--cyan); box-shadow: 0 0 3rem rgba(6, 182, 212, 0.3); z-index: 2; }
+        .btn-instagram { display: inline-flex; align-items: center; gap: 1.2rem; padding: 1.2rem 2.8rem; margin-top: 2rem; background: transparent; border: 1px solid var(--glass-border); color: white; border-radius: 5rem; text-decoration: none; font-weight: 600; font-size: 1.4rem; transition: var(--transition); }
+        .btn-instagram:hover { background: linear-gradient(45deg, #f09433, #bc1888); border-color: transparent; transform: translateY(-0.3rem); }
 
         /* --- METODOLOGIA --- */
-        .cards-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); gap: 2.4rem;
-        }
-        .card { 
-            padding: 3rem 2.4rem; height: 100%; 
-            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.4) 100%);
-        }
-        .card::before {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 0.3rem;
-            transition: var(--transition); opacity: 0.5;
-        }
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); gap: 2.4rem; }
+        .card { padding: 3rem 2.4rem; height: 100%; background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.4) 100%); }
+        .card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 0.3rem; transition: var(--transition); opacity: 0.5; }
         .card.purple::before { background: var(--primary); box-shadow: 0 0 1.5rem var(--primary); }
         .card.cyan::before { background: var(--cyan); box-shadow: 0 0 1.5rem var(--cyan); }
         .card.orange::before { background: var(--accent); box-shadow: 0 0 1.5rem var(--accent); }
-        
         .card:hover { transform: translateY(-0.5rem); background: rgba(255,255,255,0.06); }
         .card:hover::before { opacity: 1; height: 0.5rem; }
         .card h3 { font-size: 2rem; margin: 1.6rem 0 1.2rem 0; }
 
         /* --- COMPARATIVO --- */
         .comparison-box { padding: 4rem; border: 1px solid var(--glass-border); }
-        .vs-badge {
-            width: 5rem; height: 5rem; background: #fff; color: #000;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: 900; position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%); z-index: 2;
-            font-family: 'Space Grotesk'; font-size: 1.6rem;
-            box-shadow: 0 0 4rem rgba(255,255,255,0.5);
-        }
+        .vs-badge { width: 5rem; height: 5rem; background: #fff; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; font-family: 'Space Grotesk'; font-size: 1.6rem; box-shadow: 0 0 4rem rgba(255,255,255,0.5); }
         .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-        .comp-list li {
-            margin-bottom: 1.6rem; font-size: 1.5rem; display: flex; gap: 1.2rem; color: #d1d5db;
-            align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
+        .comp-list li { margin-bottom: 1.6rem; font-size: 1.5rem; display: flex; gap: 1.2rem; color: #d1d5db; align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.03); }
 
         /* --- TRANSIÇÃO --- */
-        .transition-box {
-            text-align: left; 
-            max-width: 90rem;
-            margin: 0 auto;
-            padding: clamp(3rem, 5vw, 5rem);
-            background: linear-gradient(145deg, rgba(20,20,25,0.9), rgba(10,10,15,0.95));
-            box-shadow: 0 2rem 5rem rgba(0,0,0,0.5);
-        }
-        .transition-box h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1.5rem; color: #fff; }
-        .transition-box p { font-size: 1.6rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem; }
-
-        .date-alert-box {
-            display: flex; align-items: center; gap: 1.5rem;
-            padding: 1.8rem 2.4rem;
-            background: rgba(6, 182, 212, 0.05);
-            border: 1px solid var(--cyan);
-            border-radius: 0.8rem;
-            color: var(--cyan); font-weight: 600; font-size: 1.5rem;
-            box-shadow: 0 0 2rem rgba(6, 182, 212, 0.1);
-            transition: var(--transition);
-        }
+        .transition-box { text-align: left; max-width: 90rem; margin: 0 auto; padding: clamp(3rem, 5vw, 5rem); background: linear-gradient(145deg, rgba(20,20,25,0.9), rgba(10,10,15,0.95)); box-shadow: 0 2rem 5rem rgba(0,0,0,0.5); }
+        .date-alert-box { display: flex; align-items: center; gap: 1.5rem; padding: 1.8rem 2.4rem; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--cyan); border-radius: 0.8rem; color: var(--cyan); font-weight: 600; font-size: 1.5rem; box-shadow: 0 0 2rem rgba(6, 182, 212, 0.1); transition: var(--transition); }
         .date-alert-box:hover { background: rgba(6, 182, 212, 0.1); box-shadow: 0 0 3rem rgba(6, 182, 212, 0.2); }
 
-        /* --- PLANOS --- */
-        .offer-badge {
-            background: var(--accent); color: #000;
-            padding: 0.8rem 2.4rem; font-weight: 800; font-size: 1.2rem; letter-spacing: 0.1rem;
-            display: inline-block; margin-top: 1.5rem;
-            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
-            box-shadow: 0 0 2rem rgba(255, 215, 0, 0.4);
-        }
-        .cupom-box {
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px dashed var(--accent);
-            padding: 2rem; margin: 3rem auto; max-width: 50rem; text-align: center;
-        }
-        .cupom-code {
-            font-size: 3rem; font-weight: 800; color: var(--accent);
-            font-family: 'Space Grotesk'; letter-spacing: 0.4rem;
-            text-shadow: 0 0 2rem rgba(255, 215, 0, 0.4);
-        }
-        .planos-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-            gap: 3rem; max-width: 100rem; margin: 5rem auto 0 auto;
-        }
-        .card-plano { padding: 4rem 3rem; display: flex; flex-direction: column; }
-        
-        .card-plano.destaque {
-            background: linear-gradient(160deg, rgba(6,182,212,0.05), rgba(0,0,0,0.8));
-            border: 1px solid var(--cyan);
-            box-shadow: 0 0 4rem rgba(6,182,212,0.15);
-            transform: scale(1.05); z-index: 2;
-        }
-        .card-plano.destaque:hover { transform: scale(1.07); }
-        
-        .tag-rec {
-            position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
-            background: var(--cyan); color: #000;
-            padding: 0.8rem 2.5rem; 
-            font-weight: 800; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.1rem;
-            box-shadow: 0 0 2rem var(--cyan-glow);
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-        }
-        .price { margin: 2.5rem 0; padding-bottom: 2.5rem; border-bottom: 1px solid var(--glass-border); }
-        .new-price { font-size: 4rem; font-weight: 700; color: #fff; line-height: 1; letter-spacing: -0.2rem; }
-        .card-plano.destaque .new-price { color: var(--cyan); text-shadow: 0 0 3rem rgba(6,182,212,0.4); }
-        .benefits li { margin-bottom: 1.2rem; display: flex; gap: 1rem; color: #cbd5e1; font-size: 1.5rem; }
-        
-        .hotmart-fb img { width: 100% !important; border-radius: 0.4rem !important; filter: hue-rotate(15deg) contrast(1.1); }
+        /* --- NOVA SEÇÃO DE PREÇOS (LÓGICA ESCALONADA) --- */
+        .pricing-header-small { text-align: left; margin: 5rem 0 3rem 0; padding-left: 2rem; border-left: 4px solid var(--primary); }
+        .pricing-header-small h3 { font-size: 2.4rem; color: #fff; margin-bottom: 0.5rem; }
+        .pricing-header-small p { color: var(--text-muted); font-size: 1.6rem; }
 
-        /* --- FAQ --- */
-        .faq-item { padding: 2.5rem; margin-bottom: 1.5rem; border-left: 0.2rem solid transparent; }
-        .faq-item:hover { 
-            border-left-color: var(--primary); 
-            background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent);
+        .planos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); gap: 3rem; margin-bottom: 6rem; }
+        
+        /* Cards de Preço Base */
+        .card-plano { 
+            background: var(--glass-bg); padding: 3rem; display: flex; flex-direction: column; 
+            border-radius: 1.2rem; border: 1px solid var(--glass-border); transition: var(--transition); position: relative;
         }
+        .card-plano:hover { transform: translateY(-0.5rem); border-color: rgba(255,255,255,0.2); }
+
+        /* Variações dos Cards */
+        .card-plano.lite { border-top: 4px solid var(--text-muted); }
+        .card-plano.standard { border-top: 4px solid var(--primary); background: linear-gradient(160deg, rgba(139,92,246,0.05), rgba(0,0,0,0.6)); }
+        .card-plano.pro { 
+            border: 1px solid var(--cyan); 
+            background: linear-gradient(160deg, rgba(6,182,212,0.1), rgba(0,0,0,0.8)); 
+            box-shadow: 0 0 4rem rgba(6,182,212,0.1); transform: scale(1.02); z-index: 2;
+        }
+        .card-plano.pro:hover { transform: scale(1.04); box-shadow: 0 0 6rem rgba(6,182,212,0.2); }
+
+        /* Elementos Internos do Card */
+        .plan-price { margin: 2rem 0; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .plan-price .val { font-size: 3.6rem; font-weight: 700; color: #fff; line-height: 1; }
+        .plan-price .period { font-size: 1.4rem; color: var(--text-muted); }
+        
+        .benefits li { margin-bottom: 1.2rem; display: flex; gap: 1rem; color: #cbd5e1; font-size: 1.4rem; align-items: center; }
+        .badge { position: absolute; top: 1.5rem; right: 1.5rem; padding: 0.5rem 1.2rem; border-radius: 0.4rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1rem; }
+        .badge.save { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; }
+        .badge.hot { background: var(--cyan); color: #000; box-shadow: 0 0 1.5rem var(--cyan); }
+
+        .hotmart-fb img { width: 100% !important; border-radius: 0.6rem !important; transition: var(--transition); filter: brightness(1.1); }
+        .hotmart-fb:hover img { filter: brightness(1.3); }
+
+        /* --- FAQ & FOOTER --- */
+        .faq-item { padding: 2.5rem; margin-bottom: 1.5rem; border-left: 0.2rem solid transparent; }
+        .faq-item:hover { border-left-color: var(--primary); background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent); }
         .faq-item h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #fff; }
         .faq-item p { font-size: 1.4rem; color: var(--text-muted); }
 
-        /* --- CTA FINAL --- */
-        #cta-final {
-            background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1), var(--bg-deep));
-            border-top: 1px solid var(--glass-border);
-        }
-
-        /* --- UTILS --- */
+        #cta-final { background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1), var(--bg-deep)); border-top: 1px solid var(--glass-border); }
         .hidden { opacity: 0; transform: translateY(3rem); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .show { opacity: 1; transform: translateY(0); }
+        footer { text-align: center; padding: 6rem 2rem; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.3rem; background: #000; }
 
-        footer {
-            text-align: center; padding: 6rem 2rem; margin-top: 0;
-            border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.3rem;
-            background: #000;
-        }
-
-        /* --- RESPONSIVIDADE (MOBILE) --- */
+        /* --- RESPONSIVIDADE --- */
         @media (max-width: 768px) {
-            html { font-size: 55%; } /* Reduz tudo proporcionalmente */
-
+            html { font-size: 55%; }
             .container { padding: 0 2rem; }
             .section-padding { padding: 5rem 0; }
-            
-            #hero { padding-top: 6rem; min-height: auto; padding-bottom: 8rem; }
             #hero h1 { font-size: 3.6rem; margin-bottom: 1.5rem; }
-            
-            .bio-container, .comparison-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .bio-container, .comparison-grid, .planos-grid { grid-template-columns: 1fr; gap: 4rem; }
             .bio-image { order: -1; max-width: 35rem; margin: 0 auto; }
-            
-            .cta-container { flex-direction: column; width: 100%; }
-            .cta-button { width: 100%; margin: 0; clip-path: none; border-radius: 0.8rem; }
-            
-            .pain-card { flex-direction: column; text-align: center; align-items: center; gap: 1.5rem; padding: 2.5rem; }
-            .pain-card:hover { transform: translateY(-0.5rem); }
-            
-            .card-plano.destaque { transform: none; margin: 2rem 0; }
-            .vs-badge { position: relative; top: 0; left: 0; transform: none; margin: 3rem auto; }
-            
-            .date-alert-box { flex-direction: column; text-align: center; gap: 1rem; }
-            
-            .stat-number { font-size: 6rem; }
+            .card-plano.pro { transform: none; margin: 2rem 0; }
+            .pricing-header-small { text-align: center; padding-left: 0; border-left: none; border-bottom: 4px solid var(--primary); padding-bottom: 1.5rem; }
         }
     </style>
 </head>
@@ -416,7 +221,7 @@
     <header id="hero">
         <div class="container hidden">
             <span style="color: var(--cyan); font-weight: 700; letter-spacing: 0.3rem; font-size: 1.2rem; text-transform: uppercase; display: block; margin-bottom: 2rem; opacity: 0.9;">
-                <i class="ph ph-brain" style="vertical-align: middle; margin-right: 0.5rem;"></i> Método Validado
+                <i class="ph ph-brain" style="vertical-align: middle; margin-right: 0.5rem;"></i> Turma 2026
             </span>
             <h1>
                 Por que você tira nota média<br>
@@ -426,7 +231,7 @@
                 A verdade: decorar estruturas cria "alunos padrão". Descubra o método de quem treinou os corretores e sabe exatamente o que eles procuram.
             </p>
             <div class="cta-container">
-                <a href="#planos" class="cta-button">QUERO SAIR DA MÉDIA</a>
+                <a href="#planos" class="cta-button">VER OPÇÕES DE PLANOS</a>
                 <a href="#problema" class="cta-button secondary">ENTENDER O PROBLEMA</a>
             </div>
             
@@ -458,7 +263,6 @@
                         <p>A estrutura "infalível" que te venderam? Outros 5 milhões de alunos também usam. O corretor identifica em 30 segundos.</p>
                     </div>
                 </div>
-
                 <div class="pain-card hidden">
                     <i class="ph ph-brain"></i>
                     <div>
@@ -466,20 +270,11 @@
                         <p>Em casa flui, na prova trava. Você não conecta ideias nem adapta o modelo. A mente congela na hora H.</p>
                     </div>
                 </div>
-
                 <div class="pain-card hidden">
                     <i class="ph ph-robot"></i>
                     <div>
                         <h3>Correções genéricas</h3>
                         <p>"Melhore a coesão". Ok, mas COMO? Feedback robotizado não ensina a pensar, só frustra.</p>
-                    </div>
-                </div>
-
-                <div class="pain-card hidden">
-                    <i class="ph ph-chart-line-down"></i>
-                    <div>
-                        <h3>Muito estudo, pouca evolução</h3>
-                        <p>Escreveu 50 redações e continua nos 700-840? O problema não é falta de esforço. É método errado.</p>
                     </div>
                 </div>
             </div>
@@ -502,7 +297,6 @@
                     É sobre <span class="text-purple">pensar diferente</span>.
                 </h2>
             </div>
-
             <div class="revelation-box hidden">
                 <div class="revelation-content">
                     <p style="font-size: 1.8rem; color: #e2e8f0;">
@@ -543,9 +337,8 @@
                         Sou <strong style="color: #fff;">Onivaldo Coutinho</strong>. Fui coordenador de grandes Escolas de Redação e treinei equipes de corretores que avaliam milhares de textos.
                     </p>
                     <p style="color: var(--text-muted); font-size: 1.6rem; margin-bottom: 3rem; line-height: 1.8;">
-                        Vi de dentro o que faz um texto ser ignorado e o que faz um corretor parar e pensar: <span style="color: var(--cyan); font-weight: 600;">"Este aluno é diferente"</span>. Esse conhecimento de bastidor é o diferencial.
+                        Vi de dentro o que faz um texto ser ignorado e o que faz um corretor parar e pensar: <span style="color: var(--cyan); font-weight: 600;">"Este aluno é diferente"</span>.
                     </p>
-                    
                     <a href="https://www.instagram.com/profecoutinho/" target="_blank" class="btn-instagram">
                         <i class="ph ph-instagram-logo" style="font-size: 2rem;"></i>
                         <span>@profecoutinho</span>
@@ -571,74 +364,32 @@
                 <div class="card purple hidden">
                     <i class="ph ph-lightbulb-filament" style="font-size: 4rem; color: var(--primary);"></i>
                     <h3>Repertório Criativo</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Esqueça a decoreba. Aprenda a usar filmes, séries e suas vivências de forma orgânica e surpreendente.</p>
+                    <p style="font-size: 1.5rem; color: var(--text-muted);">Esqueça a decoreba. Aprenda a usar filmes, séries e suas vivências de forma orgânica.</p>
                 </div>
-
                 <div class="card cyan hidden">
                     <i class="ph ph-pencil-simple-slash" style="font-size: 4rem; color: var(--cyan);"></i>
                     <h3>Microestrutura</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Crase, vírgula e regência focadas no que o ENEM cobra. Zere erros da Competência 1 sem teoria inútil.</p>
+                    <p style="font-size: 1.5rem; color: var(--text-muted);">Crase, vírgula e regência focadas no que o ENEM cobra. Zere erros da Competência 1.</p>
                 </div>
-
                 <div class="card orange hidden">
                     <i class="ph ph-strategy" style="font-size: 4rem; color: var(--accent);"></i>
                     <h3>Projeto de Texto</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Engenharia reversa da Nota 1000. Domine a estrutura lógica que funciona para qualquer tema.</p>
+                    <p style="font-size: 1.5rem; color: var(--text-muted);">Engenharia reversa da Nota 1000. Domine a estrutura lógica que funciona.</p>
                 </div>
-
                 <div class="card cyan hidden">
                     <i class="ph ph-brain" style="font-size: 4rem; color: var(--cyan);"></i>
                     <h3>Treino Neuroplástico</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Nosso Clube de Leitura expande sua capacidade cognitiva para acabar com o "branco" na hora da prova.</p>
+                    <p style="font-size: 1.5rem; color: var(--text-muted);">Nosso Clube de Leitura expande sua capacidade cognitiva para acabar com o "branco".</p>
                 </div>
-
                 <div class="card purple hidden">
                     <i class="ph ph-user-focus" style="font-size: 4rem; color: var(--primary);"></i>
                     <h3>Mentoria Individual</h3>
                     <p style="font-size: 1.5rem; color: var(--text-muted);">Conversa cara a cara (online) para alinhar sua rota e resolver travas específicas.</p>
                 </div>
-
                 <div class="card orange hidden">
                     <i class="ph ph-fire" style="font-size: 4rem; color: var(--accent);"></i>
                     <h3>Correção ao Vivo</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">O campo de batalha. Analisamos redações reais em tempo real. Aprenda com os erros e acertos dos outros.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding" id="diferencial">
-        <div class="container">
-            <div class="hidden" style="text-align: center; margin-bottom: 5rem;">
-                <h2 style="font-size: clamp(2.8rem, 4vw, 3.8rem);">Robô corrige padrão. <br><span class="text-cyan">Eu corrijo intenção.</span></h2>
-                <p style="color: var(--text-muted); max-width: 60rem; margin: 2rem auto; font-size: 1.6rem;">
-                    Sem IA. Sem corretores com pressa. Aqui o jogo é outro.
-                </p>
-            </div>
-
-            <div class="comparison-box hidden">
-                <div class="vs-badge">VS</div>
-                <div class="comparison-grid">
-                    <div class="comp-col" style="opacity: 0.6; filter: blur(0.5px);">
-                        <h3 style="color: var(--danger); display:flex; align-items:center; gap:1rem; margin-bottom: 2rem; font-size: 1.8rem;">
-                            <i class="ph ph-x-circle"></i> Plataformas Comuns
-                        </h3>
-                        <ul class="comp-list">
-                            <li><i class="ph ph-x" style="color: var(--danger)"></i> Feedback genérico</li>
-                            <li><i class="ph ph-x" style="color: var(--danger)"></i> Não entende sutileza</li>
-                            <li><i class="ph ph-x" style="color: var(--danger)"></i> Correção impessoal</li>
-                        </ul>
-                    </div>
-                    <div class="comp-col">
-                        <h3 style="color: var(--cyan); display:flex; align-items:center; gap:1rem; margin-bottom: 2rem; font-size: 1.8rem;">
-                            <i class="ph ph-check-circle-fill"></i> Neuroescrita
-                        </h3>
-                        <ul class="comp-list">
-                            <li style="color: #fff"><i class="ph ph-check" style="color: var(--cyan)"></i> <strong>Áudio Personalizado</strong></li>
-                            <li style="color: #fff"><i class="ph ph-check" style="color: var(--cyan)"></i> <strong>Diagnóstico Lógico</strong></li>
-                            <li style="color: #fff"><i class="ph ph-check" style="color: var(--cyan)"></i> <strong>PDF Riscado em detalhes</strong></li>
-                        </ul>
-                    </div>
+                    <p style="font-size: 1.5rem; color: var(--text-muted);">Analisamos redações reais em tempo real. Aprenda com os erros dos outros.</p>
                 </div>
             </div>
         </div>
@@ -651,7 +402,6 @@
                 <p>
                     Você pode continuar no ciclo da mediocridade ou dar o próximo passo e aprender o que os corretores realmente procuram.
                 </p>
-                
                 <div class="date-alert-box">
                     <i class="ph ph-calendar-check" style="font-size: 2.4rem;"></i>
                     <span>Turma de Janeiro começa dia <strong>19/01/2026</strong>. Vagas limitadas.</span>
@@ -662,73 +412,102 @@
 
     <section class="section-padding" id="planos">
         <div class="container">
-            <div class="header-planos hidden" style="text-align: center;">
-                <h2 style="font-size: 4rem; margin-bottom: 1rem;">Escolha Seu Plano</h2>
-                <p style="color: var(--text-muted); font-size: 1.6rem; margin-bottom: 2rem;">Início 19/01/2026</p>
-                <div class="offer-badge">🔥 OFERTA DE LANÇAMENTO</div>
+            <div class="hidden" style="text-align: center; margin-bottom: 5rem;">
+                <h2 style="font-size: 4rem; margin-bottom: 1rem;">Menu de Estratégias</h2>
+                <p style="color: var(--text-muted); font-size: 1.6rem;">Escolha o nível de suporte que você precisa agora.</p>
             </div>
 
-            <div class="cupom-box hidden">
-                <p style="color: var(--text-muted); font-size: 1.4rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1rem;">
-                    <i class="ph ph-ticket" style="color: var(--accent);"></i> Use o cupom no checkout
-                </p>
-                <span class="cupom-code">NEUROESCRITA</span>
-                <p style="color: #fff; font-weight: 600; font-size: 1.6rem; margin-top: 1rem;">
-                    <span style="color: var(--accent)">50% OFF</span> na primeira mensalidade!
-                </p>
+            <div class="pricing-header-small hidden">
+                <h3>1. Acesso às Aulas e Teoria</h3>
+                <p>Ideal se você já tem quem corrija, mas precisa aprender a escrever (repertório + gramática).</p>
             </div>
 
-            <div class="planos-grid">
-                <div class="card-plano hidden">
-                    <h3>NEURO PADRÃO</h3>
-                    <p class="subtitle" style="color:var(--text-muted); font-size: 1.4rem;">A base sólida para começar</p>
-                    <div class="price">
-                        <span class="old-price" style="display:block; text-decoration: line-through; color: var(--text-muted); font-size: 1.4rem;">De R$ 250,00</span>
-                        <span class="new-price" style="font-size: 3.2rem;">R$ 125,00</span>
-                        <p class="price-note" style="color: var(--text-muted); font-size: 1.2rem;">1ª mensalidade com cupom</p>
+            <div class="planos-grid hidden">
+                
+                <div class="card-plano lite">
+                    <h3 style="font-size: 2.2rem;">Neuro Aulas <span style="font-size: 1.4rem; color: var(--text-muted);">(Mensal)</span></h3>
+                    <div class="plan-price">
+                        <span class="val">R$ 79,90</span><span class="period">/mês</span>
                     </div>
                     <ul class="benefits">
-                        <li><i class="ph ph-check" style="color:var(--primary)"></i> Aulas ao vivo</li>
-                        <li><i class="ph ph-check" style="color:var(--primary)"></i> 1 correção semanal</li>
-                        <li><i class="ph ph-check" style="color:var(--primary)"></i> Feedback (PDF + Áudio)</li>
-                        <li><i class="ph ph-check" style="color:var(--primary)"></i> Acesso à Comunidade</li>
+                        <li><i class="ph ph-check" style="color: #fff"></i> Acesso imediato às aulas</li>
+                        <li><i class="ph ph-check" style="color: #fff"></i> Gramática e Repertório</li>
+                        <li><i class="ph ph-check" style="color: #fff"></i> Material de apoio</li>
+                        <li><i class="ph ph-x" style="color: var(--text-muted); opacity:0.5"></i> Sem correção individual</li>
+                    </ul>
+                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=zfqhowob" class="hotmart-fb hotmart__button-checkout">
+                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Aulas Mensal">
+                    </a>
+                </div>
+
+                <div class="card-plano lite" style="border-color: rgba(255,255,255,0.3);">
+                    <div class="badge save">Economia de 40%</div>
+                    <h3 style="font-size: 2.2rem;">Neuro Aulas <span style="font-size: 1.4rem; color: var(--text-muted);">(Anual)</span></h3>
+                    <div class="plan-price">
+                        <span class="period" style="display:block; font-size: 1.2rem;">12x de</span>
+                        <span class="val">R$ 49,90</span>
+                    </div>
+                    <ul class="benefits">
+                        <li><i class="ph ph-check" style="color: #fff"></i> <strong>Acesso por 1 ano</strong></li>
+                        <li><i class="ph ph-check" style="color: #fff"></i> Todo o conteúdo teórico</li>
+                        <li><i class="ph ph-x" style="color: var(--text-muted); opacity:0.5"></i> Sem correção individual</li>
+                    </ul>
+                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=7l5gkazx" class="hotmart-fb hotmart__button-checkout">
+                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Aulas Anual">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="pricing-header-small hidden" style="border-color: var(--cyan); margin-top: 6rem;">
+                <h3>2. Treino, Correção e Mentoria</h3>
+                <p>Para quem precisa de feedback real e acompanhamento próximo.</p>
+            </div>
+
+            <div class="planos-grid hidden">
+                
+                <div class="card-plano standard">
+                    <h3 style="font-size: 2.4rem;">Neuro Padrão</h3>
+                    <p style="color: var(--text-muted); font-size: 1.4rem; margin-bottom: 1rem;">Correção técnica e pontual.</p>
+                    <div class="plan-price">
+                        <span class="val">R$ 250,00</span><span class="period">/mês</span>
+                    </div>
+                    <ul class="benefits">
+                        <li><i class="ph ph-check" style="color: var(--primary)"></i> <strong>1 Correção/semana</strong></li>
+                        <li><i class="ph ph-check" style="color: var(--primary)"></i> Feedback Áudio + PDF</li>
+                        <li><i class="ph ph-check" style="color: var(--primary)"></i> Acesso às Aulas</li>
+                        <li><i class="ph ph-check" style="color: var(--primary)"></i> Comunidade de Alunos</li>
                     </ul>
                     <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=rrwev6z3" class="hotmart-fb hotmart__button-checkout">
-                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Comprar Neuro Padrão">
+                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Plano Padrão">
                     </a>
                 </div>
 
-                <div class="card-plano destaque hidden">
-                    <div class="tag-rec">🔥 MAIS ESCOLHIDO</div>
-                    <h3 style="color: var(--cyan);">NEURO INTENSIVO</h3>
-                    <p class="subtitle" style="color: #cbd5e1; font-size: 1.4rem;">Aceleração total</p>
-                    <div class="price">
-                        <span class="old-price" style="display:block; text-decoration: line-through; color: var(--text-muted); font-size: 1.4rem;">De R$ 450,00</span>
-                        <span class="new-price">R$ 225,00</span>
-                        <p class="price-note" style="color: var(--cyan); font-size: 1.2rem;">1ª mensalidade com cupom</p>
+                <div class="card-plano pro">
+                    <div class="badge hot">🔥 MAIS COMPLETO</div>
+                    <h3 style="font-size: 2.6rem; color: var(--cyan);">Neuro Intensivo</h3>
+                    <p style="color: #cbd5e1; font-size: 1.4rem; margin-bottom: 1rem;">Aceleração total rumo ao 900+.</p>
+                    <div class="plan-price">
+                        <span class="val" style="color: var(--cyan);">R$ 450,00</span><span class="period">/mês</span>
                     </div>
                     <ul class="benefits">
-                        <li><i class="ph ph-check-circle" style="color:var(--cyan)"></i> <strong>Tudo do Plano Padrão</strong></li>
-                         <li><i class="ph ph-check-circle" style="color:var(--cyan)"></i> <strong>2x correções por semana</strong></li>
-                        <li><i class="ph ph-brain" style="color:var(--cyan)"></i> <strong>Clube de Leitura</strong></li>
-                        <li><i class="ph ph-video-camera" style="color:var(--cyan)"></i> <strong>Mentoria Individual</strong></li>
-                        <li><i class="ph ph-fire" style="color:var(--cyan)"></i> <strong>Correção Ao Vivo</strong></li>
-                        <li><i class="ph ph-target" style="color:var(--cyan)"></i> Foco total no <strong>900+</strong></li>
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>2 Correções/semana</strong></li>
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>Mentoria Individual</strong></li>
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>Clube do Livro</strong></li>
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Correção Ao Vivo</li>
                     </ul>
                     <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=7czjrtl5" class="hotmart-fb hotmart__button-checkout">
-                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Comprar Neuro Intensivo">
+                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Plano Intensivo">
                     </a>
+                    <p style="text-align: center; font-size: 1.2rem; color: var(--cyan); margin-top: 1rem;">Garantia de 7 dias</p>
                 </div>
+
             </div>
-            
+
             <div class="hidden" style="text-align: center; margin-top: 5rem;">
-                <p style="color: #fff; font-size: 1.4rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.8rem;">
+                <p style="color: #fff; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; gap: 0.8rem;">
                     <i class="ph ph-shield-check" style="font-size: 1.8rem; color: var(--success);"></i>
-                    Garantia Incondicional de 7 dias.
-                </p>
-                <p style="color: var(--text-muted); font-size: 1.2rem;">
-                    <i class="ph ph-lock" style="vertical-align: middle; margin-right: 0.5rem;"></i>
-                    Pagamento seguro via Hotmart
+                    Compra 100% Segura via Hotmart
                 </p>
             </div>
         </div>
@@ -737,27 +516,23 @@
     <section class="section-padding" id="faq">
         <div class="container" style="max-width: 80rem;">
             <div class="hidden" style="text-align: center; margin-bottom: 5rem;">
-                <h2 style="font-size: 3.6rem;">Dúvidas?</h2>
+                <h2 style="font-size: 3.6rem;">Dúvidas Frequentes</h2>
             </div>
-
+            <div class="faq-item hidden">
+                <h3>Qual a diferença entre o Plano de Aulas e o Padrão?</h3>
+                <p>O plano de Aulas é apenas teórico (vídeo-aulas e material). O Padrão inclui correção semanal dos seus textos.</p>
+            </div>
             <div class="faq-item hidden">
                 <h3>Funciona para quem não sabe escrever?</h3>
-                <p>Sim. O NeuroEscrita ensina a lógica, não depende de dom. Sabendo formar frases básicas, você chega longe.</p>
+                <p>Sim. O NeuroEscrita ensina a lógica do zero. Sabendo formar frases básicas, você chega longe.</p>
             </div>
-
             <div class="faq-item hidden">
                 <h3>Quanto tempo para ver resultados?</h3>
-                <p>Alunos relatam saltos de 60-100 pontos no primeiro mês. Em 3 meses, sua visão de texto muda completamente.</p>
+                <p>Alunos relatam saltos de 60-100 pontos no primeiro mês.</p>
             </div>
-
             <div class="faq-item hidden">
-                <h3>Como funcionam as aulas?</h3>
-                <p>Gravadas (liberadas segundas-feiras) + Encontros Ao Vivo (Correções e Clube de Leitura).</p>
-            </div>
-            
-            <div class="faq-item hidden">
-                <h3>Padrão ou Intensivo?</h3>
-                <p>Padrão: base sólida. Intensivo: aceleração com Mentoria e Clube de Leitura. Para quem quer 900+ rápido.</p>
+                <h3>Posso mudar de plano depois?</h3>
+                <p>Sim! Você pode começar no plano de Aulas e migrar para o Intensivo quando quiser acelerar seus resultados.</p>
             </div>
         </div>
     </section>
@@ -798,20 +573,6 @@
         }, { threshold: 0.1 });
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => observer.observe(el));
-    </script>
-
-    <script type="text/javascript">
-        function importHotmart(){ 
-            var imported = document.createElement('script'); 
-            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
-            document.body.appendChild(imported); 
-            var link = document.createElement('link'); 
-            link.rel = 'stylesheet'; 
-            link.type = 'text/css'; 
-            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
-            document.head.appendChild(link);
-        } 
-        importHotmart(); 
     </script>
 
 </body>
