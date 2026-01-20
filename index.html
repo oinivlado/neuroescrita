@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método Neuroescrita | A Redação que a Banca Nunca Viu</title>
-    <meta name="description" content="Descubra por que decorar modelos prontos está matando sua nota no ENEM. Aprenda a pensar como os alunos nota 1000.">
+    <title>Curso NeuroEscrita | Domine a Redação do ENEM</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -24,26 +23,18 @@
     </script> 
 
     <style>
-        /* --- CONFIGURAÇÃO DE REM --- */
+        /* --- CONFIGURAÇÃO GERAL --- */
         html { font-size: 62.5%; }
-
-        /* --- VARIÁVEIS & PALETA "NEURO TECH" --- */
         :root {
             --bg-deep: #030305;
             --bg-surface: #0a0a0f;
             --bg-grid: rgba(255, 255, 255, 0.03);
             --primary: #8b5cf6;
-            --primary-glow: rgba(139, 92, 246, 0.6);
             --cyan: #06b6d4;
-            --cyan-glow: rgba(6, 182, 212, 0.6);
-            --accent: #FFD700;
-            --danger: #ef4444;
-            --success: #10b981;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --glass-bg: rgba(20, 20, 30, 0.6);
             --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-highlight: rgba(255, 255, 255, 0.1);
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -54,526 +45,218 @@
             color: var(--text-main);
             font-family: 'Outfit', sans-serif;
             font-size: 1.6rem;
-            overflow-x: hidden;
             line-height: 1.6;
             background-image: linear-gradient(var(--bg-grid) 1px, transparent 1px), linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
             background-size: 4rem 4rem;
-            background-position: center top;
         }
 
-        body::after {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, var(--bg-deep) 90%);
-            pointer-events: none; z-index: 0;
-        }
-
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.04em; line-height: 1.1; color: #fff; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.04em; line-height: 1.2; color: #fff; }
         
-        .container { max-width: 110rem; margin: 0 auto; padding: 0 2.4rem; position: relative; z-index: 2; }
-        .section-padding { padding: 8rem 0; position: relative; z-index: 1; }
+        .container { max-width: 110rem; margin: 0 auto; padding: 0 2.4rem; }
+        .section-padding { padding: 8rem 0; }
 
-        /* --- TIPOGRAFIA --- */
-        .text-gradient { background: linear-gradient(135deg, #fff 40%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .text-cyan { color: var(--cyan); text-shadow: 0 0 2rem var(--cyan-glow); }
-        .text-purple { color: var(--primary); text-shadow: 0 0 2rem var(--primary-glow); }
+        /* HERO */
+        #hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+        #hero h1 { font-size: clamp(3.6rem, 6vw, 5.6rem); margin-bottom: 2.4rem; font-weight: 700; }
+        #hero .subheadline { font-size: clamp(1.8rem, 2vw, 2rem); color: var(--text-muted); max-width: 80rem; margin: 0 auto 4rem auto; font-weight: 300; }
 
-        /* --- HERO SECTION --- */
-        #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; padding: 8rem 0; }
-        #hero::before { content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 80vw; height: 80vw; background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%); filter: blur(8rem); z-index: 0; }
-        #hero h1 { font-size: clamp(3.2rem, 7vw, 5.6rem); margin-bottom: 2.4rem; font-weight: 700; text-shadow: 0 1rem 3rem rgba(0,0,0,0.5); }
-        #hero .subheadline { font-size: clamp(1.6rem, 2vw, 1.8rem); color: var(--text-muted); max-width: 78rem; margin: 0 auto 4rem auto; line-height: 1.6; font-weight: 300; }
-
-        /* --- BOTÕES --- */
-        .cta-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-        .cta-button {
-            display: inline-flex; align-items: center; justify-content: center; padding: 1.8rem 4rem;
-            background: var(--cyan); color: #000; font-weight: 800; text-decoration: none; 
-            text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.4rem;
-            transition: var(--transition); box-shadow: 0 0 2.5rem rgba(6, 182, 212, 0.3);
-            border: 1px solid var(--cyan); position: relative; overflow: hidden; z-index: 10;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        /* BUTTONS */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 1.6rem 3.5rem;
+            font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.4rem;
+            transition: var(--transition); border-radius: 0.6rem;
         }
-        .cta-button:hover { background: #fff; box-shadow: 0 0 5rem rgba(255, 255, 255, 0.4); transform: translateY(-0.3rem) scale(1.02); }
-        .cta-button.secondary {
-            background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: none; backdrop-filter: blur(0.5rem); clip-path: none; border-radius: 0.4rem;
-        }
-        .cta-button.secondary:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
+        .btn-primary { background: var(--cyan); color: #000; border: 1px solid var(--cyan); }
+        .btn-primary:hover { background: #fff; transform: translateY(-3px); }
+        .btn-outline { background: transparent; color: var(--cyan); border: 1px solid var(--glass-border); margin-left: 1.5rem; }
+        .btn-outline:hover { border-color: var(--cyan); background: rgba(6, 182, 212, 0.05); }
 
-        /* --- CARDS & ELEMENTOS --- */
-        .pain-card, .card, .revelation-box, .transition-box, .faq-item {
-            background: var(--glass-bg); backdrop-filter: blur(1.6rem); -webkit-backdrop-filter: blur(1.6rem);
-            border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-highlight);
-            transition: var(--transition); position: relative;
-        }
+        /* CARDS */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); gap: 3rem; margin-top: 4rem; }
+        .card { background: var(--glass-bg); padding: 3rem; border: 1px solid var(--glass-border); border-radius: 1rem; }
+        .card h3 { font-size: 2rem; margin-bottom: 1rem; color: #fff; }
+        .card p { color: var(--text-muted); font-size: 1.5rem; }
 
-        /* --- PROBLEMA SECTION --- */
-        .pain-card { padding: 3rem; margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 2.4rem; border-radius: 0.4rem; }
-        .pain-card:hover { border-color: var(--danger); box-shadow: 0 1rem 4rem rgba(239, 68, 68, 0.1); transform: translateX(1rem); }
-        .pain-card i { font-size: 3.2rem; color: var(--danger); flex-shrink: 0; filter: drop-shadow(0 0 1rem rgba(239, 68, 68, 0.4)); }
-        .pain-card h3 { font-size: 1.8rem; margin-bottom: 0.8rem; color: #fff; }
-        .pain-card p { font-size: 1.5rem; color: #cbd5e1; }
-
-        .stat-box {
-            text-align: center; padding: 4rem; background: linear-gradient(180deg, rgba(239, 68, 68, 0.05), transparent);
-            border: 1px solid rgba(239, 68, 68, 0.2); margin-top: 6rem; position: relative;
-        }
-        .stat-box::before { content: ''; position: absolute; top:0; left: 0; width: 100%; height: 2px; background: var(--danger); box-shadow: 0 0 1.5rem var(--danger); }
-        .stat-number { font-size: clamp(4rem, 6vw, 8rem); font-weight: 700; color: var(--danger); font-family: 'Space Grotesk'; line-height: 0.9; text-shadow: 0 0 3rem rgba(239, 68, 68, 0.4); }
-
-        /* --- REVELAÇÃO --- */
-        .revelation-box { padding: clamp(3rem, 5vw, 6rem); border-left: 0.4rem solid var(--primary); background: linear-gradient(90deg, rgba(139, 92, 246, 0.05), transparent); }
-        .highlight-text { color: var(--primary); font-weight: 700; font-size: 2rem; display: block; margin: 2.5rem 0; font-family: 'Space Grotesk'; letter-spacing: -0.02em; }
-
-        /* --- BIO SECTION --- */
+        /* BIO SECTION (Nova) */
         .bio-container { display: grid; grid-template-columns: 0.8fr 1fr; gap: 6rem; align-items: center; }
-        .bio-image img { width: 100%; filter: grayscale(100%) contrast(1.2) brightness(0.9); transition: var(--transition); border: 1px solid var(--glass-border); clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%); }
-        .bio-image:hover img { filter: grayscale(0%); box-shadow: 0 0 5rem rgba(139, 92, 246, 0.3); border-color: var(--primary); }
-        .bio-badge { position: absolute; bottom: 2rem; right: -2rem; background: #000; padding: 1.5rem 2.5rem; border: 1px solid var(--cyan); box-shadow: 0 0 3rem rgba(6, 182, 212, 0.3); z-index: 2; }
-        .btn-instagram { display: inline-flex; align-items: center; gap: 1.2rem; padding: 1.2rem 2.8rem; margin-top: 2rem; background: transparent; border: 1px solid var(--glass-border); color: white; border-radius: 5rem; text-decoration: none; font-weight: 600; font-size: 1.4rem; transition: var(--transition); }
-        .btn-instagram:hover { background: linear-gradient(45deg, #f09433, #bc1888); border-color: transparent; transform: translateY(-0.3rem); }
+        .bio-image img { width: 100%; border-radius: 1rem; filter: grayscale(100%) contrast(1.1); transition: var(--transition); border: 1px solid var(--glass-border); }
+        .bio-image:hover img { filter: grayscale(0%); border-color: var(--cyan); }
+        .bio-text h2 { font-size: 3.6rem; margin-bottom: 2rem; }
+        .bio-text p { color: var(--text-muted); font-size: 1.6rem; margin-bottom: 2rem; }
 
-        /* --- METODOLOGIA --- */
-        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); gap: 2.4rem; }
-        .card { padding: 3rem 2.4rem; height: 100%; background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.4) 100%); }
-        .card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 0.3rem; transition: var(--transition); opacity: 0.5; }
-        .card.purple::before { background: var(--primary); box-shadow: 0 0 1.5rem var(--primary); }
-        .card.cyan::before { background: var(--cyan); box-shadow: 0 0 1.5rem var(--cyan); }
-        .card.orange::before { background: var(--accent); box-shadow: 0 0 1.5rem var(--accent); }
-        .card:hover { transform: translateY(-0.5rem); background: rgba(255,255,255,0.06); }
-        .card:hover::before { opacity: 1; height: 0.5rem; }
-        .card h3 { font-size: 2rem; margin: 1.6rem 0 1.2rem 0; }
-
-        /* --- COMPARATIVO --- */
-        .comparison-box { padding: 4rem; border: 1px solid var(--glass-border); }
-        .vs-badge { width: 5rem; height: 5rem; background: #fff; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; font-family: 'Space Grotesk'; font-size: 1.6rem; box-shadow: 0 0 4rem rgba(255,255,255,0.5); }
-        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-        .comp-list li { margin-bottom: 1.6rem; font-size: 1.5rem; display: flex; gap: 1.2rem; color: #d1d5db; align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.03); }
-
-        /* --- TRANSIÇÃO --- */
-        .transition-box { text-align: left; max-width: 90rem; margin: 0 auto; padding: clamp(3rem, 5vw, 5rem); background: linear-gradient(145deg, rgba(20,20,25,0.9), rgba(10,10,15,0.95)); box-shadow: 0 2rem 5rem rgba(0,0,0,0.5); }
-        .date-alert-box { display: flex; align-items: center; gap: 1.5rem; padding: 1.8rem 2.4rem; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--cyan); border-radius: 0.8rem; color: var(--cyan); font-weight: 600; font-size: 1.5rem; box-shadow: 0 0 2rem rgba(6, 182, 212, 0.1); transition: var(--transition); }
-        .date-alert-box:hover { background: rgba(6, 182, 212, 0.1); box-shadow: 0 0 3rem rgba(6, 182, 212, 0.2); }
-
-        /* --- NOVA SEÇÃO DE PREÇOS (LÓGICA ESCALONADA) --- */
-        .pricing-header-small { text-align: left; margin: 5rem 0 3rem 0; padding-left: 2rem; border-left: 4px solid var(--primary); }
-        .pricing-header-small h3 { font-size: 2.4rem; color: #fff; margin-bottom: 0.5rem; }
-        .pricing-header-small p { color: var(--text-muted); font-size: 1.6rem; }
-
-        .planos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); gap: 3rem; margin-bottom: 6rem; }
-        
-        /* Cards de Preço Base */
-        .card-plano { 
-            background: var(--glass-bg); padding: 3rem; display: flex; flex-direction: column; 
-            border-radius: 1.2rem; border: 1px solid var(--glass-border); transition: var(--transition); position: relative;
+        /* AULA GRATIS */
+        .free-class {
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.05), rgba(0,0,0,0));
+            border: 1px solid rgba(6, 182, 212, 0.2); padding: 4rem; border-radius: 1rem; 
+            text-align: center; max-width: 80rem; margin: 0 auto;
         }
-        .card-plano:hover { transform: translateY(-0.5rem); border-color: rgba(255,255,255,0.2); }
 
-        /* Variações dos Cards */
-        .card-plano.lite { border-top: 4px solid var(--text-muted); }
-        .card-plano.standard { border-top: 4px solid var(--primary); background: linear-gradient(160deg, rgba(139,92,246,0.05), rgba(0,0,0,0.6)); }
-        .card-plano.pro { 
-            border: 1px solid var(--cyan); 
-            background: linear-gradient(160deg, rgba(6,182,212,0.1), rgba(0,0,0,0.8)); 
-            box-shadow: 0 0 4rem rgba(6,182,212,0.1); transform: scale(1.02); z-index: 2;
+        /* PLANOS */
+        .pricing-card {
+            background: var(--bg-surface); border: 1px solid var(--glass-border); padding: 4rem; 
+            border-radius: 1rem; position: relative; text-align: left;
         }
-        .card-plano.pro:hover { transform: scale(1.04); box-shadow: 0 0 6rem rgba(6,182,212,0.2); }
+        .pricing-card.highlight { border-color: var(--cyan); background: rgba(6, 182, 212, 0.03); }
+        .price { font-size: 3.6rem; font-weight: 700; color: #fff; font-family: 'Space Grotesk'; margin: 2rem 0; }
+        .check-list li { margin-bottom: 1rem; display: flex; gap: 1rem; color: #cbd5e1; }
 
-        /* Elementos Internos do Card */
-        .plan-price { margin: 2rem 0; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .plan-price .val { font-size: 3.6rem; font-weight: 700; color: #fff; line-height: 1; }
-        .plan-price .period { font-size: 1.4rem; color: var(--text-muted); }
-        
-        .benefits li { margin-bottom: 1.2rem; display: flex; gap: 1rem; color: #cbd5e1; font-size: 1.4rem; align-items: center; }
-        .badge { position: absolute; top: 1.5rem; right: 1.5rem; padding: 0.5rem 1.2rem; border-radius: 0.4rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1rem; }
-        .badge.save { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; }
-        .badge.hot { background: var(--cyan); color: #000; box-shadow: 0 0 1.5rem var(--cyan); }
-
-        .hotmart-fb img { width: 100% !important; border-radius: 0.6rem !important; transition: var(--transition); filter: brightness(1.1); }
-        .hotmart-fb:hover img { filter: brightness(1.3); }
-
-        /* --- FAQ & FOOTER --- */
-        .faq-item { padding: 2.5rem; margin-bottom: 1.5rem; border-left: 0.2rem solid transparent; }
-        .faq-item:hover { border-left-color: var(--primary); background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent); }
-        .faq-item h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #fff; }
-        .faq-item p { font-size: 1.4rem; color: var(--text-muted); }
-
-        #cta-final { background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1), var(--bg-deep)); border-top: 1px solid var(--glass-border); }
-        .hidden { opacity: 0; transform: translateY(3rem); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .show { opacity: 1; transform: translateY(0); }
-        footer { text-align: center; padding: 6rem 2rem; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.3rem; background: #000; }
-
-        /* --- RESPONSIVIDADE --- */
         @media (max-width: 768px) {
-            html { font-size: 55%; }
-            .container { padding: 0 2rem; }
-            .section-padding { padding: 5rem 0; }
-            #hero h1 { font-size: 3.6rem; margin-bottom: 1.5rem; }
-            .bio-container, .comparison-grid, .planos-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .bio-image { order: -1; max-width: 35rem; margin: 0 auto; }
-            .card-plano.pro { transform: none; margin: 2rem 0; }
-            .pricing-header-small { text-align: center; padding-left: 0; border-left: none; border-bottom: 4px solid var(--primary); padding-bottom: 1.5rem; }
+            .btn { width: 100%; margin: 1rem 0 0 0; }
+            .bio-container { grid-template-columns: 1fr; }
+            .bio-image { max-width: 40rem; margin: 0 auto; }
         }
     </style>
 </head>
 <body>
 
-    <header id="hero">
-        <div class="container hidden">
-            <span style="color: var(--cyan); font-weight: 700; letter-spacing: 0.3rem; font-size: 1.2rem; text-transform: uppercase; display: block; margin-bottom: 2rem; opacity: 0.9;">
-                <i class="ph ph-brain" style="vertical-align: middle; margin-right: 0.5rem;"></i> Turma 2026
+    <section id="hero">
+        <div class="container">
+            <span style="color: var(--cyan); font-weight: 700; letter-spacing: 0.2rem; font-size: 1.4rem; text-transform: uppercase; display: block; margin-bottom: 2rem;">
+                Curso de Redação NeuroEscrita
             </span>
             <h1>
-                Por que você tira nota média<br>
-                usando <span class="text-gradient">modelos que todos usam?</span>
+                Domine as 5 Competências<br>
+                e garanta sua vaga.
             </h1>
             <p class="subheadline">
-                A verdade: decorar estruturas cria "alunos padrão". Descubra o método de quem treinou os corretores e sabe exatamente o que eles procuram.
+                Pare de tentar adivinhar o que a banca quer. Aprenda a estrutura lógica, a argumentação e o projeto de texto que fundamentam uma nota 900+. Sem "hacks", apenas técnica e estudo sério.
             </p>
-            <div class="cta-container">
-                <a href="#planos" class="cta-button">VER OPÇÕES DE PLANOS</a>
-                <a href="#problema" class="cta-button secondary">ENTENDER O PROBLEMA</a>
+            <div>
+                <a href="#planos" class="btn btn-primary">COMEÇAR A ESTUDAR</a>
+                <a href="https://hotmart.com/pt-BR/club/papel-e-alma" target="_blank" class="btn btn-outline">
+                    <i class="ph ph-play-circle" style="vertical-align: middle; margin-right: 0.8rem; font-size: 1.8rem;"></i>
+                    VER AULA INAUGURAL
+                </a>
             </div>
-            
-            <div style="position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); opacity: 0.5; animation: bounce 2s infinite;">
-                <i class="ph ph-caret-double-down" style="font-size: 2.4rem; color: var(--cyan);"></i>
-            </div>
-        </div>
-    </header>
-
-    <section class="section-padding" id="problema">
-        <div class="container">
-            <div class="hidden" style="text-align: center; margin-bottom: 5rem;">
-                <span style="color: var(--danger); font-weight: 700; letter-spacing: 0.2rem; font-size: 1.2rem; text-transform: uppercase; display: block; margin-bottom: 1rem;">
-                    <i class="ph ph-warning-octagon"></i> A Verdade Inconveniente
-                </span>
-                <h2 style="font-size: clamp(2.4rem, 5vw, 4rem);">
-                    Preso no <span style="color: var(--danger); text-shadow: 0 0 3rem rgba(239,68,68,0.5);">ciclo da mediocridade</span>
-                </h2>
-                <p style="color: var(--text-muted); max-width: 60rem; margin: 1.5rem auto; font-size: 1.6rem;">
-                    E o pior: nem percebe. Reconhece alguma dessas situações?
-                </p>
-            </div>
-
-            <div style="max-width: 80rem; margin: 0 auto;">
-                <div class="pain-card hidden">
-                    <i class="ph ph-file-x"></i>
-                    <div>
-                        <h3>Modelos prontos = Nota estagnada</h3>
-                        <p>A estrutura "infalível" que te venderam? Outros 5 milhões de alunos também usam. O corretor identifica em 30 segundos.</p>
-                    </div>
-                </div>
-                <div class="pain-card hidden">
-                    <i class="ph ph-brain"></i>
-                    <div>
-                        <h3>O "branco" te paralisa</h3>
-                        <p>Em casa flui, na prova trava. Você não conecta ideias nem adapta o modelo. A mente congela na hora H.</p>
-                    </div>
-                </div>
-                <div class="pain-card hidden">
-                    <i class="ph ph-robot"></i>
-                    <div>
-                        <h3>Correções genéricas</h3>
-                        <p>"Melhore a coesão". Ok, mas COMO? Feedback robotizado não ensina a pensar, só frustra.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stat-box hidden">
-                <span class="stat-number">78%</span>
-                <p class="stat-label" style="color: #fff; font-size: 1.6rem; margin-top: 1.5rem;">dos candidatos tiram menos de 800 pontos usando métodos tradicionais (INEP 2023)</p>
-            </div>
+            <p style="margin-top: 2rem; font-size: 1.4rem; color: var(--text-muted); opacity: 0.7;">
+                Matrículas abertas para a Turma 2026
+            </p>
         </div>
     </section>
 
-    <section class="section-padding" id="revelacao">
+    <section class="section-padding">
         <div class="container">
-            <div class="hidden" style="text-align: center; margin-bottom: 5rem;">
-                <span style="color: var(--primary); font-weight: 700; letter-spacing: 0.2rem; font-size: 1.2rem; text-transform: uppercase;">
-                    <i class="ph ph-lightbulb"></i> O Insight
-                </span>
-                <h2 style="font-size: clamp(2.4rem, 5vw, 4.2rem); margin-top: 1rem;">
-                    Nota 1000 não é sobre <span style="color: #fff; text-shadow: 0 0 2rem rgba(255,255,255,0.3);">decorar</span>.<br>
-                    É sobre <span class="text-purple">pensar diferente</span>.
-                </h2>
+            <div style="text-align: center; margin-bottom: 5rem;">
+                <h2 style="font-size: 3.2rem;">O que você vai aprender</h2>
+                <p style="color: var(--text-muted);">Não é sobre decorar modelos. É sobre entender a regra do jogo.</p>
             </div>
-            <div class="revelation-box hidden">
-                <div class="revelation-content">
-                    <p style="font-size: 1.8rem; color: #e2e8f0;">
-                        Após 8 anos coordenando escolas e treinando corretores, notei um padrão:
-                    </p>
-                    <span class="highlight-text">
-                        "Alunos 900+ não decoram. Eles dominam a LÓGICA da argumentação."
-                    </span>
-                    <p style="font-size: 1.6rem; color: #cbd5e1;">
-                        Eles não pensam em "qual repertório usar", mas em "como conectar". Não decoram transições, criam fluxo. Não copiam, constroem.
-                    </p>
-                    <p style="margin-top: 2.5rem; font-size: 1.6rem; color: var(--cyan); border-left: 0.3rem solid var(--cyan); padding-left: 1.5rem;">
-                        <strong>A diferença entre 760 e 960 não está na gramática. Está na capacidade de pensar como autor, não copista.</strong>
-                    </p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <i class="ph ph-compass" style="font-size: 3rem; color: var(--cyan); margin-bottom: 1.5rem;"></i>
+                    <h3>Projeto de Texto Estratégico</h3>
+                    <p>Aprenda a planejar sua redação antes de escrever a primeira linha. O corretor sabe quando o texto foi pensado e quando foi improvisado.</p>
+                </div>
+                <div class="card">
+                    <i class="ph ph-article" style="font-size: 3rem; color: var(--cyan); margin-bottom: 1.5rem;"></i>
+                    <h3>Argumentação Consistente</h3>
+                    <p>Como sair do senso comum e aprofundar suas ideias. Aprenda a relacionar repertórios (filmes, livros, história) com a discussão proposta.</p>
+                </div>
+                <div class="card">
+                    <i class="ph ph-check-circle" style="font-size: 3rem; color: var(--cyan); margin-bottom: 1.5rem;"></i>
+                    <h3>Domínio da Norma Culta</h3>
+                    <p>Foco total na Competência 1. Entenda as regras de crase, vírgula e regência que realmente tiram pontos na hora da correção.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" id="bio" style="background: radial-gradient(circle at left, rgba(139, 92, 246, 0.08), transparent);">
+    <section class="section-padding" style="background: linear-gradient(90deg, rgba(6, 182, 212, 0.05), transparent);">
         <div class="container">
             <div class="bio-container">
-                <div class="bio-image hidden">
-                    <img src="perfil.png" alt="Onivaldo Coutinho">
-                    <div class="bio-badge">
-                        <p style="font-weight: 700; color: var(--cyan); font-size: 2.2rem; font-family: 'Space Grotesk';">+5.000</p>
-                        <p style="font-size: 1.2rem; color: #fff; text-transform: uppercase; letter-spacing: 0.1rem;">Textos corrigidos</p>
+                <div class="bio-image">
+                    <img src="perfil.png" alt="Professor Onivaldo Coutinho">
+                </div>
+                <div class="bio-text">
+                    <span style="color: var(--cyan); font-weight: 700; letter-spacing: 0.1rem; text-transform: uppercase;">
+                        Sobre o Professor
+                    </span>
+                    <h2>Onivaldo Coutinho</h2>
+                    <p>
+                        Professor de Redação, Gramática e Literatura com mais de 8 anos de experiência em sala de aula. Atuei como Coordenador de Redação em grandes escolas e fui responsável pelo treinamento de equipes de corretores.
+                    </p>
+                    <p>
+                        Minha metodologia, a <strong>NeuroEscrita</strong>, nasceu da observação prática de milhares de textos. Percebi que o aluno que alcança o 900+ não é aquele que decora frases prontas, mas aquele que domina a lógica argumentativa e a estrutura profunda do texto dissertativo.
+                    </p>
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
+                        <a href="https://www.instagram.com/profecoutinho/" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; gap: 1rem; font-weight: 600;">
+                            <i class="ph ph-instagram-logo" style="font-size: 2.4rem;"></i> @profecoutinho
+                        </a>
                     </div>
                 </div>
-                <div class="bio-text hidden">
-                    <span style="color: var(--primary); font-weight: 700; letter-spacing: 0.2rem; font-size: 1.2rem; text-transform: uppercase; display: block; margin-bottom: 1.5rem;">
-                        Quem Vai Te Ensinar
-                    </span>
-                    <h2 style="font-size: 3.6rem; margin-bottom: 2rem; line-height: 1;">
-                        Do bastidor para<br>o seu sucesso.
-                    </h2>
-                    <p style="color: var(--text-muted); font-size: 1.6rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                        Sou <strong style="color: #fff;">Onivaldo Coutinho</strong>. Fui coordenador de grandes Escolas de Redação e treinei equipes de corretores que avaliam milhares de textos.
-                    </p>
-                    <p style="color: var(--text-muted); font-size: 1.6rem; margin-bottom: 3rem; line-height: 1.8;">
-                        Vi de dentro o que faz um texto ser ignorado e o que faz um corretor parar e pensar: <span style="color: var(--cyan); font-weight: 600;">"Este aluno é diferente"</span>.
-                    </p>
-                    <a href="https://www.instagram.com/profecoutinho/" target="_blank" class="btn-instagram">
-                        <i class="ph ph-instagram-logo" style="font-size: 2rem;"></i>
-                        <span>@profecoutinho</span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" id="metodologia">
+    <section class="section-padding">
         <div class="container">
-            <div class="hidden" style="margin-bottom: 6rem; text-align: center;">
-                <span style="color: var(--primary); font-weight: 700; letter-spacing: 0.2rem; font-size: 1.2rem; text-transform: uppercase;">
-                    <i class="ph ph-cpu"></i> 6 Pilares do Método
-                </span>
-                <h2 style="font-size: clamp(2.8rem, 4vw, 3.8rem); margin-top: 1rem;">
-                    Muito além da correção.<br>
-                    Uma escola de <span class="text-purple">estratégia</span>.
-                </h2>
-            </div>
-
-            <div class="cards-container">
-                <div class="card purple hidden">
-                    <i class="ph ph-lightbulb-filament" style="font-size: 4rem; color: var(--primary);"></i>
-                    <h3>Repertório Criativo</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Esqueça a decoreba. Aprenda a usar filmes, séries e suas vivências de forma orgânica.</p>
-                </div>
-                <div class="card cyan hidden">
-                    <i class="ph ph-pencil-simple-slash" style="font-size: 4rem; color: var(--cyan);"></i>
-                    <h3>Microestrutura</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Crase, vírgula e regência focadas no que o ENEM cobra. Zere erros da Competência 1.</p>
-                </div>
-                <div class="card orange hidden">
-                    <i class="ph ph-strategy" style="font-size: 4rem; color: var(--accent);"></i>
-                    <h3>Projeto de Texto</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Engenharia reversa da Nota 1000. Domine a estrutura lógica que funciona.</p>
-                </div>
-                <div class="card cyan hidden">
-                    <i class="ph ph-brain" style="font-size: 4rem; color: var(--cyan);"></i>
-                    <h3>Treino Neuroplástico</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Nosso Clube de Leitura expande sua capacidade cognitiva para acabar com o "branco".</p>
-                </div>
-                <div class="card purple hidden">
-                    <i class="ph ph-user-focus" style="font-size: 4rem; color: var(--primary);"></i>
-                    <h3>Mentoria Individual</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Conversa cara a cara (online) para alinhar sua rota e resolver travas específicas.</p>
-                </div>
-                <div class="card orange hidden">
-                    <i class="ph ph-fire" style="font-size: 4rem; color: var(--accent);"></i>
-                    <h3>Correção ao Vivo</h3>
-                    <p style="font-size: 1.5rem; color: var(--text-muted);">Analisamos redações reais em tempo real. Aprenda com os erros dos outros.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding" id="transicao" style="background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(139, 92, 246, 0.05) 50%, var(--bg-deep) 100%);">
-        <div class="container">
-            <div class="transition-box hidden">
-                <h2>Agora que você entendeu...</h2>
-                <p>
-                    Você pode continuar no ciclo da mediocridade ou dar o próximo passo e aprender o que os corretores realmente procuram.
+            <div class="free-class">
+                <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem;">Quer conhecer a didática antes?</h2>
+                <p style="color: var(--text-muted); font-size: 1.8rem; margin-bottom: 3rem;">
+                    A primeira aula do curso está liberada gratuitamente na nossa Área de Membros. Acesse, assista e veja se o método faz sentido para o seu momento de estudo.
                 </p>
-                <div class="date-alert-box">
-                    <i class="ph ph-calendar-check" style="font-size: 2.4rem;"></i>
-                    <span>Turma de Janeiro começa dia <strong>19/01/2026</strong>. Vagas limitadas.</span>
-                </div>
+                <a href="https://hotmart.com/pt-BR/club/papel-e-alma" target="_blank" class="btn btn-primary" style="background: transparent; border: 1px solid var(--cyan); color: var(--cyan);">
+                    ACESSAR ÁREA DE MEMBROS
+                </a>
             </div>
         </div>
     </section>
 
     <section class="section-padding" id="planos">
         <div class="container">
-            <div class="hidden" style="text-align: center; margin-bottom: 5rem;">
-                <h2 style="font-size: 4rem; margin-bottom: 1rem;">Menu de Estratégias</h2>
-                <p style="color: var(--text-muted); font-size: 1.6rem;">Escolha o nível de suporte que você precisa agora.</p>
+            <div style="text-align: center; margin-bottom: 5rem;">
+                <h2 style="font-size: 3.6rem;">Planos de Estudo</h2>
+                <p style="color: var(--text-muted);">Acesso completo à plataforma de aulas.</p>
             </div>
 
-            <div class="pricing-header-small hidden">
-                <h3>1. Acesso às Aulas e Teoria</h3>
-                <p>Ideal se você já tem quem corrija, mas precisa aprender a escrever (repertório + gramática).</p>
-            </div>
-
-            <div class="planos-grid hidden">
+            <div class="grid-3" style="max-width: 90rem; margin: 0 auto; grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));">
                 
-                <div class="card-plano lite">
-                    <h3 style="font-size: 2.2rem;">Neuro Aulas <span style="font-size: 1.4rem; color: var(--text-muted);">(Mensal)</span></h3>
-                    <div class="plan-price">
-                        <span class="val">R$ 79,90</span><span class="period">/mês</span>
-                    </div>
-                    <ul class="benefits">
-                        <li><i class="ph ph-check" style="color: #fff"></i> Acesso imediato às aulas</li>
-                        <li><i class="ph ph-check" style="color: #fff"></i> Gramática e Repertório</li>
-                        <li><i class="ph ph-check" style="color: #fff"></i> Material de apoio</li>
-                        <li><i class="ph ph-x" style="color: var(--text-muted); opacity:0.5"></i> Sem correção individual</li>
+                <div class="pricing-card">
+                    <h3 style="font-size: 2.4rem;">Assinatura Mensal</h3>
+                    <p style="color: var(--text-muted);">Para quem quer flexibilidade.</p>
+                    
+                    <div class="price">R$ 79,90<span style="font-size: 1.6rem; color: var(--text-muted); font-weight: 400;">/mês</span></div>
+                    
+                    <ul class="check-list">
+                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Acesso a todas as videoaulas</li>
+                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Materiais de apoio em PDF</li>
+                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Acesso à comunidade</li>
+                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Renovação automática</li>
                     </ul>
-                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=zfqhowob" class="hotmart-fb hotmart__button-checkout">
-                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Aulas Mensal">
-                    </a>
+
+                    <a href="SEU_LINK_MENSAL_AQUI" class="btn btn-outline" style="width: 100%; margin: 2rem 0 0 0; color: #fff; border-color: rgba(255,255,255,0.3);">ASSINAR MENSAL</a>
                 </div>
 
-                <div class="card-plano lite" style="border-color: rgba(255,255,255,0.3);">
-                    <div class="badge save">Economia de 40%</div>
-                    <h3 style="font-size: 2.2rem;">Neuro Aulas <span style="font-size: 1.4rem; color: var(--text-muted);">(Anual)</span></h3>
-                    <div class="plan-price">
-                        <span class="period" style="display:block; font-size: 1.2rem;">12x de</span>
-                        <span class="val">R$ 49,90</span>
-                    </div>
-                    <ul class="benefits">
-                        <li><i class="ph ph-check" style="color: #fff"></i> <strong>Acesso por 1 ano</strong></li>
-                        <li><i class="ph ph-check" style="color: #fff"></i> Todo o conteúdo teórico</li>
-                        <li><i class="ph ph-x" style="color: var(--text-muted); opacity:0.5"></i> Sem correção individual</li>
+                <div class="pricing-card highlight">
+                    <span style="position: absolute; top: -1.2rem; right: 2rem; background: var(--cyan); color: #000; padding: 0.5rem 1.5rem; border-radius: 2rem; font-weight: 700; font-size: 1.2rem;">RECOMENDADO</span>
+                    
+                    <h3 style="font-size: 2.4rem; color: var(--cyan);">Assinatura Anual</h3>
+                    <p style="color: var(--text-muted);">Compromisso com sua aprovação.</p>
+                    
+                    <div class="price">R$ 598,80<span style="font-size: 1.6rem; color: var(--text-muted); font-weight: 400;">/ano</span></div>
+                    <p style="font-size: 1.4rem; color: var(--text-muted); margin-top: -1.5rem; margin-bottom: 2rem;">Equivale a R$ 49,90/mês</p>
+                    
+                    <ul class="check-list">
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>12 meses de acesso irrestrito</strong></li>
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Economia de R$ 360,00</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Todas as atualizações do curso</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Material didático completo</li>
                     </ul>
-                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=7l5gkazx" class="hotmart-fb hotmart__button-checkout">
-                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Aulas Anual">
-                    </a>
-                </div>
 
-            </div>
-
-            <div class="pricing-header-small hidden" style="border-color: var(--cyan); margin-top: 6rem;">
-                <h3>2. Treino, Correção e Mentoria</h3>
-                <p>Para quem precisa de feedback real e acompanhamento próximo.</p>
-            </div>
-
-            <div class="planos-grid hidden">
-                
-                <div class="card-plano standard">
-                    <h3 style="font-size: 2.4rem;">Neuro Padrão</h3>
-                    <p style="color: var(--text-muted); font-size: 1.4rem; margin-bottom: 1rem;">Correção técnica e pontual.</p>
-                    <div class="plan-price">
-                        <span class="val">R$ 250,00</span><span class="period">/mês</span>
-                    </div>
-                    <ul class="benefits">
-                        <li><i class="ph ph-check" style="color: var(--primary)"></i> <strong>1 Correção/semana</strong></li>
-                        <li><i class="ph ph-check" style="color: var(--primary)"></i> Feedback Áudio + PDF</li>
-                        <li><i class="ph ph-check" style="color: var(--primary)"></i> Acesso às Aulas</li>
-                        <li><i class="ph ph-check" style="color: var(--primary)"></i> Comunidade de Alunos</li>
-                    </ul>
-                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=rrwev6z3" class="hotmart-fb hotmart__button-checkout">
-                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Plano Padrão">
-                    </a>
-                </div>
-
-                <div class="card-plano pro">
-                    <div class="badge hot">🔥 MAIS COMPLETO</div>
-                    <h3 style="font-size: 2.6rem; color: var(--cyan);">Neuro Intensivo</h3>
-                    <p style="color: #cbd5e1; font-size: 1.4rem; margin-bottom: 1rem;">Aceleração total rumo ao 900+.</p>
-                    <div class="plan-price">
-                        <span class="val" style="color: var(--cyan);">R$ 450,00</span><span class="period">/mês</span>
-                    </div>
-                    <ul class="benefits">
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>2 Correções/semana</strong></li>
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>Mentoria Individual</strong></li>
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>Clube do Livro</strong></li>
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Correção Ao Vivo</li>
-                    </ul>
-                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=7czjrtl5" class="hotmart-fb hotmart__button-checkout">
-                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Plano Intensivo">
-                    </a>
-                    <p style="text-align: center; font-size: 1.2rem; color: var(--cyan); margin-top: 1rem;">Garantia de 7 dias</p>
+                    <a href="SEU_LINK_ANUAL_AQUI" class="btn btn-primary" style="width: 100%; margin: 2rem 0 0 0;">QUERO O PLANO ANUAL</a>
                 </div>
 
             </div>
-
-            <div class="hidden" style="text-align: center; margin-top: 5rem;">
-                <p style="color: #fff; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; gap: 0.8rem;">
-                    <i class="ph ph-shield-check" style="font-size: 1.8rem; color: var(--success);"></i>
-                    Compra 100% Segura via Hotmart
-                </p>
-            </div>
+            
+            <p style="text-align: center; margin-top: 3rem; color: var(--text-muted); font-size: 1.4rem;">
+                <i class="ph ph-lock-key"></i> Compra segura via Hotmart | 7 dias de garantia
+            </p>
         </div>
     </section>
 
-    <section class="section-padding" id="faq">
-        <div class="container" style="max-width: 80rem;">
-            <div class="hidden" style="text-align: center; margin-bottom: 5rem;">
-                <h2 style="font-size: 3.6rem;">Dúvidas Frequentes</h2>
-            </div>
-            <div class="faq-item hidden">
-                <h3>Qual a diferença entre o Plano de Aulas e o Padrão?</h3>
-                <p>O plano de Aulas é apenas teórico (vídeo-aulas e material). O Padrão inclui correção semanal dos seus textos.</p>
-            </div>
-            <div class="faq-item hidden">
-                <h3>Funciona para quem não sabe escrever?</h3>
-                <p>Sim. O NeuroEscrita ensina a lógica do zero. Sabendo formar frases básicas, você chega longe.</p>
-            </div>
-            <div class="faq-item hidden">
-                <h3>Quanto tempo para ver resultados?</h3>
-                <p>Alunos relatam saltos de 60-100 pontos no primeiro mês.</p>
-            </div>
-            <div class="faq-item hidden">
-                <h3>Posso mudar de plano depois?</h3>
-                <p>Sim! Você pode começar no plano de Aulas e migrar para o Intensivo quando quiser acelerar seus resultados.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding" id="cta-final">
-        <div class="container">
-            <div class="hidden" style="text-align: center; max-width: 80rem; margin: 0 auto;">
-                <h2 style="font-size: clamp(2.8rem, 5vw, 4rem); margin-bottom: 2rem;">
-                    Sua nota depende de <span class="text-cyan" style="text-decoration: underline; text-decoration-color: var(--primary);">uma decisão</span>.
-                </h2>
-                <p style="color: #cbd5e1; font-size: 1.6rem; line-height: 1.6; margin-bottom: 4rem;">
-                    Início: <strong style="color: #fff;">19 de Janeiro</strong>. Não deixe sua vaga para depois.
-                </p>
-                <div class="cta-container">
-                    <a href="#planos" class="cta-button" style="padding: 2rem 5rem;">
-                        <i class="ph ph-rocket-launch" style="margin-right: 1.5rem; font-size: 2rem;"></i>
-                        GARANTIR MINHA VAGA
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Método Neuroescrita - Onivaldo Coutinho.</p>
-        <p style="margin-top: 1rem; font-size: 1.2rem; color: var(--text-muted);">
-            Pagamentos seguros via Hotmart
-        </p>
+    <footer style="text-align: center; padding: 4rem 0; border-top: 1px solid var(--glass-border); margin-top: 4rem; color: var(--text-muted);">
+        <p>&copy; 2026 NeuroEscrita. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-    </script>
 
 </body>
 </html>
