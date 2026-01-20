@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso NeuroEscrita | Domine a Redação do ENEM</title>
+    <title>Curso NeuroEscrita | Autonomia na Redação</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -31,6 +31,10 @@
             --bg-grid: rgba(255, 255, 255, 0.03);
             --primary: #8b5cf6;
             --cyan: #06b6d4;
+            /* NOVA COR VERDE PARA A ÁREA DE COMPRA */
+            --hotmart-green: #00ff6f; 
+            --hotmart-dark-green: #059669;
+            
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --glass-bg: rgba(20, 20, 30, 0.6);
@@ -60,7 +64,7 @@
         #hero h1 { font-size: clamp(3.6rem, 6vw, 5.6rem); margin-bottom: 2.4rem; font-weight: 700; }
         #hero .subheadline { font-size: clamp(1.8rem, 2vw, 2rem); color: var(--text-muted); max-width: 80rem; margin: 0 auto 4rem auto; font-weight: 300; }
 
-        /* BUTTONS */
+        /* BUTTONS GERAIS */
         .btn {
             display: inline-flex; align-items: center; justify-content: center; padding: 1.6rem 3.5rem;
             font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.4rem;
@@ -77,7 +81,7 @@
         .card h3 { font-size: 2rem; margin-bottom: 1rem; color: #fff; }
         .card p { color: var(--text-muted); font-size: 1.5rem; }
 
-        /* BIO SECTION (Nova) */
+        /* BIO SECTION */
         .bio-container { display: grid; grid-template-columns: 0.8fr 1fr; gap: 6rem; align-items: center; }
         .bio-image img { width: 100%; border-radius: 1rem; filter: grayscale(100%) contrast(1.1); transition: var(--transition); border: 1px solid var(--glass-border); }
         .bio-image:hover img { filter: grayscale(0%); border-color: var(--cyan); }
@@ -91,14 +95,54 @@
             text-align: center; max-width: 80rem; margin: 0 auto;
         }
 
-        /* PLANOS */
-        .pricing-card {
-            background: var(--bg-surface); border: 1px solid var(--glass-border); padding: 4rem; 
-            border-radius: 1rem; position: relative; text-align: left;
+        /* --- ESTILIZAÇÃO ESPECÍFICA PARA A SEÇÃO DE PREÇOS (VERDE) --- */
+        #planos {
+            /* Fundo sutilmente esverdeado para preparar para a compra */
+            background: radial-gradient(circle at center, rgba(0, 255, 111, 0.03), transparent 70%);
         }
-        .pricing-card.highlight { border-color: var(--cyan); background: rgba(6, 182, 212, 0.03); }
+
+        .pricing-card {
+            background: var(--bg-surface); 
+            /* Borda padrão */
+            border: 1px solid var(--glass-border); 
+            padding: 4rem; 
+            border-radius: 1rem; 
+            position: relative; 
+            text-align: left;
+            transition: var(--transition);
+        }
+        
+        /* Highlight agora é VERDE */
+        .pricing-card.highlight { 
+            border-color: var(--hotmart-green); 
+            background: linear-gradient(160deg, rgba(0, 255, 111, 0.05), rgba(0,0,0,0.8));
+            box-shadow: 0 0 30px rgba(0, 255, 111, 0.1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--hotmart-green);
+        }
+
         .price { font-size: 3.6rem; font-weight: 700; color: #fff; font-family: 'Space Grotesk'; margin: 2rem 0; }
         .check-list li { margin-bottom: 1rem; display: flex; gap: 1rem; color: #cbd5e1; }
+        
+        /* Ajuste do botão da Hotmart */
+        .hotmart-fb {
+            display: block;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .hotmart-fb img {
+            max-width: 100%;
+            border-radius: 5px;
+            transition: transform 0.2s;
+            box-shadow: 0 0 15px rgba(0, 255, 127, 0.2);
+        }
+        .hotmart-fb:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(0, 255, 127, 0.4);
+        }
 
         @media (max-width: 768px) {
             .btn { width: 100%; margin: 1rem 0 0 0; }
@@ -206,44 +250,46 @@
         <div class="container">
             <div style="text-align: center; margin-bottom: 5rem;">
                 <h2 style="font-size: 3.6rem;">Planos de Estudo</h2>
-                <p style="color: var(--text-muted);">Acesso completo à plataforma de aulas.</p>
+                <p style="color: var(--text-muted);">Escolha sua assinatura e libere o acesso imediato.</p>
             </div>
 
             <div class="grid-3" style="max-width: 90rem; margin: 0 auto; grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));">
                 
                 <div class="pricing-card">
                     <h3 style="font-size: 2.4rem;">Assinatura Mensal</h3>
-                    <p style="color: var(--text-muted);">Para quem quer flexibilidade.</p>
+                    <p style="color: var(--text-muted);">Renovação mês a mês.</p>
                     
                     <div class="price">R$ 79,90<span style="font-size: 1.6rem; color: var(--text-muted); font-weight: 400;">/mês</span></div>
                     
                     <ul class="check-list">
-                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Acesso a todas as videoaulas</li>
-                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Materiais de apoio em PDF</li>
-                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Acesso à comunidade</li>
-                        <li><i class="ph ph-check" style="color: var(--cyan)"></i> Renovação automática</li>
+                        <li><i class="ph ph-check" style="color: var(--hotmart-green)"></i> Acesso a todas as videoaulas</li>
+                        <li><i class="ph ph-check" style="color: var(--hotmart-green)"></i> Materiais de apoio em PDF</li>
+                        <li><i class="ph ph-check" style="color: var(--hotmart-green)"></i> Acesso à comunidade</li>
                     </ul>
 
-                    <a href="SEU_LINK_MENSAL_AQUI" class="btn btn-outline" style="width: 100%; margin: 2rem 0 0 0; color: #fff; border-color: rgba(255,255,255,0.3);">ASSINAR MENSAL</a>
+                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=zfqhowob" class="hotmart-fb hotmart__button-checkout">
+                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Mensal"/>
+                    </a>
                 </div>
 
                 <div class="pricing-card highlight">
-                    <span style="position: absolute; top: -1.2rem; right: 2rem; background: var(--cyan); color: #000; padding: 0.5rem 1.5rem; border-radius: 2rem; font-weight: 700; font-size: 1.2rem;">RECOMENDADO</span>
+                    <span style="position: absolute; top: -1.2rem; right: 2rem; background: var(--hotmart-green); color: #000; padding: 0.5rem 1.5rem; border-radius: 2rem; font-weight: 700; font-size: 1.2rem; box-shadow: 0 0 10px var(--hotmart-green);">RECOMENDADO</span>
                     
-                    <h3 style="font-size: 2.4rem; color: var(--cyan);">Assinatura Anual</h3>
+                    <h3 style="font-size: 2.4rem; color: var(--hotmart-green);">Assinatura Anual</h3>
                     <p style="color: var(--text-muted);">Compromisso com sua aprovação.</p>
                     
                     <div class="price">R$ 598,80<span style="font-size: 1.6rem; color: var(--text-muted); font-weight: 400;">/ano</span></div>
-                    <p style="font-size: 1.4rem; color: var(--text-muted); margin-top: -1.5rem; margin-bottom: 2rem;">Equivale a R$ 49,90/mês</p>
+                    <p style="font-size: 1.4rem; color: var(--hotmart-green); margin-top: -1.5rem; margin-bottom: 2rem;">Equivale a R$ 49,90/mês</p>
                     
                     <ul class="check-list">
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> <strong>12 meses de acesso irrestrito</strong></li>
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Economia de R$ 360,00</li>
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Todas as atualizações do curso</li>
-                        <li><i class="ph ph-check-circle" style="color: var(--cyan)"></i> Material didático completo</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--hotmart-green)"></i> <strong>12 meses de acesso irrestrito</strong></li>
+                        <li><i class="ph ph-check-circle" style="color: var(--hotmart-green)"></i> Economia de R$ 360,00</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--hotmart-green)"></i> Todas as atualizações do curso</li>
                     </ul>
 
-                    <a href="SEU_LINK_ANUAL_AQUI" class="btn btn-primary" style="width: 100%; margin: 2rem 0 0 0;">QUERO O PLANO ANUAL</a>
+                    <a onclick="return false;" href="https://pay.hotmart.com/R103708180P?checkoutMode=2&off=7l5gkazx" class="hotmart-fb hotmart__button-checkout">
+                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Assinar Anual"/>
+                    </a>
                 </div>
 
             </div>
