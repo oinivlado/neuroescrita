@@ -5,256 +5,288 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Prof. Coutinho</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Correção de redação, mentorias de Linguagens e Redação, aulas particulares e materiais para ENEM, UEMA, vestibulares e concursos. Tudo online.">
+<meta name="description" content="Correção de redação, mentorias de Linguagens e Redação, aulas particulares e o Kit Linguagens UEMA 2027. Tudo online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
-/* Layout: página única de link da bio, coluna estreita, como uma folha de redação pautada com marcações de caneta de correção */
+/* Layout: colagem de papel pautado com recortes, etiquetas vinho e anotações de caneta, coluna única pensada para o link da bio */
 :root {
-  --paper: #f6f7fa;
-  --sheet: #ffffff;
-  --ink: #18223d;
-  --ink-soft: #4a5470;
-  --rule: #dfe3ec;
-  --pen: #b4263e;
-  --pen-soft: #f6e4e7;
-  --line-blue: #c9d6ee;
-  --font-display: "Gloock", "Georgia", "Times New Roman", serif;
-  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --paper: #faf8f5;
+  --card: #ffffff;
+  --ink: #0e0d0f;
+  --ink-soft: #57535c;
+  --rule: #e6e1da;
+  --vinho: #a63d54;
+  --vinho-soft: #f4e3e6;
+  --mark: #f3e27a;
+  --font-display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --font-body: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-hand: "Caveat", "Comic Sans MS", cursive;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0e1424; --sheet: #151d33; --ink: #e8ebf4; --ink-soft: #a6aec4;
-    --rule: #26304a; --pen: #ff8193; --pen-soft: #3a1c26; --line-blue: #23304f;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0e1424; --sheet: #151d33; --ink: #e8ebf4; --ink-soft: #a6aec4;
-  --rule: #26304a; --pen: #ff8193; --pen-soft: #3a1c26; --line-blue: #23304f;
-  color-scheme: dark;
-}
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.6;
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 body::before {
-  content: ""; position: fixed; inset: 0 0 auto;
-  height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper);
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper);
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 1.02; letter-spacing: -.02em; text-wrap: balance; margin: 0; }
 p { margin: 0; }
-:focus-visible { outline: 2px solid var(--pen); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 3px solid var(--vinho); outline-offset: 3px; border-radius: 6px; }
 
 .wrap {
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 620px; margin: 0 auto;
   padding-left: max(18px, env(safe-area-inset-left, 0px));
   padding-right: max(18px, env(safe-area-inset-right, 0px));
 }
+.lined {
+  background-image: repeating-linear-gradient(to bottom, transparent 0 33px, var(--rule) 33px 34px);
+}
+
+/* Etiqueta vinho torta, como recorte colado */
+.label {
+  display: inline-block; background: var(--vinho); color: #fff; font-family: var(--font-display); font-weight: 800;
+  padding: .08em .32em .14em; line-height: 1; transform: rotate(-2deg);
+}
+.label.dark { background: var(--ink); transform: rotate(1.5deg); }
+.hl { background: linear-gradient(transparent 55%, var(--mark) 55% 92%, transparent 92%); padding: 0 .1em; }
+.hand { font-family: var(--font-hand); color: var(--vinho); font-weight: 700; line-height: 1; }
 
 /* ---------- Topo ---------- */
-.hero {
-  padding-block: 48px 28px;
-  background:
-    repeating-linear-gradient(to bottom, transparent 0 31px, var(--line-blue) 31px 32px);
-  background-position: 0 14px;
-  border-bottom: 1px solid var(--rule);
-  position: relative;
+.hero { padding-block: 36px 30px; position: relative; overflow: hidden; border-bottom: 2px solid var(--ink); }
+.hero-top { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: .9rem; letter-spacing: .02em; }
+.hero-top span:last-child { color: var(--ink-soft); font-weight: 600; }
+.hero-top::after { content: none; }
+.rule-line { flex: 1; height: 2px; background: var(--ink); margin-inline: 12px; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 26px; position: relative; }
+.hero h1 { font-size: clamp(3rem, 15vw, 5.4rem); position: relative; z-index: 2; }
+.hero h1 .label { font-size: .62em; margin-top: 6px; }
+.photo-wrap { position: relative; margin-top: -40px; margin-inline: auto; width: min(340px, 82%); z-index: 1; }
+.photo-wrap img { filter: drop-shadow(8px 8px 0 var(--vinho)); }
+.note-1 { position: absolute; left: -6px; top: 42%; font-size: 1.6rem; transform: rotate(-8deg); z-index: 3; text-align: left; }
+.note-1 svg { display: block; margin: 4px 0 0 34px; }
+.note-2 {
+  position: absolute; right: -4px; bottom: 16%; z-index: 3; background: var(--mark); color: var(--ink);
+  font-weight: 800; font-size: .95rem; padding: 6px 10px; border: 2px solid var(--ink); transform: rotate(4deg); line-height: 1.15; text-align: center;
 }
-.hero::before {
-  content: ""; position: absolute; top: 0; bottom: 0;
-  left: max(28px, calc(50% - 300px)); width: 1px; background: var(--pen); opacity: .45;
-}
-.hero .wrap { display: grid; gap: 22px; justify-items: center; text-align: center; position: relative; }
-.avatar {
-  width: 132px; height: 132px; border-radius: 50%; object-fit: cover; object-position: 50% 18%;
-  border: 4px solid var(--sheet); box-shadow: 0 6px 24px rgba(24, 34, 61, .16);
-}
-.hero h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
-.hero .lead { color: var(--ink-soft); max-width: 30ch; font-size: 1.1rem; }
-.hero .lead strong { color: var(--ink); font-weight: 600; }
-.tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.tag {
-  font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-  padding: 5px 11px; border-radius: 999px; background: var(--sheet); border: 1px solid var(--rule); color: var(--ink-soft);
-}
-.note {
-  font-family: var(--font-hand); color: var(--pen); font-size: 1.45rem; line-height: 1; transform: rotate(-3deg);
-}
+.hero .lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 34ch; margin-top: 18px; }
+.hero .lead strong { color: var(--ink); }
 
-/* Botões de link da bio */
-.links { display: grid; gap: 10px; width: 100%; margin-top: 4px; }
+.links { display: grid; gap: 10px; margin-top: 24px; }
 .link {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 16px 18px; border-radius: 14px; text-decoration: none; text-align: left;
-  background: var(--sheet); border: 1px solid var(--rule); font-weight: 600; font-size: 1.05rem;
-  transition: transform .2s, border-color .2s;
+  padding: 15px 18px; text-decoration: none; background: var(--card); border: 2px solid var(--ink);
+  font-weight: 800; font-size: 1.08rem; box-shadow: 4px 4px 0 var(--ink); transition: transform .15s, box-shadow .15s;
 }
-.link small { display: block; font-weight: 400; color: var(--ink-soft); font-size: .88rem; }
-.link:hover { transform: translateY(-2px); border-color: var(--ink-soft); }
-.link .arrow { color: var(--pen); font-size: 1.3rem; flex-shrink: 0; }
-.link.main { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.link.main small { color: var(--paper); opacity: .75; }
-.link.main .arrow { color: var(--paper); }
+.link small { display: block; font-weight: 400; color: var(--ink-soft); font-size: .9rem; }
+.link:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.link:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.link .arrow { font-size: 1.4rem; flex-shrink: 0; }
+.link.main { background: var(--vinho); color: #fff; }
+.link.main small { color: #fff; opacity: .85; }
 
 /* ---------- Navegação ---------- */
-.nav {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--rule);
-}
-.nav .wrap { display: flex; gap: 6px; padding-block: 10px; overflow-x: auto; scrollbar-width: none; }
-.nav a {
-  flex-shrink: 0; text-decoration: none; font-weight: 600; font-size: .95rem;
-  padding: 8px 14px; border-radius: 999px; color: var(--ink-soft);
-}
-.nav a:hover { color: var(--ink); background: var(--sheet); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--ink); }
+.nav .wrap { display: flex; gap: 4px; padding-block: 8px; overflow-x: auto; scrollbar-width: none; }
+.nav a { flex-shrink: 0; text-decoration: none; font-weight: 600; font-size: .95rem; padding: 7px 12px; color: var(--paper); border-radius: 4px; }
+.nav a:hover { background: var(--vinho); }
 
 /* ---------- Seções ---------- */
-section { padding-block: 52px; border-bottom: 1px solid var(--rule); scroll-margin-top: 60px; }
-.eyebrow {
-  font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--pen);
-  margin-bottom: 10px;
-}
-.sec-title { font-size: clamp(1.9rem, 7vw, 2.4rem); margin-bottom: 12px; }
-.sec-lead { color: var(--ink-soft); margin-bottom: 28px; max-width: 58ch; }
-.stack { display: grid; gap: 18px; }
+section { padding-block: 56px; border-bottom: 2px solid var(--ink); scroll-margin-top: 52px; }
+.kicker { font-family: var(--font-hand); font-size: 1.7rem; color: var(--vinho); margin-bottom: 4px; transform: rotate(-2deg); display: inline-block; }
+.sec-title { font-size: clamp(2.2rem, 10vw, 3.2rem); margin-bottom: 14px; }
+.sec-lead { color: var(--ink-soft); margin-bottom: 30px; max-width: 54ch; font-size: 1.08rem; }
+.stack { display: grid; gap: 22px; }
 
-.card {
-  background: var(--sheet); border: 1px solid var(--rule); border-radius: 18px; padding: 24px 22px;
-  display: grid; gap: 16px; min-width: 0;
+.box {
+  background: var(--card); border: 2px solid var(--ink); padding: 24px 20px; display: grid; gap: 16px; min-width: 0;
 }
-.card h3 { font-size: 1.55rem; }
-.card p { color: var(--ink-soft); }
-.card.featured { border: 2px solid var(--ink); }
+.box h3 { font-size: 1.65rem; }
+.box > p { color: var(--ink-soft); }
+.box.shadow { box-shadow: 6px 6px 0 var(--ink); }
+.box.red { box-shadow: 6px 6px 0 var(--vinho); }
 
 .slots {
-  display: inline-flex; align-items: center; gap: 8px; justify-self: start;
-  font-size: .9rem; font-weight: 600; padding: 6px 12px; border-radius: 999px;
-  background: var(--pen-soft); color: var(--pen);
+  justify-self: start; display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 800; font-size: .92rem; padding: 6px 12px; background: var(--vinho-soft); color: var(--vinho); border: 1.5px solid var(--vinho);
 }
-.slots::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.slots i { width: 9px; height: 9px; border-radius: 50%; background: currentColor; animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
 
-.checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.checks li { display: flex; gap: 10px; align-items: flex-start; }
-.checks li::before { content: "✓"; color: var(--pen); font-weight: 700; flex-shrink: 0; }
+.checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+.checks li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; }
+.checks li::before { content: "✓"; color: var(--vinho); font-weight: 800; }
 
-.prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-.price {
-  border: 1px dashed var(--rule); border-radius: 12px; padding: 14px; display: grid; gap: 2px;
-}
-.price span { font-size: .85rem; color: var(--ink-soft); }
-.price strong { font-family: var(--font-display); font-weight: 400; font-size: 1.8rem; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.price em { font-style: normal; font-size: .85rem; color: var(--ink-soft); }
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.price { border: 2px solid var(--ink); padding: 12px 10px; display: grid; gap: 2px; text-align: center; background: var(--paper); position: relative; }
+.price span { font-size: .82rem; font-weight: 600; color: var(--ink-soft); }
+.price strong { font-family: var(--font-display); font-weight: 800; font-size: 1.55rem; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.price em { font-style: normal; font-size: .78rem; color: var(--ink-soft); }
+.price.best { background: var(--ink); color: var(--paper); }
+.price.best span, .price.best em { color: var(--paper); opacity: .8; }
+.price .tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-3deg); background: var(--mark); color: var(--ink); font-size: .7rem; font-weight: 800; padding: 2px 6px; border: 1.5px solid var(--ink); white-space: nowrap; }
+@media (max-width: 400px) { .prices { grid-template-columns: 1fr; } .price { text-align: left; grid-template-columns: 1fr auto; align-items: center; } .price strong { grid-row: span 2; } }
 
 .btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  width: 100%; padding: 15px 20px; border-radius: 12px; text-decoration: none;
-  font-weight: 700; font-size: 1rem; border: 2px solid var(--ink); cursor: pointer;
-  transition: transform .2s, background .2s, color .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  padding: 15px 18px; text-decoration: none; font-weight: 800; font-size: 1.05rem; cursor: pointer;
+  border: 2px solid var(--ink); background: var(--ink); color: var(--paper);
+  box-shadow: 4px 4px 0 var(--vinho); transition: transform .15s, box-shadow .15s; text-align: center;
 }
-.btn:hover { transform: translateY(-2px); }
-.btn-solid { background: var(--ink); color: var(--paper); }
-.btn-line { background: transparent; color: var(--ink); }
-.btn-line:hover { background: var(--ink); color: var(--paper); }
-.wa { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--vinho); }
+.btn.alt { background: var(--card); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+.btn.red { background: var(--vinho); border-color: var(--vinho); color: #fff; box-shadow: 4px 4px 0 var(--ink); }
+.wa { width: 19px; height: 19px; fill: currentColor; flex-shrink: 0; }
 
 /* Passo a passo */
-.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: s; }
-.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; counter-increment: s; }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 46px 1fr; gap: 14px; counter-increment: s; position: relative; padding-bottom: 22px; }
+.steps li:last-child { padding-bottom: 0; }
 .steps li::before {
-  content: counter(s); width: 34px; height: 34px; border-radius: 50%;
-  display: grid; place-items: center; font-family: var(--font-display); font-size: 1.1rem;
-  border: 1.5px solid var(--pen); color: var(--pen);
+  content: counter(s); width: 46px; height: 46px; display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; background: var(--vinho); color: #fff; border: 2px solid var(--ink);
 }
-.steps b { display: block; }
-.steps span { color: var(--ink-soft); font-size: .97rem; }
+.steps li:not(:last-child)::after { content: ""; position: absolute; left: 22px; top: 50px; bottom: 4px; border-left: 2px dashed var(--ink); }
+.steps b { display: block; font-size: 1.12rem; }
+.steps span { color: var(--ink-soft); font-size: .98rem; }
 
-.aside {
-  border-left: 3px solid var(--pen); padding: 4px 0 4px 16px; color: var(--ink-soft);
-}
-.aside b { color: var(--ink); }
+/* Ficha de exemplo */
+.ficha { background: var(--card); border: 2px solid var(--ink); position: relative; transform: rotate(-.6deg); box-shadow: 6px 6px 0 var(--ink); }
+.ficha-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 16px; background: var(--ink); color: var(--paper); font-weight: 800; }
+.ficha-head small { font-weight: 600; opacity: .75; }
+.ficha-body { padding: 16px; display: grid; gap: 14px; }
+.comp { display: grid; grid-template-columns: 34px 1fr 40px; align-items: center; gap: 10px; font-size: .92rem; }
+.comp b { font-family: var(--font-display); }
+.bar { height: 10px; background: var(--rule); position: relative; }
+.bar i { position: absolute; inset: 0 auto 0 0; background: var(--vinho); }
+.comp span:last-child { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.total { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid var(--ink); padding-top: 10px; }
+.total strong { font-family: var(--font-display); font-size: 2.2rem; color: var(--vinho); line-height: 1; }
+.codes { display: flex; flex-wrap: wrap; gap: 6px; }
+.code { font-size: .8rem; border: 1.5px solid var(--ink); padding: 2px 7px; background: var(--paper); }
+.code b { color: var(--vinho); }
+.next { background: var(--vinho-soft); padding: 12px; font-size: .92rem; display: grid; gap: 6px; }
+.next b { color: var(--vinho); }
+.stamp { position: absolute; right: -8px; top: -16px; background: var(--mark); border: 2px solid var(--ink); font-weight: 800; font-size: .8rem; padding: 3px 8px; transform: rotate(6deg); }
 
-/* Expansível de mentoria */
-details { border-top: 1px solid var(--rule); padding-top: 14px; }
-summary {
-  cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px;
-}
-summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; font-size: 1.4rem; color: var(--pen); line-height: 1; }
-details[open] summary::after { content: "−"; }
-details .inner { display: grid; gap: 12px; padding-top: 14px; color: var(--ink-soft); }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.fact { border: 2px solid var(--ink); padding: 12px 8px; text-align: center; background: var(--card); }
+.fact strong { display: block; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.05; color: var(--vinho); }
+.fact span { font-size: .8rem; color: var(--ink-soft); font-weight: 600; }
 
-/* Produto */
-.product { padding: 0; overflow: hidden; gap: 0; }
-.product .cover {
-  background: var(--ink); color: var(--paper); padding: 28px 22px; display: grid; gap: 6px;
+/* Mentorias: escada */
+.ladder { display: grid; gap: 18px; }
+.tier { background: var(--card); border: 2px solid var(--ink); padding: 22px 20px; display: grid; gap: 14px; position: relative; }
+.tier .step-tag { font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.tier h3 { font-size: 1.6rem; }
+.tier .cost { display: flex; align-items: baseline; gap: 6px; }
+.tier .cost strong { font-family: var(--font-display); font-size: 2rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.tier .cost span { color: var(--ink-soft); font-size: .92rem; }
+.tier.top { background: var(--ink); color: var(--paper); box-shadow: 6px 6px 0 var(--vinho); }
+.tier.top .step-tag, .tier.top .cost span, .tier.top p { color: var(--paper); opacity: .85; }
+.tier.top .checks li::before { color: var(--mark); }
+.tier.top .btn { background: var(--vinho); border-color: var(--paper); box-shadow: 4px 4px 0 var(--paper); }
+.tier .ribbon { position: absolute; top: -14px; right: 14px; }
+
+.week { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.week div { border: 2px solid var(--ink); padding: 10px 6px; text-align: center; font-size: .82rem; background: var(--card); }
+.week b { display: block; font-family: var(--font-display); font-size: 1rem; }
+.week div.on { background: var(--vinho); color: #fff; }
+@media (max-width: 400px) { .week { grid-template-columns: repeat(2, 1fr); } }
+
+/* Kit */
+.kit { background: var(--ink); color: var(--paper); border-bottom: 2px solid var(--ink); }
+.kit .kicker { color: var(--mark); }
+.kit .sec-lead { color: #cfcad4; }
+.mock { position: relative; height: 270px; margin: 6px auto 26px; width: min(360px, 100%); }
+.book {
+  position: absolute; width: 58%; aspect-ratio: 3 / 4; max-width: 100%; border: 2px solid var(--paper); padding: 14px 12px;
+  display: flex; flex-direction: column; justify-content: space-between; box-shadow: 6px 6px 0 rgba(0,0,0,.35);
 }
-.product .cover small { letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; opacity: .7; font-weight: 700; }
-.product .cover h3 { font-size: 1.9rem; }
-.product .body { padding: 22px; display: grid; gap: 16px; }
-.hotmart-fb.hotmart__button-checkout { all: unset; box-sizing: border-box; }
-.product .buy {
-  display: flex !important; align-items: center; justify-content: center; width: 100%;
-  padding: 15px 20px !important; border-radius: 12px !important; cursor: pointer;
-  background: var(--pen) !important; color: #fff !important; font: 700 1rem var(--font-body) !important;
-  text-align: center; text-decoration: none;
+.book small { font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+.book strong { font-family: var(--font-display); font-size: 1.35rem; line-height: 1; }
+.book .by { font-size: .7rem; font-weight: 600; opacity: .8; }
+.b1 { left: 0; top: 30px; background: var(--paper); color: var(--ink); transform: rotate(-8deg); }
+.b2 { right: 0; top: 24px; background: var(--mark); color: var(--ink); transform: rotate(7deg); }
+.b3 { left: 21%; top: 0; background: var(--vinho); color: #fff; transform: rotate(-1deg); z-index: 2; }
+.b3 strong { font-size: 1.7rem; }
+.obras { display: flex; flex-wrap: wrap; gap: 8px; }
+.obra { border: 1.5px solid var(--paper); padding: 4px 10px; font-weight: 600; font-size: .92rem; }
+.kit .checks li::before { color: var(--mark); }
+.kit-box { border: 2px solid var(--paper); padding: 22px 20px; display: grid; gap: 18px; }
+.kit-price { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.kit-price strong { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; }
+.kit-price span { font-size: .9rem; color: #cfcad4; }
+.buy, .hotmart-fb.hotmart__button-checkout.buy {
+  display: flex !important; align-items: center; justify-content: center; width: 100%; box-sizing: border-box;
+  padding: 17px 18px !important; cursor: pointer; text-decoration: none; text-align: center;
+  background: var(--mark) !important; color: var(--ink) !important; border: 2px solid var(--paper) !important;
+  font: 800 1.12rem var(--font-body) !important; box-shadow: 5px 5px 0 var(--vinho) !important; border-radius: 0 !important;
 }
-.product .buy img { display: none; }
+.buy img { display: none !important; }
+.safe { font-size: .85rem; color: #cfcad4; text-align: center; }
+
+/* Barra fixa de compra do kit */
+.buybar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--vinho); color: #fff;
+  padding: 10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 2px solid var(--ink);
+  transform: translateY(110%); transition: transform .3s;
+}
+.buybar.show { transform: none; }
+.buybar p { font-weight: 800; line-height: 1.15; font-size: .98rem; }
+.buybar p small { display: block; font-weight: 400; opacity: .85; font-size: .82rem; }
+.buybar a { flex-shrink: 0; background: var(--mark); color: var(--ink); font-weight: 800; padding: 10px 14px; text-decoration: none; border: 2px solid var(--ink); }
 
 /* FAQ */
-.faq { display: grid; gap: 0; }
-.faq details { padding-block: 14px; }
-.faq details:last-child { border-bottom: 1px solid var(--rule); }
+.faq details { border-top: 2px solid var(--ink); padding-block: 15px; }
+.faq details:last-child { border-bottom: 2px solid var(--ink); }
+summary { cursor: pointer; font-weight: 800; font-size: 1.08rem; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: var(--vinho); }
+details[open] summary::after { content: "−"; }
+details p { color: var(--ink-soft); padding-top: 10px; }
 
-footer { padding-block: 40px 56px; text-align: center; color: var(--ink-soft); font-size: .95rem; }
-footer .sig { font-family: var(--font-hand); font-size: 2rem; color: var(--ink); line-height: 1; margin-bottom: 8px; }
-footer a { color: var(--pen); font-weight: 600; text-decoration: none; }
+footer { padding-block: 44px 110px; text-align: center; }
+footer .sig { font-family: var(--font-hand); font-size: 2.4rem; color: var(--vinho); line-height: 1; margin-bottom: 8px; }
+footer p { color: var(--ink-soft); }
+footer a { color: var(--ink); font-weight: 800; }
 </style>
 </head>
 <body>
 
-<header class="hero">
+<header class="hero lined">
   <div class="wrap">
-    <img class="avatar" src="perfil.jpg" alt="Foto do Prof. Coutinho" width="132" height="132">
-    <div class="stack" style="gap:12px; justify-items:center">
-      <h1>Prof. Coutinho</h1>
-      <p class="lead">Redação e Linguagens com <strong>correção de verdade</strong> e acompanhamento individual. <strong>Tudo online.</strong></p>
+    <div class="hero-top"><span>PROF. COUTINHO</span><span class="rule-line"></span><span>@profecoutinho</span></div>
+    <div class="hero-grid">
+      <h1>Prof.<br>Coutinho<br><span class="label">Redação &amp; Linguagens</span></h1>
+      <div class="photo-wrap">
+        <img src="foto-recorte.webp" alt="Prof. Coutinho de braços cruzados, sorrindo" width="646" height="748">
+        <p class="hand note-1">+8 anos<br>de sala
+          <svg width="60" height="34" viewBox="0 0 60 34" fill="none" aria-hidden="true"><path d="M2 4c16 2 30 10 48 24" stroke="#a63d54" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/><path d="M42 28l9 1-3-9" stroke="#a63d54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </p>
+        <p class="note-2">ENEM · UEMA<br>vestibulares<br>concursos</p>
+      </div>
     </div>
-    <div class="tags">
-      <span class="tag">ENEM</span><span class="tag">UEMA</span><span class="tag">Vestibulares</span><span class="tag">Concursos</span>
-    </div>
-    <p class="note">+8 anos de sala de aula</p>
+    <p class="lead">Correção de redação, mentoria e aulas para quem quer <strong>parar de chutar</strong> e entender o que a prova cobra. <strong>Tudo online.</strong></p>
 
     <nav class="links" aria-label="Atalhos">
-      <a class="link main" href="#correcao">
-        <span>Correção de redação<small>Corrigida e comentada por escrito</small></span><span class="arrow">→</span>
-      </a>
-      <a class="link" href="#mentorias">
-        <span>Mentorias<small>Questões de Linguagens ou Redação</small></span><span class="arrow">→</span>
-      </a>
-      <a class="link" href="#aulas">
-        <span>Aulas particulares<small>Ao vivo, no seu horário</small></span><span class="arrow">→</span>
-      </a>
-      <a class="link" href="#materiais">
-        <span>Materiais<small>Preparação para a UEMA</small></span><span class="arrow">→</span>
-      </a>
+      <a class="link main" href="#correcao"><span>Correção de redação<small>Devolvida em até 5 dias úteis</small></span><span class="arrow">→</span></a>
+      <a class="link" href="#mentorias"><span>Mentorias<small>Acompanhamento até a prova</small></span><span class="arrow">→</span></a>
+      <a class="link" href="#kit"><span>Kit Linguagens UEMA 2027<small>155 questões das obras do PAES</small></span><span class="arrow">→</span></a>
+      <a class="link" href="#aulas"><span>Aulas particulares<small>Ao vivo, no seu horário</small></span><span class="arrow">→</span></a>
     </nav>
   </div>
 </header>
@@ -263,8 +295,8 @@ footer a { color: var(--pen); font-weight: 600; text-decoration: none; }
   <div class="wrap">
     <a href="#correcao">Correção</a>
     <a href="#mentorias">Mentorias</a>
+    <a href="#kit">Kit UEMA</a>
     <a href="#aulas">Aulas</a>
-    <a href="#materiais">Materiais</a>
     <a href="#duvidas">Dúvidas</a>
   </div>
 </nav>
@@ -273,163 +305,219 @@ footer a { color: var(--pen); font-weight: 600; text-decoration: none; }
 
   <!-- CORREÇÃO -->
   <section id="correcao">
-    <div class="wrap">
-      <p class="eyebrow">Correção de redação</p>
-      <h2 class="sec-title">Seu texto corrigido linha por linha.</h2>
-      <p class="sec-lead">Você manda a redação e recebe o texto marcado e comentado por escrito, competência por competência, com a nota estimada e o que fazer para subir na próxima.</p>
+    <div class="wrap stack">
+      <div>
+        <p class="kicker">correção de redação</p>
+        <h2 class="sec-title">Sua redação <span class="hl">corrigida</span>, com nota e caminho.</h2>
+        <p class="sec-lead">Para ENEM e UEMA. Você recebe o texto marcado e uma ficha com a nota de cada competência e o que treinar na próxima.</p>
+      </div>
 
-      <div class="stack">
-        <article class="card featured">
-          <span class="slots" id="vagas">Vagas desta semana: <span data-cfg="vagas"></span></span>
-          <h3>Correção ENEM e UEMA</h3>
-          <ul class="checks">
-            <li>Marcações direto no seu texto</li>
-            <li>Comentário por competência e nota estimada</li>
-            <li>Sugestões concretas de reescrita</li>
-            <li>Envio por foto ou PDF, pelo WhatsApp</li>
-          </ul>
-          <div class="prices">
-            <div class="price"><span>Avulsa</span><strong data-cfg="avulsa"></strong><em>por redação</em></div>
-            <div class="price"><span>Pacote com 4</span><strong data-cfg="pacote4"></strong><em data-cfg="pacote4Obs"></em></div>
-          </div>
-          <a class="btn btn-solid" data-wa="Olá, professor! Quero contratar a *Correção de redação ENEM/UEMA*. Ainda tem vaga esta semana?">
-            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
-            Garantir minha correção
-          </a>
-        </article>
+      <div class="facts">
+        <div class="fact"><strong>5 dias</strong><span>úteis para devolver</span></div>
+        <div class="fact"><strong>3 meses</strong><span>para usar o pacote</span></div>
+        <div class="fact"><strong>C1 a C5</strong><span>nota por competência</span></div>
+      </div>
 
-        <article class="card">
-          <h3>Outro vestibular ou concurso?</h3>
-          <p>Cada banca cobra de um jeito. Me conte qual prova você vai fazer e eu corrijo seguindo os critérios do seu edital.</p>
-          <a class="btn btn-line" data-wa="Olá, professor! Preciso de *correção de redação para outro vestibular/concurso*. A prova é: ">
-            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
-            Pedir orçamento
-          </a>
-        </article>
-
-        <div class="card">
-          <h3>Como funciona</h3>
-          <ol class="steps">
-            <li><div><b>Garanta sua vaga</b><span>As correções são limitadas por semana para manter a qualidade.</span></div></li>
-            <li><div><b>Pague por Pix ou cartão</b><span>Avulsa no dia do envio, pacote antecipado.</span></div></li>
-            <li><div><b>Envie sua redação</b><span>Foto nítida ou PDF, direto no WhatsApp.</span></div></li>
-            <li><div><b>Receba a correção</b><span>Texto marcado e comentado, pronto para você reescrever.</span></div></li>
-          </ol>
+      <div class="box shadow">
+        <span class="slots"><i></i><span id="vagasTxt">Vagas desta semana: <b data-cfg="vagas"></b></span></span>
+        <h3>Escolha seu pacote</h3>
+        <div class="prices">
+          <div class="price"><span>Avulsa</span><strong data-cfg="avulsa"></strong><em>1 redação</em></div>
+          <div class="price"><span>Pacote 4</span><strong data-cfg="pacote4"></strong><em data-cfg="pacote4Obs"></em></div>
+          <div class="price best"><b class="tag">mais em conta</b><span>Pacote 8</span><strong data-cfg="pacote8"></strong><em data-cfg="pacote8Obs"></em></div>
         </div>
+        <a class="btn" data-buy="correcao" data-wa="Olá, professor! Quero comprar *correção de redação ENEM/UEMA*. Qual pacote: ">
+          <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero minha correção
+        </a>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.6rem; margin-bottom:18px">Como funciona</h3>
+        <ol class="steps">
+          <li><div><b>Compre seu pacote</b><span>Pix ou cartão. Assim que o pagamento cai, você recebe o link para enviar suas redações.</span></div></li>
+          <li><div><b>Envie a redação</b><span>Pelo formulário: seu nome, WhatsApp, o tema e uma foto nítida ou PDF do texto. As vagas são limitadas por semana; se fechou, você envia na seguinte.</span></div></li>
+          <li><div><b>Eu corrijo</b><span>Marco os problemas direto no texto, com códigos simples, e preencho sua ficha de nota.</span></div></li>
+          <li><div><b>Você recebe no WhatsApp</b><span>Em até 5 dias úteis: o texto marcado e a ficha, como esta aqui embaixo.</span></div></li>
+        </ol>
+      </div>
+
+      <div>
+        <p class="kicker" style="margin-bottom:12px">é isso que você recebe ↓</p>
+        <div class="ficha">
+          <span class="stamp">EXEMPLO</span>
+          <div class="ficha-head"><span>Ficha de correção</span><small>Tema: exemplo ENEM</small></div>
+          <div class="ficha-body">
+            <div class="comp"><b>C1</b><div class="bar"><i style="width:80%"></i></div><span>160</span></div>
+            <div class="comp"><b>C2</b><div class="bar"><i style="width:60%"></i></div><span>120</span></div>
+            <div class="comp"><b>C3</b><div class="bar"><i style="width:80%"></i></div><span>160</span></div>
+            <div class="comp"><b>C4</b><div class="bar"><i style="width:70%"></i></div><span>140</span></div>
+            <div class="comp"><b>C5</b><div class="bar"><i style="width:60%"></i></div><span>120</span></div>
+            <div class="total"><b>Nota estimada</b><strong>700</strong></div>
+            <div>
+              <p style="font-size:.85rem; font-weight:800; margin-bottom:6px">Códigos marcados no seu texto</p>
+              <div class="codes">
+                <span class="code"><b>CO</b> concordância</span><span class="code"><b>PT</b> pontuação</span><span class="code"><b>CS</b> coesão</span><span class="code"><b>RP</b> repertório</span><span class="code"><b>PI</b> proposta incompleta</span>
+              </div>
+            </div>
+            <div class="next">
+              <b>Para a próxima redação</b>
+              <span>• Seu repertório aparece, mas não conversa com a tese. Amarre ele ao argumento.</span>
+              <span>• Proposta sem detalhamento: diga o meio e a finalidade da ação.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box red">
+        <h3>Vai fazer outro vestibular ou concurso?</h3>
+        <p>Cada banca tem critérios próprios. Me diga qual é a sua prova e eu te passo valores e prazos para a correção seguir o seu edital.</p>
+        <a class="btn alt" data-wa="Olá, professor! Preciso de *correção de redação para outro vestibular/concurso*. A prova é: ">
+          <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Falar sobre minha prova
+        </a>
       </div>
     </div>
   </section>
 
   <!-- MENTORIAS -->
-  <section id="mentorias">
-    <div class="wrap">
-      <p class="eyebrow">Mentorias</p>
-      <h2 class="sec-title">Alguém olhando para a sua evolução.</h2>
-      <p class="sec-lead">Na mentoria eu acompanho você de perto: descubro onde está o problema, digo o que estudar e mostro como você está evoluindo ao longo do tempo.</p>
+  <section id="mentorias" class="lined">
+    <div class="wrap stack">
+      <div>
+        <p class="kicker">mentorias</p>
+        <h2 class="sec-title">Alguém de olho na sua <span class="hl">evolução</span> até a prova.</h2>
+        <p class="sec-lead">Para Linguagens (questões) ou Redação. Eu descubro onde você erra, digo o que estudar e acompanho seu progresso semana a semana.</p>
+      </div>
 
-      <div class="stack">
-        <article class="card">
-          <h3>Mentoria de questões de Linguagens</h3>
-          <p>Para quem resolve questões, estuda, mas continua errando sem saber exatamente por quê.</p>
-          <details>
-            <summary>Como é a mentoria</summary>
-            <div class="inner">
-              <ul class="checks">
-                <li>Diagnóstico do que você precisa estudar de verdade</li>
-                <li>Análise dos seus erros: onde e por que você está errando</li>
-                <li>Mapa dos tipos de questão que mais derrubam você</li>
-                <li>Acompanhamento da sua evolução semana a semana</li>
-                <li>Explicação pontual de conceitos e indicação de aulas que vão te ajudar</li>
-                <li>Retorno em áudio e encontros por chamada</li>
-              </ul>
-            </div>
-          </details>
-          <a class="btn btn-solid" data-wa="Olá, professor! Quero saber mais sobre a *Mentoria de questões de Linguagens*.">
-            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
-            Quero essa mentoria
+      <div>
+        <h3 style="font-size:1.35rem; margin-bottom:12px">Um mês de mentoria</h3>
+        <div class="week">
+          <div class="on"><b>Sem. 1</b>tarefa + chamada</div>
+          <div><b>Sem. 2</b>tarefa + áudio</div>
+          <div class="on"><b>Sem. 3</b>tarefa + chamada</div>
+          <div><b>Sem. 4</b>tarefa + relatório</div>
+        </div>
+        <p style="color:var(--ink-soft); font-size:.95rem; margin-top:10px">A cada tarefa você registra o motivo de cada erro (interpretação, conteúdo, gramática, distração ou tempo). É assim que a gente mede a sua evolução.</p>
+      </div>
+
+      <div class="ladder">
+        <article class="tier">
+          <p class="step-tag">Para começar</p>
+          <h3>Sessão Diagnóstico</h3>
+          <div class="cost"><strong data-cfg="diagnostico"></strong><span>encontro único</span></div>
+          <ul class="checks">
+            <li>Você faz um simulado de Linguagens ou manda 2 redações antes</li>
+            <li>Chamada de 1 hora: onde você erra e por quê</li>
+            <li>Plano de estudo por escrito para seguir sozinho</li>
+            <li>Se fechar a mensal depois, o valor vira desconto</li>
+          </ul>
+          <a class="btn alt" data-wa="Olá, professor! Quero agendar uma *Sessão Diagnóstico*. Meu foco é (Linguagens ou Redação): ">
+            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Agendar diagnóstico
           </a>
         </article>
 
-        <article class="card">
-          <h3>Mentoria de redação</h3>
-          <p>Para quem quer um acompanhamento contínuo, e não só uma correção solta.</p>
-          <details>
-            <summary>Como é a mentoria</summary>
-            <div class="inner">
-              <ul class="checks">
-                <li>Diagnóstico das suas redações e do seu nível atual</li>
-                <li>Plano com o que treinar e em que ordem</li>
-                <li>Correções acompanhadas, com retorno em áudio</li>
-                <li>Registro da sua evolução de nota ao longo do tempo</li>
-                <li>Explicação pontual de conceitos, repertório e estrutura</li>
-                <li>Encontros por chamada para tirar dúvidas</li>
-              </ul>
-            </div>
-          </details>
-          <a class="btn btn-solid" data-wa="Olá, professor! Quero saber mais sobre a *Mentoria de redação*.">
-            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
-            Quero essa mentoria
+        <article class="tier">
+          <p class="step-tag">Mês a mês</p>
+          <h3>Mentoria Mensal</h3>
+          <div class="cost"><strong data-cfg="mensal"></strong><span>por mês</span></div>
+          <ul class="checks">
+            <li>Diagnóstico inicial incluso</li>
+            <li>Uma tarefa por semana: questões ou redação</li>
+            <li>Chamada de 1 hora a cada 15 dias</li>
+            <li>Dúvidas por áudio no WhatsApp entre as chamadas</li>
+            <li>Relatório de evolução no fim do mês</li>
+          </ul>
+          <a class="btn alt" data-wa="Olá, professor! Tenho interesse na *Mentoria Mensal*. Meu foco é (Linguagens ou Redação): ">
+            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero a mensal
           </a>
         </article>
 
-        <p class="aside"><b>Áudio é exclusivo das mentorias.</b> A correção avulsa é feita por escrito; quem quer conversa e acompanhamento entra na mentoria.</p>
+        <article class="tier top">
+          <span class="label ribbon" style="font-size:.95rem">vale mais a pena</span>
+          <p class="step-tag">Até o dia da prova</p>
+          <h3>Mentoria até o ENEM</h3>
+          <div class="cost"><strong data-cfg="ateEnem"></strong><span>por mês</span></div>
+          <ul class="checks">
+            <li>Tudo da Mentoria Mensal, com mensalidade menor</li>
+            <li>Simulado mensal com análise dos erros</li>
+            <li>Reta final de revisão nas últimas semanas</li>
+            <li>Sua vaga garantida até a prova</li>
+          </ul>
+          <a class="btn" data-wa="Olá, professor! Quero a *Mentoria até o ENEM*. Meu foco é (Linguagens ou Redação): ">
+            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero ir até o ENEM
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KIT UEMA -->
+  <section id="kit" class="kit">
+    <div class="wrap stack">
+      <div>
+        <p class="kicker">material</p>
+        <h2 class="sec-title">Kit Linguagens UEMA 2027</h2>
+        <p class="sec-lead">Obras, questões e redação para o PAES 2027, no mesmo estilo de questão que a UEMA cobra.</p>
+      </div>
+
+      <div class="mock" aria-hidden="true">
+        <div class="book b1"><small>caderno</small><strong>Análise das obras</strong><span class="by">@profecoutinho</span></div>
+        <div class="book b2"><small>caderno</small><strong>Redação</strong><span class="by">@profecoutinho</span></div>
+        <div class="book b3"><small>PAES / UEMA 2027</small><strong>155 questões inéditas</strong><span class="by">com gabarito comentado</span></div>
+      </div>
+
+      <div>
+        <p style="font-weight:800; margin-bottom:10px">As três obras obrigatórias</p>
+        <div class="obras"><span class="obra">Infância · Graciliano Ramos</span><span class="obra">Meu Livro de Cordel · Cora Coralina</span><span class="obra">Crônicas de Lucy Teixeira</span></div>
+      </div>
+
+      <div class="kit-box">
+        <ul class="checks">
+          <li>155 questões inéditas sobre as três obras</li>
+          <li>Gabarito comentado</li>
+          <li>Análise completa das obras</li>
+          <li>Caderno de redação</li>
+          <li>Acesso imediato depois da compra</li>
+        </ul>
+        <div class="kit-price"><strong data-cfg="kitPreco"></strong><span data-cfg="kitObs"></span></div>
+        <a href="#" data-kit class="hotmart-fb hotmart__button-checkout buy" onclick="return false;"><img src="https://static.hotmart.com/img/btn-buy-green.png" alt="">Quero o Kit</a>
+        <p class="safe">Compra segura pela Hotmart · Pix ou cartão</p>
       </div>
     </div>
   </section>
 
   <!-- AULAS -->
   <section id="aulas">
-    <div class="wrap">
-      <p class="eyebrow">Aulas particulares</p>
-      <h2 class="sec-title">Teoria e prática no mesmo encontro.</h2>
-      <p class="sec-lead">Aulas ao vivo por chamada, com conteúdo montado para a sua prova: gramática, interpretação, literatura ou redação.</p>
-      <article class="card">
-        <div class="prices">
-          <div class="price"><span>Aula avulsa</span><strong data-cfg="aula"></strong><em data-cfg="aulaObs"></em></div>
-        </div>
+    <div class="wrap stack">
+      <div>
+        <p class="kicker">aulas particulares</p>
+        <h2 class="sec-title">Teoria e prática no mesmo encontro.</h2>
+        <p class="sec-lead">Aula ao vivo por chamada, montada para a sua prova: gramática, interpretação, literatura ou redação.</p>
+      </div>
+      <div class="box shadow">
+        <div class="cost" style="display:flex; align-items:baseline; gap:8px"><strong style="font-family:var(--font-display); font-size:2.2rem" data-cfg="aula"></strong><span style="color:var(--ink-soft)" data-cfg="aulaObs"></span></div>
         <ul class="checks">
           <li>Horário marcado, no seu ritmo</li>
           <li>Questões reais resolvidas durante a aula</li>
-          <li>Foco no edital: ENEM, UEMA, vestibulares e concursos</li>
+          <li>ENEM, UEMA, outros vestibulares e concursos</li>
         </ul>
-        <a class="btn btn-solid" data-wa="Olá, professor! Quero agendar uma *aula particular*. Meu foco é: ">
-          <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
-          Agendar aula
+        <a class="btn" data-wa="Olá, professor! Quero agendar uma *aula particular*. O conteúdo é: ">
+          <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Agendar aula
         </a>
-      </article>
-    </div>
-  </section>
-
-  <!-- MATERIAIS -->
-  <section id="materiais">
-    <div class="wrap">
-      <p class="eyebrow">Materiais</p>
-      <h2 class="sec-title">Para estudar por conta própria.</h2>
-      <p class="sec-lead">Materiais que eu uso com meus alunos, para você levar para casa.</p>
-      <article class="card product">
-        <div class="cover">
-          <small>UEMA</small>
-          <h3>Material de preparação UEMA</h3>
-        </div>
-        <div class="body">
-          <p>Conteúdo direcionado para a prova da UEMA, organizado por quem prepara alunos para ela há anos.</p>
-          <a onclick="return false;" href="https://pay.hotmart.com/J107777855R?checkoutMode=2" class="hotmart-fb hotmart__button-checkout buy"><img src="https://static.hotmart.com/img/btn-buy-green.png" alt="">Comprar agora</a>
-          <p style="font-size:.88rem">Pagamento seguro pela Hotmart.</p>
-        </div>
-      </article>
+      </div>
     </div>
   </section>
 
   <!-- DÚVIDAS -->
   <section id="duvidas">
     <div class="wrap">
-      <p class="eyebrow">Dúvidas</p>
-      <h2 class="sec-title" style="margin-bottom:20px">Perguntas frequentes</h2>
+      <p class="kicker">dúvidas</p>
+      <h2 class="sec-title" style="margin-bottom:22px">Perguntas frequentes</h2>
       <div class="faq">
-        <details><summary>É tudo online?</summary><div class="inner"><p>Sim. Correções pelo WhatsApp, mentorias e aulas por chamada de vídeo. Você pode estar em qualquer cidade.</p></div></details>
-        <details><summary>Por que as vagas de correção são limitadas?</summary><div class="inner"><p>Porque cada redação é corrigida por mim, com atenção. Limitar por semana é o que garante a qualidade do retorno.</p></div></details>
-        <details><summary>A correção vem em áudio?</summary><div class="inner"><p>Não. A correção é marcada e comentada por escrito. O retorno em áudio faz parte das mentorias.</p></div></details>
-        <details><summary>Como eu pago?</summary><div class="inner"><p>Pix ou cartão. No cartão há uma pequena taxa da operadora.</p></div></details>
+        <details><summary>Em quanto tempo recebo a correção?</summary><p>Em até 5 dias úteis a partir do envio, direto no seu WhatsApp.</p></details>
+        <details><summary>Por que as vagas de correção são limitadas?</summary><p>Porque eu corrijo cada redação pessoalmente. Limitar por semana garante o cuidado com o seu texto. Se as vagas da semana acabaram, você envia na semana seguinte; seus créditos não se perdem.</p></details>
+        <details><summary>Quanto tempo tenho para usar o pacote?</summary><p>3 meses a partir da compra.</p></details>
+        <details><summary>A correção vem em áudio?</summary><p>Não. A correção é marcada no texto e acompanhada da ficha de nota. O retorno em áudio faz parte das mentorias.</p></details>
+        <details><summary>Qual a diferença entre correção e mentoria?</summary><p>A correção avalia um texto. A mentoria acompanha você: diagnóstico, tarefas semanais, chamadas e relatório de evolução até a prova.</p></details>
+        <details><summary>Como eu pago?</summary><p>Pix ou cartão.</p></details>
       </div>
     </div>
   </section>
@@ -439,41 +527,69 @@ footer a { color: var(--pen); font-weight: 600; text-decoration: none; }
 <footer>
   <div class="wrap">
     <p class="sig">Prof. Coutinho</p>
-    <p>Redação, Linguagens e Literatura · <a href="https://instagram.com/profecoutinho" target="_blank" rel="noopener">@profecoutinho</a></p>
+    <p>Redação, Linguagens e Literatura · São Luís, MA · <a href="https://instagram.com/profecoutinho" target="_blank" rel="noopener">@profecoutinho</a></p>
   </div>
 </footer>
 
+<div class="buybar" id="buybar" aria-hidden="true">
+  <p>Kit Linguagens UEMA 2027<small>155 questões das obras do PAES</small></p>
+  <a href="#kit" tabindex="-1">Ver o Kit</a>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ico-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></symbol>
+</svg>
+
 <script>
-/* ===== EDITE AQUI: preços, vagas e WhatsApp ===== */
+/* ============ EDITE AQUI: preços, vagas, links ============ */
 var CONFIG = {
   whatsapp: "5598984417978",
-  vagas: "8",
+  vagas: "8",                 /* coloque "0" para mostrar "vagas esgotadas" */
+
   avulsa: "R$ 25",
-  pacote4: "R$ 90",
-  pacote4Obs: "R$ 22,50 cada",
-  aula: "R$ 150",
-  aulaObs: "bloco de 2 horas"
+  pacote4: "R$ 90",  pacote4Obs: "R$ 22,50 cada",
+  pacote8: "R$ 160", pacote8Obs: "R$ 20 cada",
+  linkCorrecao: "",           /* link da Hotmart da correção; vazio = vai pro WhatsApp */
+
+  diagnostico: "R$ 120",
+  mensal: "R$ 280",
+  ateEnem: "R$ 220",
+
+  aula: "R$ 150", aulaObs: "bloco de 2 horas",
+
+  kitPreco: "",               /* ex.: "R$ 49,90"; vazio = esconde o preço */
+  kitObs: "",
+  kitLink: "https://pay.hotmart.com/J107777855R?checkoutMode=2"
 };
-/* ================================================ */
+/* ========================================================== */
 document.querySelectorAll("[data-cfg]").forEach(function (el) {
   el.textContent = CONFIG[el.getAttribute("data-cfg")] || "";
 });
-if (CONFIG.vagas === "0") {
-  document.getElementById("vagas").textContent = "Vagas esgotadas esta semana";
-}
+if (!CONFIG.kitPreco) { var kp = document.querySelector(".kit-price"); if (kp) kp.hidden = true; }
+if (CONFIG.vagas === "0") document.getElementById("vagasTxt").textContent = "Vagas esgotadas esta semana";
 document.querySelectorAll("[data-wa]").forEach(function (el) {
-  el.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(el.getAttribute("data-wa"));
-  el.target = "_blank";
-  el.rel = "noopener";
+  var url = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(el.getAttribute("data-wa"));
+  if (el.getAttribute("data-buy") === "correcao" && CONFIG.linkCorrecao) url = CONFIG.linkCorrecao;
+  el.href = url; el.target = "_blank"; el.rel = "noopener";
 });
+document.querySelectorAll("[data-kit]").forEach(function (el) { el.href = CONFIG.kitLink; });
+
+/* Barra do kit: aparece depois do topo, some quando o kit está na tela */
 (function () {
-  var s = document.createElement("script");
-  s.src = "https://static.hotmart.com/checkout/widget.min.js";
+  var bar = document.getElementById("buybar"), hero = document.querySelector(".hero"), kit = document.getElementById("kit");
+  if (!("IntersectionObserver" in window)) return;
+  var heroOut = false, kitIn = false;
+  function upd() { bar.classList.toggle("show", heroOut && !kitIn); }
+  new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; upd(); }).observe(hero);
+  new IntersectionObserver(function (e) { kitIn = e[0].isIntersecting; upd(); }).observe(kit);
+})();
+
+/* Checkout da Hotmart */
+(function () {
+  var s = document.createElement("script"); s.src = "https://static.hotmart.com/checkout/widget.min.js";
+  s.onerror = function () { document.querySelectorAll("[data-kit]").forEach(function (el) { el.removeAttribute("onclick"); el.target = "_blank"; }); };
   document.head.appendChild(s);
-  var l = document.createElement("link");
-  l.rel = "stylesheet"; l.type = "text/css";
-  l.href = "https://static.hotmart.com/css/hotmart-fb.min.css";
-  document.head.appendChild(l);
+  var l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://static.hotmart.com/css/hotmart-fb.min.css"; document.head.appendChild(l);
 })();
 </script>
 </body>
