@@ -370,7 +370,6 @@ footer a { color: var(--ink); font-weight: 800; }
       </div>
 
       <div class="box shadow">
-        <span class="slots"><i></i><span id="vagasTxt">Vagas desta semana: <b data-cfg="vagas"></b></span></span>
         <h3>Escolha seu pacote</h3>
         <div class="prices">
           <div class="price"><span>Avulsa</span><strong data-cfg="avulsa"></strong><em>1 redação</em></div>
@@ -385,14 +384,14 @@ footer a { color: var(--ink); font-weight: 800; }
       <div>
         <h3 style="font-size:1.6rem; margin-bottom:18px">Como funciona</h3>
         <ol class="steps" data-mode="wa">
-          <li><div><b>Me chame no WhatsApp</b><span>Pelo botão acima, que já abre com a mensagem pronta. Eu confirmo se ainda tem vaga nesta semana.</span></div></li>
+          <li><div><b>Me chame no WhatsApp</b><span>Pelo botão acima, que já abre com a mensagem pronta.</span></div></li>
           <li><div><b>Pague por Pix ou cartão</b><span>Avulsa no dia do envio, pacote antecipado. Os créditos do pacote valem por 3 meses.</span></div></li>
           <li><div><b>Envie a redação ali mesmo</b><span>Uma foto nítida ou PDF do texto, dizendo qual foi o tema.</span></div></li>
           <li><div><b>Receba em até 5 dias úteis</b><span>No mesmo WhatsApp: o texto marcado e a ficha de nota, como esta aqui embaixo.</span></div></li>
         </ol>
         <ol class="steps" data-mode="hotmart" hidden>
           <li><div><b>Compre seu pacote</b><span>Pix ou cartão. Assim que o pagamento cai, você recebe o link para enviar suas redações.</span></div></li>
-          <li><div><b>Envie a redação</b><span>Pelo formulário: seu nome, WhatsApp, o tema e uma foto nítida ou PDF do texto. As vagas são limitadas por semana; se fechou, você envia na seguinte.</span></div></li>
+          <li><div><b>Envie a redação</b><span>Pelo formulário: seu nome, WhatsApp, o tema e uma foto nítida ou PDF do texto. Pode mandar mais de uma na mesma semana.</span></div></li>
           <li><div><b>Eu corrijo</b><span>Marco os problemas direto no texto, com códigos simples, e preencho sua ficha de nota.</span></div></li>
           <li><div><b>Você recebe no WhatsApp</b><span>Em até 5 dias úteis: o texto marcado e a ficha, como esta aqui embaixo.</span></div></li>
         </ol>
@@ -581,12 +580,11 @@ footer a { color: var(--ink); font-weight: 800; }
       <h2 class="sec-title" style="margin-bottom:22px">Perguntas frequentes</h2>
       <div class="faq">
         <details><summary>Em quanto tempo recebo a correção?</summary><p>Em até 5 dias úteis a partir do envio, direto no seu WhatsApp.</p></details>
-        <details><summary>Por que as vagas de correção são limitadas?</summary><p>Porque eu corrijo cada redação pessoalmente. Limitar por semana garante o cuidado com o seu texto. Se as vagas da semana acabaram, você envia na semana seguinte; seus créditos não se perdem.</p></details>
-        <details><summary>Quanto tempo tenho para usar o pacote?</summary><p>3 meses a partir da compra.</p></details>
-        <details><summary>A correção vem em áudio?</summary><p>Não. A correção é marcada no texto e acompanhada da ficha de nota, por escrito.</p></details>
+        <details><summary>Posso enviar várias redações na mesma semana?</summary><p>Pode. Você envia quando quiser, e cada redação volta corrigida em até 5 dias úteis a partir do envio.</p></details>
+        <details><summary>Comprei um pacote. Até quando posso enviar as redações?</summary><p>Você tem 3 meses, contados a partir da compra, para enviar todas as redações do pacote.</p></details>
         <details><summary>Qual a diferença entre a correção avulsa e o curso com acompanhamento?</summary><p>A correção avulsa avalia um texto. No curso com acompanhamento você tem as aulas, até 5 correções por mês e encontros ao vivo com a turma até a prova.</p></details>
         <details><summary>Quando os cursos abrem?</summary><p>As turmas de 2027 estão sendo montadas. Entre na lista de espera pelo WhatsApp para ser avisado primeiro.</p></details>
-        <details><summary>Como eu pago?</summary><p>Pix ou cartão.</p></details>
+        <details><summary>Como eu pago?</summary><p>Direto pela Hotmart, uma das maiores plataformas de pagamento do país, com compra segura por Pix, cartão ou boleto. Você recebe a confirmação e o acesso no seu e-mail.</p></details>
       </div>
     </div>
   </section>
@@ -625,10 +623,9 @@ footer a { color: var(--ink); font-weight: 800; }
 </svg>
 
 <script>
-/* ============ EDITE AQUI: preços, vagas, links ============ */
+/* ============ EDITE AQUI: preços e links ============ */
 var CONFIG = {
   whatsapp: "5598984417978",
-  vagas: "8",                 /* coloque "0" para mostrar "vagas esgotadas" */
 
   avulsa: "R$ 15",
   pacote4: "R$ 50",  pacote4Obs: "R$ 12,50 cada",
@@ -650,7 +647,6 @@ document.querySelectorAll("[data-cfg]").forEach(function (el) {
   el.textContent = CONFIG[el.getAttribute("data-cfg")] || "";
 });
 if (!CONFIG.kitPreco) { var kp = document.querySelector(".kit-price"); if (kp) kp.hidden = true; }
-if (CONFIG.vagas === "0") document.getElementById("vagasTxt").textContent = "Vagas esgotadas esta semana";
 document.querySelectorAll("[data-wa]").forEach(function (el) {
   var url = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(el.getAttribute("data-wa"));
   if (el.getAttribute("data-buy") === "correcao" && CONFIG.linkCorrecao) url = CONFIG.linkCorrecao;
