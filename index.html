@@ -213,6 +213,15 @@ section { padding-block: 56px; border-bottom: 2px solid var(--ink); scroll-margi
 .week div.on { background: var(--vinho); color: #fff; }
 @media (max-width: 400px) { .week { grid-template-columns: repeat(2, 1fr); } }
 
+
+/* Abas das mentorias */
+.tabs { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); background: var(--card); }
+.tabs button { font: 800 1.15rem var(--font-display); padding: 12px 8px; border: 0; background: transparent; color: var(--ink); cursor: pointer; line-height: 1.1; }
+.tabs button small { display: block; font: 400 .82rem var(--font-body); color: var(--ink-soft); }
+.tabs button + button { border-left: 2px solid var(--ink); }
+.tabs button[aria-selected="true"] { background: var(--vinho); color: #fff; }
+.tabs button[aria-selected="true"] small { color: #fff; opacity: .85; }
+
 /* Kit */
 .kit { background: var(--ink); color: var(--paper); border-bottom: 2px solid var(--ink); }
 .kit .kicker { color: var(--mark); }
@@ -390,35 +399,62 @@ footer a { color: var(--ink); font-weight: 800; }
     <div class="wrap stack">
       <div>
         <p class="kicker">mentorias</p>
-        <h2 class="sec-title">Alguém de olho na sua <span class="hl">evolução</span> até a prova.</h2>
-        <p class="sec-lead">Para Linguagens (questões) ou Redação. Eu descubro onde você erra, digo o que estudar e acompanho seu progresso semana a semana.</p>
+        <h2 class="sec-title">Você estuda. Eu <span class="hl">analiso e direciono</span>.</h2>
+        <p class="sec-lead">São duas mentorias diferentes, cada uma com o seu processo. Escolha a sua:</p>
       </div>
 
-      <div>
-        <h3 style="font-size:1.35rem; margin-bottom:12px">Um mês de mentoria</h3>
-        <div class="week">
-          <div class="on"><b>Sem. 1</b>tarefa + chamada</div>
-          <div><b>Sem. 2</b>tarefa + áudio</div>
-          <div class="on"><b>Sem. 3</b>tarefa + chamada</div>
-          <div><b>Sem. 4</b>tarefa + relatório</div>
+      <div class="tabs" role="tablist" aria-label="Tipo de mentoria">
+        <button type="button" role="tab" id="tab-ling" aria-selected="true" aria-controls="m-ling">Linguagens<small>questões</small></button>
+        <button type="button" role="tab" id="tab-red" aria-selected="false" aria-controls="m-red">Redação<small>textos</small></button>
+      </div>
+
+      <!-- LINGUAGENS -->
+      <div id="m-ling" role="tabpanel" aria-labelledby="tab-ling" class="stack">
+        <div class="box shadow">
+          <h3>Mentoria de Linguagens</h3>
+          <p>Para quem resolve questão, estuda, mas continua errando sem saber exatamente por quê. O foco é descobrir o <b>padrão dos seus erros</b> e atacar ele.</p>
+          <ol class="steps">
+            <li><div><b>Diagnóstico</b><span>Você faz um simulado de Linguagens (ENEM ou UEMA) e eu mapeio onde e por que você erra.</span></div></li>
+            <li><div><b>Lista da semana</b><span>Toda semana eu separo questões focadas no seu ponto fraco. Você resolve sozinho, no seu tempo.</span></div></li>
+            <li><div><b>Registro de erros</b><span>Para cada questão errada, você marca o motivo: interpretação, conteúdo, gramática, distração ou tempo.</span></div></li>
+            <li><div><b>Meu retorno em áudio</b><span>Eu analiso seu registro e te digo o que está se repetindo, o que estudar e qual aula ou material vai te ajudar.</span></div></li>
+            <li><div><b>Chamada a cada 15 dias</b><span>1 hora para destrinchar as questões que mais travaram e explicar os conceitos que faltam.</span></div></li>
+            <li><div><b>Painel de evolução</b><span>No fim do mês você vê seu acerto por tipo de questão subindo (ou não) e o plano do mês seguinte.</span></div></li>
+          </ol>
         </div>
-        <p style="color:var(--ink-soft); font-size:.95rem; margin-top:10px">A cada tarefa você registra o motivo de cada erro (interpretação, conteúdo, gramática, distração ou tempo). É assim que a gente mede a sua evolução.</p>
+      </div>
+
+      <!-- REDAÇÃO -->
+      <div id="m-red" role="tabpanel" aria-labelledby="tab-red" class="stack" hidden>
+        <div class="box shadow">
+          <h3>Mentoria de Redação</h3>
+          <p>Para quem quer subir a nota com método, e não só mandar texto solto para correção. O foco é trabalhar <b>uma competência de cada vez</b> até ela parar de tirar ponto.</p>
+          <ol class="steps">
+            <li><div><b>Diagnóstico</b><span>Você me manda 2 redações e eu identifico quais competências estão segurando a sua nota.</span></div></li>
+            <li><div><b>Redação da semana</b><span>Toda semana um tema escolhido para treinar o seu ponto fraco da vez. Às vezes, é reescrita do texto anterior.</span></div></li>
+            <li><div><b>Correção com áudio</b><span>Você recebe o texto marcado, a ficha de nota e um áudio comentando o seu texto. O áudio é exclusivo da mentoria.</span></div></li>
+            <li><div><b>Chamada a cada 15 dias</b><span>1 hora para trabalhar o que mais está pesando: estrutura, repertório, proposta ou reescrita.</span></div></li>
+            <li><div><b>Gráfico de evolução</b><span>No fim do mês você vê a nota de cada competência ao longo das semanas e o foco do mês seguinte.</span></div></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="box red">
+        <h3 style="font-size:1.35rem">Mentoria não é aula toda semana</h3>
+        <p>Quem estuda e produz é você. Meu papel é analisar o que você fez, mostrar o que está errado e dizer o que estudar. Explicação de conteúdo entra só quando você precisa. Quer aula de conteúdo? Veja as <a href="#aulas" style="color:var(--vinho); font-weight:800">aulas particulares</a>.</p>
       </div>
 
       <div class="ladder">
         <article class="tier">
           <p class="step-tag">Para começar</p>
-          <h3>Sessão Diagnóstico</h3>
+          <h3>Diagnóstico avulso</h3>
           <div class="cost"><strong data-cfg="diagnostico"></strong><span>encontro único</span></div>
           <ul class="checks">
-            <li>Você faz um simulado de Linguagens ou manda 2 redações antes</li>
-            <li>Chamada de 1 hora: onde você erra e por quê</li>
+            <li>Só o passo 1: simulado ou 2 redações + chamada de 1 hora</li>
             <li>Plano de estudo por escrito para seguir sozinho</li>
-            <li>Se fechar a mensal depois, o valor vira desconto</li>
+            <li>Se fechar a mentoria depois, o valor vira desconto</li>
           </ul>
-          <a class="btn alt" data-wa="Olá, professor! Quero agendar uma *Sessão Diagnóstico*. Meu foco é (Linguagens ou Redação): ">
-            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Agendar diagnóstico
-          </a>
+          <a class="btn alt" data-wa-m="Olá, professor! Quero agendar o *Diagnóstico avulso* da mentoria de "><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Agendar diagnóstico</a>
         </article>
 
         <article class="tier">
@@ -426,15 +462,10 @@ footer a { color: var(--ink); font-weight: 800; }
           <h3>Mentoria Mensal</h3>
           <div class="cost"><strong data-cfg="mensal"></strong><span>por mês</span></div>
           <ul class="checks">
-            <li>Diagnóstico inicial incluso</li>
-            <li>Uma tarefa por semana: questões ou redação</li>
-            <li>Chamada de 1 hora a cada 15 dias</li>
+            <li>O processo completo acima, renovado mês a mês</li>
             <li>Dúvidas por áudio no WhatsApp entre as chamadas</li>
-            <li>Relatório de evolução no fim do mês</li>
           </ul>
-          <a class="btn alt" data-wa="Olá, professor! Tenho interesse na *Mentoria Mensal*. Meu foco é (Linguagens ou Redação): ">
-            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero a mensal
-          </a>
+          <a class="btn alt" data-wa-m="Olá, professor! Tenho interesse na *Mentoria Mensal* de "><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero a mensal</a>
         </article>
 
         <article class="tier top">
@@ -443,16 +474,16 @@ footer a { color: var(--ink); font-weight: 800; }
           <h3>Mentoria até o ENEM</h3>
           <div class="cost"><strong data-cfg="ateEnem"></strong><span>por mês</span></div>
           <ul class="checks">
-            <li>Tudo da Mentoria Mensal, com mensalidade menor</li>
-            <li>Simulado mensal com análise dos erros</li>
+            <li>O processo completo, com mensalidade menor</li>
+            <li>Simulado mensal com análise</li>
             <li>Reta final de revisão nas últimas semanas</li>
             <li>Sua vaga garantida até a prova</li>
           </ul>
-          <a class="btn" data-wa="Olá, professor! Quero a *Mentoria até o ENEM*. Meu foco é (Linguagens ou Redação): ">
-            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero ir até o ENEM
-          </a>
+          <a class="btn" data-wa-m="Olá, professor! Quero a *Mentoria até o ENEM* de "><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero ir até o ENEM</a>
         </article>
       </div>
+
+      <p style="color:var(--ink-soft); font-size:.95rem">Quer as duas, Linguagens e Redação? <a data-wa="Olá, professor! Quero fazer as *duas mentorias*, Linguagens e Redação." style="color:var(--vinho); font-weight:800">Me chama</a> que eu monto um valor para as duas juntas.</p>
     </div>
   </section>
 
@@ -580,6 +611,22 @@ document.querySelectorAll("[data-wa]").forEach(function (el) {
   el.href = url; el.target = "_blank"; el.rel = "noopener";
 });
 document.querySelectorAll("[data-kit]").forEach(function (el) { el.href = CONFIG.kitLink; });
+
+
+/* Abas das mentorias */
+(function () {
+  var tabs = document.querySelectorAll('.tabs [role="tab"]');
+  function pick(t) {
+    tabs.forEach(function (x) { var on = x === t; x.setAttribute("aria-selected", on); document.getElementById(x.getAttribute("aria-controls")).hidden = !on; });
+    var area = t.id === "tab-red" ? "Redação" : "Linguagens";
+    document.querySelectorAll("[data-wa-m]").forEach(function (el) {
+      el.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(el.getAttribute("data-wa-m") + "*" + area + "*.");
+      el.target = "_blank"; el.rel = "noopener";
+    });
+  }
+  tabs.forEach(function (t) { t.addEventListener("click", function () { pick(t); }); });
+  pick(tabs[0]);
+})();
 
 /* Barra do kit: aparece depois do topo, some quando o kit está na tela */
 (function () {
