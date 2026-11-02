@@ -238,6 +238,16 @@ section { padding-block: 56px; border-bottom: 2px solid var(--ink); scroll-margi
 .gal-hint { display: flex; justify-content: space-between; align-items: center; font-weight: 800; }
 .gal-hint .hand { color: var(--mark); font-size: 1.35rem; }
 
+
+.gal-hint { gap: 10px; }
+.gal-hint .hand { flex: 1; text-align: center; }
+.gal-btn { width: 44px; height: 44px; border: 2px solid var(--paper); background: var(--mark); color: var(--ink); font: 800 1.3rem var(--font-body); cursor: pointer; flex-shrink: 0; }
+.gal-btn:hover { background: var(--paper); }
+.rhythm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.rhythm div { border: 2px solid var(--ink); padding: 10px 8px; background: var(--paper); font-size: .86rem; color: var(--ink-soft); line-height: 1.3; }
+.rhythm b { display: block; color: var(--vinho); font-family: var(--font-display); font-size: 1rem; margin-bottom: 2px; }
+@media (max-width: 420px) { .rhythm { grid-template-columns: 1fr; } }
+
 /* Redes */
 .social { background: var(--paper); }
 .socials { display: grid; gap: 10px; }
@@ -401,9 +411,9 @@ footer a { color: var(--ink); font-weight: 800; }
             <div class="comp"><b>C1</b><div class="bar"><i style="width:100%"></i></div><span>200</span></div>
             <div class="comp"><b>C2</b><div class="bar"><i style="width:80%"></i></div><span>160</span></div>
             <div class="comp"><b>C3</b><div class="bar"><i style="width:100%"></i></div><span>200</span></div>
-            <div class="comp"><b>C4</b><div class="bar"><i style="width:80%"></i></div><span>160</span></div>
+            <div class="comp"><b>C4</b><div class="bar"><i style="width:100%"></i></div><span>200</span></div>
             <div class="comp"><b>C5</b><div class="bar"><i style="width:60%"></i></div><span>120</span></div>
-            <div class="total"><b>Nota estimada</b><strong>840</strong></div>
+            <div class="total"><b>Nota estimada</b><strong>880</strong></div>
             <div>
               <p style="font-size:.85rem; font-weight:800; margin-bottom:6px">Códigos marcados no seu texto</p>
               <div class="codes">
@@ -435,26 +445,31 @@ footer a { color: var(--ink); font-weight: 800; }
       <div>
         <p class="kicker">mentorias</p>
         <h2 class="sec-title">Você estuda. Eu <span class="hl">analiso e direciono</span>.</h2>
-        <p class="sec-lead">São duas mentorias diferentes, cada uma com o seu processo. Escolha a sua:</p>
+        <p class="sec-lead">São duas mentorias com formatos diferentes. Escolha a sua:</p>
       </div>
 
       <div class="tabs" role="tablist" aria-label="Tipo de mentoria">
-        <button type="button" role="tab" id="tab-ling" aria-selected="true" aria-controls="m-ling">Linguagens<small>questões</small></button>
-        <button type="button" role="tab" id="tab-red" aria-selected="false" aria-controls="m-red">Redação<small>textos</small></button>
+        <button type="button" role="tab" id="tab-ling" aria-selected="true" aria-controls="m-ling">Linguagens<small>em grupo</small></button>
+        <button type="button" role="tab" id="tab-red" aria-selected="false" aria-controls="m-red">Redação<small>individual</small></button>
       </div>
 
       <!-- LINGUAGENS -->
       <div id="m-ling" role="tabpanel" aria-labelledby="tab-ling" class="stack">
         <div class="box shadow">
           <h3>Mentoria de Linguagens</h3>
-          <p>Para quem resolve questão, estuda, mas continua errando sem saber exatamente por quê. O foco é descobrir o <b>padrão dos seus erros</b> e atacar ele.</p>
+          <p>Em grupo, para quem resolve questão, estuda, mas continua errando sem saber exatamente por quê. Toda a turma treina junto e eu acompanho o padrão de erros de cada um.</p>
+          <div class="rhythm">
+            <div><b>Toda semana</b><span>lista de questões + dica da semana no grupo</span></div>
+            <div><b>A cada 15 dias</b><span>aula ao vivo com a turma</span></div>
+            <div><b>Todo mês</b><span>seu relatório individual de evolução</span></div>
+          </div>
           <ol class="steps">
-            <li><div><b>Diagnóstico</b><span>Você faz um simulado de Linguagens (ENEM ou UEMA) e eu mapeio onde e por que você erra.</span></div></li>
-            <li><div><b>Lista da semana</b><span>Toda semana eu separo questões focadas no seu ponto fraco. Você resolve sozinho, no seu tempo.</span></div></li>
-            <li><div><b>Registro de erros</b><span>Para cada questão errada, você marca o motivo: interpretação, conteúdo, gramática, distração ou tempo.</span></div></li>
-            <li><div><b>Meu retorno em áudio</b><span>Eu analiso seu registro e te digo o que está se repetindo, o que estudar e qual aula ou material vai te ajudar.</span></div></li>
-            <li><div><b>Chamada a cada 15 dias</b><span>1 hora para destrinchar as questões que mais travaram e explicar os conceitos que faltam.</span></div></li>
-            <li><div><b>Painel de evolução</b><span>No fim do mês você vê seu acerto por tipo de questão subindo (ou não) e o plano do mês seguinte.</span></div></li>
+            <li><div><b>Diagnóstico</b><span>Você entra fazendo um simulado de Linguagens (ENEM ou UEMA), para a gente saber de onde você parte.</span></div></li>
+            <li><div><b>Lista da semana</b><span>Toda semana sai no grupo uma lista de questões. Você resolve sozinho, no seu tempo.</span></div></li>
+            <li><div><b>Registro de erros</b><span>Para cada questão errada, você marca num formulário rápido o motivo: interpretação, conteúdo, gramática, distração ou tempo.</span></div></li>
+            <li><div><b>Dica da semana</b><span>Eu olho os erros da turma e posto no grupo o comentário das questões que mais derrubaram vocês, com o conceito por trás e o que estudar.</span></div></li>
+            <li><div><b>Aula ao vivo a cada 15 dias</b><span>1 hora com a turma para destrinchar as questões mais difíceis e tirar dúvidas.</span></div></li>
+            <li><div><b>Relatório do mês</b><span>Você recebe o seu acerto por tipo de questão, para ver onde melhorou e onde ainda precisa focar.</span></div></li>
           </ol>
         </div>
       </div>
@@ -463,12 +478,17 @@ footer a { color: var(--ink); font-weight: 800; }
       <div id="m-red" role="tabpanel" aria-labelledby="tab-red" class="stack" hidden>
         <div class="box shadow">
           <h3>Mentoria de Redação</h3>
-          <p>Para quem quer subir a nota com método, e não só mandar texto solto para correção. O foco é trabalhar <b>uma competência de cada vez</b> até ela parar de tirar ponto.</p>
+          <p>Individual, porque cada texto tem problemas próprios. O foco é trabalhar <b>uma competência de cada vez</b> até ela parar de tirar ponto.</p>
+          <div class="rhythm">
+            <div><b>Toda semana</b><span>1 redação corrigida, com ficha e áudio</span></div>
+            <div><b>A cada 15 dias</b><span>chamada individual de 1 hora</span></div>
+            <div><b>Todo mês</b><span>gráfico da sua nota por competência</span></div>
+          </div>
           <ol class="steps">
             <li><div><b>Diagnóstico</b><span>Você me manda 2 redações e eu identifico quais competências estão segurando a sua nota.</span></div></li>
-            <li><div><b>Redação da semana</b><span>Toda semana um tema escolhido para treinar o seu ponto fraco da vez. Às vezes, é reescrita do texto anterior.</span></div></li>
-            <li><div><b>Correção com áudio</b><span>Você recebe o texto marcado, a ficha de nota e um áudio comentando o seu texto. O áudio é exclusivo da mentoria.</span></div></li>
-            <li><div><b>Chamada a cada 15 dias</b><span>1 hora para trabalhar o que mais está pesando: estrutura, repertório, proposta ou reescrita.</span></div></li>
+            <li><div><b>Redação da semana</b><span>Um tema escolhido para treinar o seu ponto fraco da vez. Às vezes, é a reescrita do texto anterior.</span></div></li>
+            <li><div><b>Correção com áudio</b><span>Você recebe o texto marcado, a ficha de nota e um áudio meu falando do seu texto. Na correção avulsa não tem áudio; ele é parte da mentoria.</span></div></li>
+            <li><div><b>Chamada a cada 15 dias</b><span>1 hora só nós dois para trabalhar o que mais está pesando: estrutura, repertório, proposta ou reescrita.</span></div></li>
             <li><div><b>Gráfico de evolução</b><span>No fim do mês você vê a nota de cada competência ao longo das semanas e o foco do mês seguinte.</span></div></li>
           </ol>
         </div>
@@ -476,18 +496,18 @@ footer a { color: var(--ink); font-weight: 800; }
 
       <div class="box red">
         <h3 style="font-size:1.35rem">Mentoria não é aula toda semana</h3>
-        <p>Quem estuda e produz é você. Meu papel é analisar o que você fez, mostrar o que está errado e dizer o que estudar. Explicação de conteúdo entra só quando você precisa. Quer aula de conteúdo? Veja as <a href="#aulas" style="color:var(--vinho); font-weight:800">aulas particulares</a>.</p>
+        <p>Quem estuda e produz é você. Meu papel é analisar o que você fez, mostrar o que está errado e dizer o que estudar. Quer aula de conteúdo? Veja as <a href="#aulas" style="color:var(--vinho); font-weight:800">aulas particulares</a>.</p>
       </div>
 
       <div class="ladder">
         <article class="tier">
           <p class="step-tag">Para começar</p>
           <h3>Diagnóstico avulso</h3>
-          <div class="cost"><strong data-cfg="diagnostico"></strong><span>encontro único</span></div>
+          <div class="cost"><strong data-price="diagnostico"></strong><span>encontro único</span></div>
           <ul class="checks">
-            <li>Só o passo 1: simulado ou 2 redações + chamada de 1 hora</li>
+            <li>Simulado ou 2 redações, mais uma chamada individual de 1 hora</li>
             <li>Plano de estudo por escrito para seguir sozinho</li>
-            <li>Se fechar a mentoria depois, o valor vira desconto</li>
+            <li>Se entrar na mentoria depois, o valor vira desconto</li>
           </ul>
           <a class="btn alt" data-wa-m="Olá, professor! Quero agendar o *Diagnóstico avulso* da mentoria de "><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Agendar diagnóstico</a>
         </article>
@@ -495,10 +515,10 @@ footer a { color: var(--ink); font-weight: 800; }
         <article class="tier">
           <p class="step-tag">Mês a mês</p>
           <h3>Mentoria Mensal</h3>
-          <div class="cost"><strong data-cfg="mensal"></strong><span>por mês</span></div>
+          <div class="cost"><strong data-price="mensal"></strong><span>por mês</span></div>
           <ul class="checks">
             <li>O processo completo acima, renovado mês a mês</li>
-            <li>Dúvidas por áudio no WhatsApp entre as chamadas</li>
+            <li>Vagas limitadas por turma</li>
           </ul>
           <a class="btn alt" data-wa-m="Olá, professor! Tenho interesse na *Mentoria Mensal* de "><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Quero a mensal</a>
         </article>
@@ -507,7 +527,7 @@ footer a { color: var(--ink); font-weight: 800; }
           <span class="label ribbon" style="font-size:.95rem">vale mais a pena</span>
           <p class="step-tag">Até o dia da prova</p>
           <h3>Mentoria até o ENEM</h3>
-          <div class="cost"><strong data-cfg="ateEnem"></strong><span>por mês</span></div>
+          <div class="cost"><strong data-price="ateEnem"></strong><span>por mês</span></div>
           <ul class="checks">
             <li>O processo completo, com mensalidade menor</li>
             <li>Simulado mensal com análise</li>
@@ -533,7 +553,7 @@ footer a { color: var(--ink); font-weight: 800; }
 
       <div class="gallery-wrap">
         <div class="gallery" id="gallery" tabindex="0" aria-label="Veja por dentro do Kit"><img src="img/kit-1.webp" alt="Página 1 de 7 da apresentação do Kit Linguagens UEMA 2027" width="760" height="950" loading="lazy"><img src="img/kit-2.webp" alt="Página 2 de 7 da apresentação do Kit Linguagens UEMA 2027" width="760" height="950" loading="lazy"><img src="img/kit-3.webp" alt="Página 3 de 7 da apresentação do Kit Linguagens UEMA 2027" width="760" height="950" loading="lazy"><img src="img/kit-4.webp" alt="Página 4 de 7 da apresentação do Kit Linguagens UEMA 2027" width="760" height="950" loading="lazy"><img src="img/kit-5.webp" alt="Página 5 de 7 da apresentação do Kit Linguagens UEMA 2027" width="760" height="950" loading="lazy"><img src="img/kit-6.webp" alt="Página 6 de 7 da apresentação do Kit Linguagens UEMA 2027" width="760" height="950" loading="lazy"><img src="img/kit-7.webp" alt="Página 7 de 7 da apresentação do Kit Linguagens UEMA 2027" width="760" height="950" loading="lazy"></div>
-        <p class="gal-hint"><span id="galCount">1 / 7</span><span class="hand">deslize para ver por dentro →</span></p>
+        <div class="gal-hint"><button type="button" class="gal-btn" id="galPrev" aria-label="Página anterior">←</button><span id="galCount">1 / 7</span><span class="hand">veja por dentro</span><button type="button" class="gal-btn" id="galNext" aria-label="Próxima página">→</button></div>
       </div>
       <a href="#" data-kit class="hotmart-fb hotmart__button-checkout buy" onclick="return false;"><img src="https://static.hotmart.com/img/btn-buy-green.png" alt="">Quero o Kit</a>
 
@@ -588,7 +608,7 @@ footer a { color: var(--ink); font-weight: 800; }
         <details><summary>Em quanto tempo recebo a correção?</summary><p>Em até 5 dias úteis a partir do envio, direto no seu WhatsApp.</p></details>
         <details><summary>Por que as vagas de correção são limitadas?</summary><p>Porque eu corrijo cada redação pessoalmente. Limitar por semana garante o cuidado com o seu texto. Se as vagas da semana acabaram, você envia na semana seguinte; seus créditos não se perdem.</p></details>
         <details><summary>Quanto tempo tenho para usar o pacote?</summary><p>3 meses a partir da compra.</p></details>
-        <details><summary>A correção vem em áudio?</summary><p>Não. A correção é marcada no texto e acompanhada da ficha de nota. O retorno em áudio faz parte das mentorias.</p></details>
+        <details><summary>A correção vem em áudio?</summary><p>Não. A correção é marcada no texto e acompanhada da ficha de nota. O retorno em áudio faz parte da mentoria de Redação.</p></details>
         <details><summary>Qual a diferença entre correção e mentoria?</summary><p>A correção avalia um texto. A mentoria acompanha você: diagnóstico, tarefas semanais, chamadas e relatório de evolução até a prova.</p></details>
         <details><summary>Como eu pago?</summary><p>Pix ou cartão.</p></details>
       </div>
@@ -639,13 +659,13 @@ var CONFIG = {
   pacote8: "R$ 90",  pacote8Obs: "R$ 11,25 cada",
   linkCorrecao: "",           /* link da Hotmart da correção; vazio = vai pro WhatsApp */
 
-  diagnostico: "R$ 120",
-  mensal: "R$ 280",
-  ateEnem: "R$ 220",
+  /* Mentorias: Linguagens (em grupo) e Redação (individual) */
+  linguagens: { diagnostico: "R$ 80",  mensal: "R$ 120", ateEnem: "R$ 100" },
+  redacao:    { diagnostico: "R$ 120", mensal: "R$ 280", ateEnem: "R$ 220" },
 
   aula: "R$ 80", aulaObs: "por aula de 1 hora, online",
 
-  kitPreco: "",               /* ex.: "R$ 49,90"; vazio = esconde o preço */
+  kitPreco: "R$ 34,90",       /* vazio = esconde o preço */
   kitObs: "",
   kitLink: "https://pay.hotmart.com/J107777855R?checkoutMode=2"
 };
@@ -669,6 +689,8 @@ document.querySelectorAll("[data-kit]").forEach(function (el) { el.href = CONFIG
   function pick(t) {
     tabs.forEach(function (x) { var on = x === t; x.setAttribute("aria-selected", on); document.getElementById(x.getAttribute("aria-controls")).hidden = !on; });
     var area = t.id === "tab-red" ? "Redação" : "Linguagens";
+    var pr = CONFIG[t.id === "tab-red" ? "redacao" : "linguagens"];
+    document.querySelectorAll("[data-price]").forEach(function (el) { el.textContent = pr[el.getAttribute("data-price")] || ""; });
     document.querySelectorAll("[data-wa-m]").forEach(function (el) {
       el.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(el.getAttribute("data-wa-m") + "*" + area + "*.");
       el.target = "_blank"; el.rel = "noopener";
@@ -684,6 +706,10 @@ document.querySelectorAll("[data-mode]").forEach(function (el) { el.hidden = (el
 /* Contador da galeria */
 (function () {
   var g = document.getElementById("gallery"), c = document.getElementById("galCount"); if (!g) return;
+  function step(d) { var w = g.firstElementChild.getBoundingClientRect().width + 12; g.scrollBy({ left: d * w, behavior: "smooth" }); }
+  document.getElementById("galPrev").addEventListener("click", function () { step(-1); });
+  document.getElementById("galNext").addEventListener("click", function () { step(1); });
+  g.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); });
   g.addEventListener("scroll", function () {
     var w = g.firstElementChild.getBoundingClientRect().width + 12;
     c.textContent = Math.min(7, Math.round(g.scrollLeft / w) + 1) + " / 7";
