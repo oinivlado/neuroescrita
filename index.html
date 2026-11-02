@@ -1,477 +1,480 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentoria de Linguagens | Prof. Coutinho</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Prof. Coutinho</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Correção de redação, mentorias de Linguagens e Redação, aulas particulares e materiais para ENEM, UEMA, vestibulares e concursos. Tudo online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Layout: página única de link da bio, coluna estreita, como uma folha de redação pautada com marcações de caneta de correção */
+:root {
+  --paper: #f6f7fa;
+  --sheet: #ffffff;
+  --ink: #18223d;
+  --ink-soft: #4a5470;
+  --rule: #dfe3ec;
+  --pen: #b4263e;
+  --pen-soft: #f6e4e7;
+  --line-blue: #c9d6ee;
+  --font-display: "Gloock", "Georgia", "Times New Roman", serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --font-hand: "Caveat", "Comic Sans MS", cursive;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1424; --sheet: #151d33; --ink: #e8ebf4; --ink-soft: #a6aec4;
+    --rule: #26304a; --pen: #ff8193; --pen-soft: #3a1c26; --line-blue: #23304f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1424; --sheet: #151d33; --ink: #e8ebf4; --ink-soft: #a6aec4;
+  --rule: #26304a; --pen: #ff8193; --pen-soft: #3a1c26; --line-blue: #23304f;
+  color-scheme: dark;
+}
 
-    <style>
-        /* --- VARIÁVEIS (Identidade Visual Padrão) --- */
-        :root {
-            --bg-body: #09090b;       /* Preto Profundo */
-            --bg-card: #121214;       /* Cinza Chumbo */
-            --border-color: #27272a;  /* Borda sutil */
-            
-            --primary: #8257e5;       /* Roxo vibrante */
-            --primary-hover: #996dff;
-            --gradient: linear-gradient(90deg, #8257e5 0%, #4f46e5 100%);
-            
-            --text-color: #e1e1e6;    /* Branco Gelo */
-            --text-muted: #a8a8b3;    /* Cinza Confortável */
-        }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--pen); outline-offset: 3px; border-radius: 6px; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
+}
 
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+/* ---------- Topo ---------- */
+.hero {
+  padding-block: 48px 28px;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 31px, var(--line-blue) 31px 32px);
+  background-position: 0 14px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.hero::before {
+  content: ""; position: absolute; top: 0; bottom: 0;
+  left: max(28px, calc(50% - 300px)); width: 1px; background: var(--pen); opacity: .45;
+}
+.hero .wrap { display: grid; gap: 22px; justify-items: center; text-align: center; position: relative; }
+.avatar {
+  width: 132px; height: 132px; border-radius: 50%; object-fit: cover; object-position: 50% 18%;
+  border: 4px solid var(--sheet); box-shadow: 0 6px 24px rgba(24, 34, 61, .16);
+}
+.hero h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
+.hero .lead { color: var(--ink-soft); max-width: 30ch; font-size: 1.1rem; }
+.hero .lead strong { color: var(--ink); font-weight: 600; }
+.tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.tag {
+  font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 999px; background: var(--sheet); border: 1px solid var(--rule); color: var(--ink-soft);
+}
+.note {
+  font-family: var(--font-hand); color: var(--pen); font-size: 1.45rem; line-height: 1; transform: rotate(-3deg);
+}
 
-        ul { list-style: none; }
-        a { text-decoration: none; }
-        img { max-width: 100%; display: block; }
+/* Botões de link da bio */
+.links { display: grid; gap: 10px; width: 100%; margin-top: 4px; }
+.link {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 18px; border-radius: 14px; text-decoration: none; text-align: left;
+  background: var(--sheet); border: 1px solid var(--rule); font-weight: 600; font-size: 1.05rem;
+  transition: transform .2s, border-color .2s;
+}
+.link small { display: block; font-weight: 400; color: var(--ink-soft); font-size: .88rem; }
+.link:hover { transform: translateY(-2px); border-color: var(--ink-soft); }
+.link .arrow { color: var(--pen); font-size: 1.3rem; flex-shrink: 0; }
+.link.main { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.link.main small { color: var(--paper); opacity: .75; }
+.link.main .arrow { color: var(--paper); }
 
-        .container {
-            width: 100%;
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+/* ---------- Navegação ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav .wrap { display: flex; gap: 6px; padding-block: 10px; overflow-x: auto; scrollbar-width: none; }
+.nav a {
+  flex-shrink: 0; text-decoration: none; font-weight: 600; font-size: .95rem;
+  padding: 8px 14px; border-radius: 999px; color: var(--ink-soft);
+}
+.nav a:hover { color: var(--ink); background: var(--sheet); }
 
-        /* --- BOTÕES --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 14px 32px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-            cursor: pointer;
-            text-align: center;
-            width: 100%;
-        }
+/* ---------- Seções ---------- */
+section { padding-block: 52px; border-bottom: 1px solid var(--rule); scroll-margin-top: 60px; }
+.eyebrow {
+  font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--pen);
+  margin-bottom: 10px;
+}
+.sec-title { font-size: clamp(1.9rem, 7vw, 2.4rem); margin-bottom: 12px; }
+.sec-lead { color: var(--ink-soft); margin-bottom: 28px; max-width: 58ch; }
+.stack { display: grid; gap: 18px; }
 
-        .btn-primary {
-            background: var(--gradient);
-            color: #fff;
-            border: none;
-            box-shadow: 0 4px 15px rgba(130, 87, 229, 0.3);
-        }
+.card {
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: 18px; padding: 24px 22px;
+  display: grid; gap: 16px; min-width: 0;
+}
+.card h3 { font-size: 1.55rem; }
+.card p { color: var(--ink-soft); }
+.card.featured { border: 2px solid var(--ink); }
 
-        .btn-primary:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
-        }
+.slots {
+  display: inline-flex; align-items: center; gap: 8px; justify-self: start;
+  font-size: .9rem; font-weight: 600; padding: 6px 12px; border-radius: 999px;
+  background: var(--pen-soft); color: var(--pen);
+}
+.slots::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-        }
+.checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.checks li { display: flex; gap: 10px; align-items: flex-start; }
+.checks li::before { content: "✓"; color: var(--pen); font-weight: 700; flex-shrink: 0; }
 
-        .btn-outline:hover {
-            background: var(--primary);
-            color: #fff;
-        }
+.prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.price {
+  border: 1px dashed var(--rule); border-radius: 12px; padding: 14px; display: grid; gap: 2px;
+}
+.price span { font-size: .85rem; color: var(--ink-soft); }
+.price strong { font-family: var(--font-display); font-weight: 400; font-size: 1.8rem; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.price em { font-style: normal; font-size: .85rem; color: var(--ink-soft); }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 100px 0 80px;
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(130, 87, 229, 0.15) 0%, rgba(9, 9, 11, 0) 60%);
-        }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 15px 20px; border-radius: 12px; text-decoration: none;
+  font-weight: 700; font-size: 1rem; border: 2px solid var(--ink); cursor: pointer;
+  transition: transform .2s, background .2s, color .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-solid { background: var(--ink); color: var(--paper); }
+.btn-line { background: transparent; color: var(--ink); }
+.btn-line:hover { background: var(--ink); color: var(--paper); }
+.wa { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
+/* Passo a passo */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; counter-increment: s; }
+.steps li::before {
+  content: counter(s); width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center; font-family: var(--font-display); font-size: 1.1rem;
+  border: 1.5px solid var(--pen); color: var(--pen);
+}
+.steps b { display: block; }
+.steps span { color: var(--ink-soft); font-size: .97rem; }
 
-        .hero h1 span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.aside {
+  border-left: 3px solid var(--pen); padding: 4px 0 4px 16px; color: var(--ink-soft);
+}
+.aside b { color: var(--ink); }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
+/* Expansível de mentoria */
+details { border-top: 1px solid var(--rule); padding-top: 14px; }
+summary {
+  cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.4rem; color: var(--pen); line-height: 1; }
+details[open] summary::after { content: "−"; }
+details .inner { display: grid; gap: 12px; padding-top: 14px; color: var(--ink-soft); }
 
-        /* --- SEÇÕES GERAIS --- */
-        section {
-            padding: 80px 0;
-            border-top: 1px solid var(--border-color);
-        }
+/* Produto */
+.product { padding: 0; overflow: hidden; gap: 0; }
+.product .cover {
+  background: var(--ink); color: var(--paper); padding: 28px 22px; display: grid; gap: 6px;
+}
+.product .cover small { letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; opacity: .7; font-weight: 700; }
+.product .cover h3 { font-size: 1.9rem; }
+.product .body { padding: 22px; display: grid; gap: 16px; }
+.hotmart-fb.hotmart__button-checkout { all: unset; box-sizing: border-box; }
+.product .buy {
+  display: flex !important; align-items: center; justify-content: center; width: 100%;
+  padding: 15px 20px !important; border-radius: 12px !important; cursor: pointer;
+  background: var(--pen) !important; color: #fff !important; font: 700 1rem var(--font-body) !important;
+  text-align: center; text-decoration: none;
+}
+.product .buy img { display: none; }
 
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #fff;
-            text-align: center;
-        }
+/* FAQ */
+.faq { display: grid; gap: 0; }
+.faq details { padding-block: 14px; }
+.faq details:last-child { border-bottom: 1px solid var(--rule); }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 60px;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- FEATURES / MÉTODO --- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 32px;
-            transition: 0.3s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            background: rgba(130, 87, 229, 0.1);
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: #fff;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- MENTOR --- */
-        .mentor-container {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            justify-content: space-between;
-        }
-
-        .mentor-text { flex: 1; }
-        .mentor-img { flex: 1; max-width: 450px; }
-
-        .mentor-img img {
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 0 40px rgba(130, 87, 229, 0.15);
-        }
-
-        /* --- PREÇOS --- */
-        .pricing-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .price-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 32px;
-            width: 100%;
-            max-width: 380px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .price-card.featured {
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 30px rgba(130, 87, 229, 0.15);
-            transform: scale(1.05);
-            z-index: 2;
-        }
-
-        .badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-
-        .price-title { font-size: 1.5rem; margin-bottom: 8px; color: #fff;}
-        .price-desc { font-size: 0.9rem; color: var(--text-muted); min-height: 40px; margin-bottom: 15px; }
-        
-        .price-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 20px 0;
-            color: #fff;
-        }
-        
-        .price-value span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
-
-        .price-features {
-            list-style: none;
-            margin-bottom: 30px;
-            flex: 1;
-        }
-
-        .price-features li {
-            margin-bottom: 12px;
-            color: #d1d5db;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.95rem;
-        }
-
-        .price-features li::before {
-            content: "✓";
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* --- FAQ --- */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 32px;
-        }
-
-        .faq-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--primary-hover);
-        }
-        
-        .faq-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- CTA FINAL --- */
-        .final-cta {
-            text-align: center;
-            background: #0d0d10;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* --- RESPONSIVO --- */
-        @media (max-width: 900px) {
-            .hero h1 { font-size: 2.5rem; }
-            .mentor-container { flex-direction: column-reverse; text-align: center; }
-            .mentor-img { margin: 0 auto; }
-            .price-card.featured { transform: scale(1); }
-            .faq-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+footer { padding-block: 40px 56px; text-align: center; color: var(--ink-soft); font-size: .95rem; }
+footer .sig { font-family: var(--font-hand); font-size: 2rem; color: var(--ink); line-height: 1; margin-bottom: 8px; }
+footer a { color: var(--pen); font-weight: 600; text-decoration: none; }
+</style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <h1>Domine Linguagens de uma vez por todas.<br><span style="white-space: nowrap;">Sem aulas gravadas.</span></h1>
-            <p>
-                Seja para o ENEM, UEMA ou Concursos Públicos: pare de errar questões por falta de base ou pegadinhas da banca. 
-                Tenha uma mentoria individual com quem domina a gramática, focada no seu objetivo e com horário marcado.
-            </p>
-            
-            <a href="#investimento" class="btn btn-primary" style="max-width: 300px;">
-                Ver Planos de Mentoria
-            </a>
+<header class="hero">
+  <div class="wrap">
+    <img class="avatar" src="perfil.jpg" alt="Foto do Prof. Coutinho" width="132" height="132">
+    <div class="stack" style="gap:12px; justify-items:center">
+      <h1>Prof. Coutinho</h1>
+      <p class="lead">Redação e Linguagens com <strong>correção de verdade</strong> e acompanhamento individual. <strong>Tudo online.</strong></p>
+    </div>
+    <div class="tags">
+      <span class="tag">ENEM</span><span class="tag">UEMA</span><span class="tag">Vestibulares</span><span class="tag">Concursos</span>
+    </div>
+    <p class="note">+8 anos de sala de aula</p>
+
+    <nav class="links" aria-label="Atalhos">
+      <a class="link main" href="#correcao">
+        <span>Correção de redação<small>Corrigida e comentada por escrito</small></span><span class="arrow">→</span>
+      </a>
+      <a class="link" href="#mentorias">
+        <span>Mentorias<small>Questões de Linguagens ou Redação</small></span><span class="arrow">→</span>
+      </a>
+      <a class="link" href="#aulas">
+        <span>Aulas particulares<small>Ao vivo, no seu horário</small></span><span class="arrow">→</span>
+      </a>
+      <a class="link" href="#materiais">
+        <span>Materiais<small>Preparação para a UEMA</small></span><span class="arrow">→</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Seções">
+  <div class="wrap">
+    <a href="#correcao">Correção</a>
+    <a href="#mentorias">Mentorias</a>
+    <a href="#aulas">Aulas</a>
+    <a href="#materiais">Materiais</a>
+    <a href="#duvidas">Dúvidas</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- CORREÇÃO -->
+  <section id="correcao">
+    <div class="wrap">
+      <p class="eyebrow">Correção de redação</p>
+      <h2 class="sec-title">Seu texto corrigido linha por linha.</h2>
+      <p class="sec-lead">Você manda a redação e recebe o texto marcado e comentado por escrito, competência por competência, com a nota estimada e o que fazer para subir na próxima.</p>
+
+      <div class="stack">
+        <article class="card featured">
+          <span class="slots" id="vagas">Vagas desta semana: <span data-cfg="vagas"></span></span>
+          <h3>Correção ENEM e UEMA</h3>
+          <ul class="checks">
+            <li>Marcações direto no seu texto</li>
+            <li>Comentário por competência e nota estimada</li>
+            <li>Sugestões concretas de reescrita</li>
+            <li>Envio por foto ou PDF, pelo WhatsApp</li>
+          </ul>
+          <div class="prices">
+            <div class="price"><span>Avulsa</span><strong data-cfg="avulsa"></strong><em>por redação</em></div>
+            <div class="price"><span>Pacote com 4</span><strong data-cfg="pacote4"></strong><em data-cfg="pacote4Obs"></em></div>
+          </div>
+          <a class="btn btn-solid" data-wa="Olá, professor! Quero contratar a *Correção de redação ENEM/UEMA*. Ainda tem vaga esta semana?">
+            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
+            Garantir minha correção
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Outro vestibular ou concurso?</h3>
+          <p>Cada banca cobra de um jeito. Me conte qual prova você vai fazer e eu corrijo seguindo os critérios do seu edital.</p>
+          <a class="btn btn-line" data-wa="Olá, professor! Preciso de *correção de redação para outro vestibular/concurso*. A prova é: ">
+            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
+            Pedir orçamento
+          </a>
+        </article>
+
+        <div class="card">
+          <h3>Como funciona</h3>
+          <ol class="steps">
+            <li><div><b>Garanta sua vaga</b><span>As correções são limitadas por semana para manter a qualidade.</span></div></li>
+            <li><div><b>Pague por Pix ou cartão</b><span>Avulsa no dia do envio, pacote antecipado.</span></div></li>
+            <li><div><b>Envie sua redação</b><span>Foto nítida ou PDF, direto no WhatsApp.</span></div></li>
+            <li><div><b>Receba a correção</b><span>Texto marcado e comentado, pronto para você reescrever.</span></div></li>
+          </ol>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <section>
-        <div class="container">
-            <h2 class="section-title">Teoria e Prática no mesmo encontro.</h2>
-            <p class="section-subtitle">
-                A maioria dos cursos te entrega centenas de vídeos que você nunca vê. 
-                Aqui, o foco é o seu rendimento imediato.
-            </p>
+  <!-- MENTORIAS -->
+  <section id="mentorias">
+    <div class="wrap">
+      <p class="eyebrow">Mentorias</p>
+      <h2 class="sec-title">Alguém olhando para a sua evolução.</h2>
+      <p class="sec-lead">Na mentoria eu acompanho você de perto: descubro onde está o problema, digo o que estudar e mostro como você está evoluindo ao longo do tempo.</p>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⏱️</div>
-                    <h3>Blocos de 2 Horas</h3>
-                    <p>Tempo suficiente para explicar a teoria e resolver questões reais na mesma sessão, sem correria.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Foco em Bancas</h3>
-                    <p>Análise profunda do perfil do seu concurso (FGV, FCC, Cebraspe) ou vestibular (ENEM/UEMA).</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📖</div>
-                    <h3>Interpretação e Gramática</h3>
-                    <p>Você aprende a lógica por trás das regras, para não precisar decorar tudo como um robô.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Literatura Maranhense</h3>
-                    <p>Análise estratégica das obras e movimentos literários exigidos na UEMA e outros editais locais.</p>
-                </div>
+      <div class="stack">
+        <article class="card">
+          <h3>Mentoria de questões de Linguagens</h3>
+          <p>Para quem resolve questões, estuda, mas continua errando sem saber exatamente por quê.</p>
+          <details>
+            <summary>Como é a mentoria</summary>
+            <div class="inner">
+              <ul class="checks">
+                <li>Diagnóstico do que você precisa estudar de verdade</li>
+                <li>Análise dos seus erros: onde e por que você está errando</li>
+                <li>Mapa dos tipos de questão que mais derrubam você</li>
+                <li>Acompanhamento da sua evolução semana a semana</li>
+                <li>Explicação pontual de conceitos e indicação de aulas que vão te ajudar</li>
+                <li>Retorno em áudio e encontros por chamada</li>
+              </ul>
             </div>
-        </div>
-    </section>
+          </details>
+          <a class="btn btn-solid" data-wa="Olá, professor! Quero saber mais sobre a *Mentoria de questões de Linguagens*.">
+            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
+            Quero essa mentoria
+          </a>
+        </article>
 
-    <section>
-        <div class="container">
-            <div class="mentor-container">
-                <div class="mentor-text">
-                    <h2 class="section-title" style="text-align: left;">Quem é o seu Mentor</h2>
-                    <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 20px;">Prof. Coutinho</h3>
-                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px;">
-                        Professor de Redação, Gramática e Literatura com mais de 8 anos de experiência. Especialista em preparar alunos para provas de alta concorrência em São Luís e em todo o país.
-                    </p>
-                    <p style="color: var(--text-muted); font-size: 1.1rem;">
-                        Meu trabalho é transformar a complexidade da língua portuguesa em uma ferramenta para a sua aprovação. Aqui você não é apenas mais um aluno em uma plataforma; você tem um mentor acompanhando cada passo.
-                    </p>
-                </div>
-                <div class="mentor-img">
-                    <img src="perfil.png" alt="Prof. Coutinho">
-                </div>
+        <article class="card">
+          <h3>Mentoria de redação</h3>
+          <p>Para quem quer um acompanhamento contínuo, e não só uma correção solta.</p>
+          <details>
+            <summary>Como é a mentoria</summary>
+            <div class="inner">
+              <ul class="checks">
+                <li>Diagnóstico das suas redações e do seu nível atual</li>
+                <li>Plano com o que treinar e em que ordem</li>
+                <li>Correções acompanhadas, com retorno em áudio</li>
+                <li>Registro da sua evolução de nota ao longo do tempo</li>
+                <li>Explicação pontual de conceitos, repertório e estrutura</li>
+                <li>Encontros por chamada para tirar dúvidas</li>
+              </ul>
             </div>
+          </details>
+          <a class="btn btn-solid" data-wa="Olá, professor! Quero saber mais sobre a *Mentoria de redação*.">
+            <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
+            Quero essa mentoria
+          </a>
+        </article>
+
+        <p class="aside"><b>Áudio é exclusivo das mentorias.</b> A correção avulsa é feita por escrito; quem quer conversa e acompanhamento entra na mentoria.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AULAS -->
+  <section id="aulas">
+    <div class="wrap">
+      <p class="eyebrow">Aulas particulares</p>
+      <h2 class="sec-title">Teoria e prática no mesmo encontro.</h2>
+      <p class="sec-lead">Aulas ao vivo por chamada, com conteúdo montado para a sua prova: gramática, interpretação, literatura ou redação.</p>
+      <article class="card">
+        <div class="prices">
+          <div class="price"><span>Aula avulsa</span><strong data-cfg="aula"></strong><em data-cfg="aulaObs"></em></div>
         </div>
-    </section>
+        <ul class="checks">
+          <li>Horário marcado, no seu ritmo</li>
+          <li>Questões reais resolvidas durante a aula</li>
+          <li>Foco no edital: ENEM, UEMA, vestibulares e concursos</li>
+        </ul>
+        <a class="btn btn-solid" data-wa="Olá, professor! Quero agendar uma *aula particular*. Meu foco é: ">
+          <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.8 17.7L.1 24l6.4-1.7A11.8 11.8 0 0 0 20.5 3.5z"/></svg>
+          Agendar aula
+        </a>
+      </article>
+    </div>
+  </section>
 
-    <section id="investimento">
-        <div class="container">
-            <h2 class="section-title">Planos e Investimento</h2>
-            <p class="section-subtitle">Aulas de 2 horas. Escolha a intensidade.</p>
-
-            <div class="pricing-grid">
-                
-                <div class="price-card">
-                    <h3 class="price-title">Atendimento Avulso</h3>
-                    <p class="price-desc">Ideal para sanar dúvidas urgentes sobre um edital ou tópico específico.</p>
-                    <div class="price-value">R$ 150<span>,00</span></div>
-                    
-                    <ul class="price-features">
-                        <li><strong>1 Bloco</strong> de 2 horas</li>
-                        <li>Teoria + Prática integrada</li>
-                        <li>Foco total na dificuldade atual</li>
-                    </ul>
-
-                    <a href="https://wa.me/5598984417978?text=Olá,%20Prof.%20Coutinho!%20Gostaria%20de%20agendar%20uma%20mentoria%20avulsa%20de%20Linguagens." target="_blank" class="btn btn-outline">
-                        Agendar Avulso
-                    </a>
-                </div>
-
-                <div class="price-card featured">
-                    <div class="badge">RECOMENDADO</div>
-                    <h3 class="price-title">Mentoria Mensal</h3>
-                    <p class="price-desc">Para quem quer construir uma base sólida e não ser pego de surpresa na prova.</p>
-                    <div class="price-value">R$ 450<span>,00/mês</span></div>
-                    
-                    <ul class="price-features">
-                        <li><strong>4 Blocos</strong> de 2 horas/mês</li>
-                        <li>Total de 8h de Mentoria</li>
-                        <li>Horário fixo garantido</li>
-                        <li>Suporte via WhatsApp</li>
-                    </ul>
-
-                    <a href="https://wa.me/5598984417978?text=Olá,%20Prof.%20Coutinho!%20Tenho%20interesse%20na%20Mentoria%20Mensal%20de%20Linguagens." target="_blank" class="btn btn-primary">
-                        Quero o Plano Mensal
-                    </a>
-                </div>
-
-            </div>
+  <!-- MATERIAIS -->
+  <section id="materiais">
+    <div class="wrap">
+      <p class="eyebrow">Materiais</p>
+      <h2 class="sec-title">Para estudar por conta própria.</h2>
+      <p class="sec-lead">Materiais que eu uso com meus alunos, para você levar para casa.</p>
+      <article class="card product">
+        <div class="cover">
+          <small>UEMA</small>
+          <h3>Material de preparação UEMA</h3>
         </div>
-    </section>
-
-    <section id="faq">
-        <div class="container">
-            <h2 class="section-title">Dúvidas Frequentes</h2>
-            <br>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>O foco é para qual prova?</h3>
-                    <p>Eu adapto o conteúdo ao seu objetivo. Se é Concurso Público, trabalhamos gramática normativa e interpretação da banca. Se for ENEM/UEMA, focamos na matriz de referência e obras literárias.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>É horário marcado?</h3>
-                    <p>Sim. Nada de aulas perdidas. Você reserva seu horário e eu estarei lá, ao vivo, para te ensinar.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Posso tirar dúvidas de questões que fiz em casa?</h3>
-                    <p>Com certeza. O tempo de mentoria é seu. Podemos usar o bloco para resolver questões que você errou em simulados.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>O que acontece se eu não puder comparecer?</h3>
-                    <p>Trabalhamos com agendamento fixo. Eventuais remarcações devem ser feitas com antecedência para realocar o horário.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Vou ter acesso a material de apoio?</h3>
-                    <p>Sim. Durante a mentoria, utilizamos materiais direcionados para a sua banca ou exame, que ficam disponíveis para o seu estudo.</p>
-                </div>
-            </div>
+        <div class="body">
+          <p>Conteúdo direcionado para a prova da UEMA, organizado por quem prepara alunos para ela há anos.</p>
+          <a onclick="return false;" href="https://pay.hotmart.com/J107777855R?checkoutMode=2" class="hotmart-fb hotmart__button-checkout buy"><img src="https://static.hotmart.com/img/btn-buy-green.png" alt="">Comprar agora</a>
+          <p style="font-size:.88rem">Pagamento seguro pela Hotmart.</p>
         </div>
-    </section>
+      </article>
+    </div>
+  </section>
 
-    <section class="final-cta">
-        <div class="container">
-            <h2 style="color: white; margin-bottom: 20px;">Pronto para dominar o português?</h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px;">Fale agora diretamente comigo e garanta seu horário.</p>
-            <a href="https://wa.me/5598984417978" target="_blank" class="btn btn-primary" style="max-width: 350px;">
-                Verificar Disponibilidade na Agenda
-            </a>
-        </div>
-    </section>
+  <!-- DÚVIDAS -->
+  <section id="duvidas">
+    <div class="wrap">
+      <p class="eyebrow">Dúvidas</p>
+      <h2 class="sec-title" style="margin-bottom:20px">Perguntas frequentes</h2>
+      <div class="faq">
+        <details><summary>É tudo online?</summary><div class="inner"><p>Sim. Correções pelo WhatsApp, mentorias e aulas por chamada de vídeo. Você pode estar em qualquer cidade.</p></div></details>
+        <details><summary>Por que as vagas de correção são limitadas?</summary><div class="inner"><p>Porque cada redação é corrigida por mim, com atenção. Limitar por semana é o que garante a qualidade do retorno.</p></div></details>
+        <details><summary>A correção vem em áudio?</summary><div class="inner"><p>Não. A correção é marcada e comentada por escrito. O retorno em áudio faz parte das mentorias.</p></div></details>
+        <details><summary>Como eu pago?</summary><div class="inner"><p>Pix ou cartão. No cartão há uma pequena taxa da operadora.</p></div></details>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <h3 style="color: #fff; margin-bottom: 10px;">Mentoria Prof. Coutinho</h3>
-            <p>Linguagens, Redação e Literatura.</p>
-        </div>
-    </footer>
+</main>
 
+<footer>
+  <div class="wrap">
+    <p class="sig">Prof. Coutinho</p>
+    <p>Redação, Linguagens e Literatura · <a href="https://instagram.com/profecoutinho" target="_blank" rel="noopener">@profecoutinho</a></p>
+  </div>
+</footer>
+
+<script>
+/* ===== EDITE AQUI: preços, vagas e WhatsApp ===== */
+var CONFIG = {
+  whatsapp: "5598984417978",
+  vagas: "8",
+  avulsa: "R$ 25",
+  pacote4: "R$ 90",
+  pacote4Obs: "R$ 22,50 cada",
+  aula: "R$ 150",
+  aulaObs: "bloco de 2 horas"
+};
+/* ================================================ */
+document.querySelectorAll("[data-cfg]").forEach(function (el) {
+  el.textContent = CONFIG[el.getAttribute("data-cfg")] || "";
+});
+if (CONFIG.vagas === "0") {
+  document.getElementById("vagas").textContent = "Vagas esgotadas esta semana";
+}
+document.querySelectorAll("[data-wa]").forEach(function (el) {
+  el.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(el.getAttribute("data-wa"));
+  el.target = "_blank";
+  el.rel = "noopener";
+});
+(function () {
+  var s = document.createElement("script");
+  s.src = "https://static.hotmart.com/checkout/widget.min.js";
+  document.head.appendChild(s);
+  var l = document.createElement("link");
+  l.rel = "stylesheet"; l.type = "text/css";
+  l.href = "https://static.hotmart.com/css/hotmart-fb.min.css";
+  document.head.appendChild(l);
+})();
+</script>
 </body>
 </html>
