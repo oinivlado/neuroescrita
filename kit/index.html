@@ -257,7 +257,10 @@ var CONFIG = {
 };
 document.querySelectorAll('[data-cfg="preco"]').forEach(function (el) { el.textContent = CONFIG.preco; });
 document.querySelectorAll('[data-cfg="precoBarra"]').forEach(function (el) { el.textContent = CONFIG.preco + " · acesso imediato"; });
-document.querySelectorAll("[data-kit]").forEach(function (el) { el.href = CONFIG.kitLink; });
+/* Origem da visita (?src=instagram ou ?src=tiktok) vai junto pro checkout: a Hotmart mostra de onde veio cada venda */
+var origem = new URLSearchParams(location.search).get("src") || new URLSearchParams(location.search).get("utm_source");
+var link = CONFIG.kitLink + (origem ? "?src=" + encodeURIComponent(origem) : "");
+document.querySelectorAll("[data-kit]").forEach(function (el) { el.href = link; });
 
 /* Questão de amostra */
 (function () {
